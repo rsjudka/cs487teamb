@@ -7,4 +7,27 @@ build_schedules(classes):
         for schedule in classes.combinations(i):
             if total_credits(schedule) == credits_required:
                 if time_conflicts(schedule) == False:
-                    schedules.append(schedule)
+                    schedules.add(schedule)
+
+////////////////////////////////////////////////
+///// HELPER FUNCTIONS FOR build_schedules /////
+////////////////////////////////////////////////
+
+// calculates total credits for a schedule
+total_credits(schedule):
+    credits = 0
+    for class in schedule:
+        credits += class.credits
+    return credits
+
+// finds time conflicts for a schedule
+time_conflicts(schedule):
+    classes_slots = []
+    for class in schedule:
+        classes_slots.add(class.times)
+    for classes sorted by start date/time in classes_slots:
+        current_end_time = class.end_time
+        next_start_time = class.next.start_time
+        if current_end_time > next_start_time:
+            return True
+    return False
