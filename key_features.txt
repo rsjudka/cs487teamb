@@ -1,1 +1,10 @@
 // schedules: list of all possible schedules
+
+// find all class lists for credits required
+// only schedules with no time conflicts
+build_schedules(classes):
+    for i in range(0, classes.length):
+        for schedule in classes.combinations(i):
+            if total_credits(schedule) == credits_required:
+                if time_conflicts(schedule) == False:
+                    schedules.append(schedule)
