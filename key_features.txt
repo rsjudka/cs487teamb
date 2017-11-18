@@ -39,10 +39,10 @@ time_conflicts(schedule):
 //////////// Find Optimized Schedules ////////////
 //////////////////////////////////////////////////
 
-// find schedule with highest Optimization score
+// find schedule with highest optimization score
 // only schedules that have no time conflicts and meets total credits required
 // schedules: list of all possible schedules
-// options: contains the list of classes seperated by required/optional and orded by importance and
+// options: contains the list of classes seperated by required/optional orded by importance and
                 list of selected options ordered by importance
 get_optimized_schedules(schedules, optimizations):
     scored_schedules = [] // stored as (score, schedule)
@@ -54,13 +54,31 @@ get_optimized_schedules(schedules, optimizations):
             score += optimizations.optional.level
         for option in optimizations.options:
             score += switch(option.type):
-                case early_classes: check_early_classes(option)
-                case evening_classes: check_evening_classes(option)
-                case online_classes: check_online_classes(option)
-                case popular_professors: check_popular_professors(option)
-                case least_gaps: check_least_gaps(option)
-                case least_classes_per_week: check_least_classes_per_week(option)
+                case early_classes: check_early_classes(schedule, option)
+                case evening_classes: check_evening_classes(schedule, option)
+                case online_classes: check_online_classes(schedule, option)
+                case popular_professors: check_popular_professors(schedule, option)
+                case least_gaps: check_least_gaps(schedule, option)
+                case least_classes_per_week: check_least_classes_per_week(schedule, option)
                 case default: 0
         scored_schedules.add(score, schedule)
 
 // HELPER FUNCTIONS FOR get_optimized_schedules //
+
+check_early_classes(schedule, option):
+    pass
+
+check_evening_classes(schedule, option):
+    pass
+
+check_online_classes(schedule, option):
+    pass
+
+check_popular_professors(schedule, option):
+    pass
+
+check_least_gaps(schedule, option):
+    pass
+
+check_least_classes_per_week(schedule, option):
+    pass
