@@ -1,7 +1,12 @@
-// schedules: list of all possible schedules
+//////////////////////////////////////////////////
+/////////////// Building Schedules ///////////////
+//////////////////////////////////////////////////
+
+schedules = [] // list of all possible schedules
 
 // find all class lists for credits required
 // only schedules with no time conflicts
+// classes: list of all classes chosen
 build_schedules(classes):
     for i in range(0, classes.length):
         for schedule in classes.combinations(i):
@@ -9,9 +14,7 @@ build_schedules(classes):
                 if time_conflicts(schedule) == False:
                     schedules.add(schedule)
 
-////////////////////////////////////////////////
-///// HELPER FUNCTIONS FOR build_schedules /////
-////////////////////////////////////////////////
+////// HELPER FUNCTIONS FOR build_schedules //////
 
 // calculates total credits for a schedule
 total_credits(schedule):
@@ -31,3 +34,33 @@ time_conflicts(schedule):
         if current_end_time > next_start_time:
             return True
     return False
+
+//////////////////////////////////////////////////
+//////////// Find Optimized Schedules ////////////
+//////////////////////////////////////////////////
+
+// find schedule with highest Optimization score
+// only schedules that have no time conflicts and meets total credits required
+// schedules: list of all possible schedules
+// options: contains the list of classes seperated by required/optional and orded by importance and
+                list of selected options ordered by importance
+get_optimized_schedules(schedules, optimizations):
+    scored_schedules = [] // stored as (score, schedule)
+    for schedule in schedules:
+        score = 0
+        for every schedule.class in optimizations.required:
+            score += optimizations.required.level
+        for every schedule.class in optimizations.optional:
+            score += optimizations.optional.level
+        for option in optimizations.options:
+            score += switch(option.type):
+                case early_classes: check_early_classes(option)
+                case evening_classes: check_evening_classes(option)
+                case online_classes: check_online_classes(option)
+                case popular_professors: check_popular_professors(option)
+                case least_gaps: check_least_gaps(option)
+                case least_classes_per_week: check_least_classes_per_week(option)
+                case default: 0
+        scored_schedules.add(score, schedule)
+
+// HELPER FUNCTIONS FOR get_optimized_schedules //
