@@ -97,7 +97,7 @@ check_professor_score(schedule):
     total_score = 0
     for every schedule.class:
         total_score +=  RateMyProfessor(schedule.class.professor).score // referencing Rate My Professor interface
-    return total_score / schedule.length
+    return total_score / (schedule.length * 5) // score out of 5
 
 // gets the total difficulty of all professors through Rate My Professor
 // returns average as a value 0-1
@@ -105,7 +105,7 @@ check_professor_difficulty(schedule):
     total_difficulty = 0
     for every schedule.class:
         total_difficulty +=  RateMyProfessor(schedule.class.professor).score
-    return total_difficulty / schedule.length
+    return 1 - (total_difficulty / (schedule.length * 5)) // difficulty score out of 5
 
 // counts number of gaps between classes
 // returns average as a value 0-1
@@ -114,7 +114,7 @@ check_least_gaps(schedule):
     for every schedule.class sorted by start date/time:
         if (current.schedule.class.end_time + 10 min) != next.schedule.class.start_time:
             gaps += 1
-    return gaps / schedule.length
+    return 1 - (gaps / schedule.length)
 
 // counts number of days classes are during a week
 // returns average as a value 0-1
