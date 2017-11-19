@@ -29,8 +29,8 @@ time_conflicts(schedule):
     for class in schedule:
         classes_slots.add(class.times)
     for classes sorted by start date/time in classes_slots:
-        current_end_time = class.end_time
-        next_start_time = class.next.start_time
+        current_end_time = current.class.end_time
+        next_start_time = next.class.start_time
         if current_end_time > next_start_time:
             return True
     return False
@@ -48,37 +48,78 @@ get_optimized_schedules(schedules, optimizations):
     scored_schedules = [] // stored as (score, schedule)
     for schedule in schedules:
         score = 0
-        for every schedule.class in optimizations.required:
+        for every schedule.classes in optimizations.required:
             score += optimizations.required.level
-        for every schedule.class in optimizations.optional:
+        for every schedule.classes in optimizations.optional:
             score += optimizations.optional.level
         for option in optimizations.options:
             score += switch(option.type):
-                case early_classes: check_early_classes(schedule, option)
-                case evening_classes: check_evening_classes(schedule, option)
-                case online_classes: check_online_classes(schedule, option)
-                case popular_professors: check_popular_professors(schedule, option)
-                case least_gaps: check_least_gaps(schedule, option)
-                case least_classes_per_week: check_least_classes_per_week(schedule, option)
+                case early_classes: check_early_classes(schedule) * option.level
+                case evening_classes: check_evening_classes(schedule) * option.level
+                case online_classes: check_online_classes(schedule) * option.level
+                case professor_score: check_professor_score(schedule) * option.level
+                case professor_difficulty: check_professor_difficulty(schedule) * option.level
+                case least_gaps: check_least_gaps(schedule) * option.level
+                case least_classes_per_week: check_least_classes_per_week(schedule) * option.level
                 case default: 0
         scored_schedules.add(score, schedule)
+    return scored_schedules sorted by score
 
 // HELPER FUNCTIONS FOR get_optimized_schedules //
 
-check_early_classes(schedule, option):
-    pass
+// counts how many classes are considered morning classes (start no later than 1:50pm)
+// returns average as a value 0-1
+check_early_classes(schedule):
+    early_classes = 0
+    for every schedule.class.start_time <= 1:50pm:
+        early_classes += 1
+    return early_classes / schedule.length
 
-check_evening_classes(schedule, option):
-    pass
+// counts how many classes are considered evening classes (start no earlier than 5:15pm)
+// returns average as a value 0-1
+check_evening_classes(schedule):
+    evening_classes = 0
+    for every schedule.class.start_time >= 5:15pm:
+        evening_classes += 1
+    return evening_classes / schedule.length
 
-check_online_classes(schedule, option):
-    pass
+// counts how many classes have online sections
+// returns average as a value 0-1
+check_online_classes(schedule):
+    online_classes = 0
+    for every schedule.class.has_online:
+        online_classes += 1
+    return online_classes / schedule.length
 
-check_popular_professors(schedule, option):
-    pass
+// gets the total score of all professors through Rate My Professor
+// returns average as a value 0-1
+check_professor_score(schedule):
+    total_score = 0
+    for every schedule.class:
+        total_score +=  RateMyProfessor(schedule.class.professor).score // referencing Rate My Professor interface
+    return total_score / schedule.length
 
-check_least_gaps(schedule, option):
-    pass
+// gets the total difficulty of all professors through Rate My Professor
+// returns average as a value 0-1
+check_professor_difficulty(schedule):
+    total_difficulty = 0
+    for every schedule.class:
+        total_difficulty +=  RateMyProfessor(schedule.class.professor).score
+    return total_difficulty / schedule.length
 
-check_least_classes_per_week(schedule, option):
-    pass
+// counts number of gaps between classes
+// returns average as a value 0-1
+check_least_gaps(schedule):
+    gaps = 0
+    for every schedule.class sorted by start date/time:
+        if (current.schedule.class.end_time + 10 min) != next.schedule.class.start_time:
+            gaps += 1
+    return gaps / schedule.length
+
+// counts number of days classes are during a week
+// returns average as a value 0-1
+check_least_classes_per_week(schedule):
+    days = Mon:0, Tues:0, Wed:0, Thurs:0, Fri:0, Sat:0
+    for every schedule.class:
+        days[schedule.class.day] += 1
+    return all(days.not_none) / days.length
