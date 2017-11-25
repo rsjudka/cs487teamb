@@ -69,13 +69,14 @@ html, body {
     background: steelblue;
     border: 2px solid rgba(0, 0, 0, 0);
     padding: 7px 12px 7px 12px;
+    margin: 5px;
     margin-top: 20px;
     color: #FFF;
     font-size: 16px;
     font-family: Roboto-Light, sans-serif;
     display: inline-block;
     float: right;
-    margin-left: 15px;
+
 }
 
 .clickable {

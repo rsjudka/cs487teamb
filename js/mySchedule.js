@@ -157,3 +157,14 @@ myScheduleApp.angular.controller('myScheduleController', function ($location, $s
 myScheduleApp.angular.controller('homeController', function ($scope, $http) {
 
 });
+
+
+myScheduleApp.angular.controller('dashboardController', function (store, $scope, $http) {
+    //Need User Details
+
+    $scope.init = function () {
+        $scope.user = store.get("userObject");
+    };
+
+    $scope.init();
+});

@@ -1,4 +1,110 @@
+<style>
+
+    .accountContainer {
+        width: 100%;
+        height: calc(100% - 80px);
+        overflow: auto;
+        box-sizing: border-box;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .accountPanel {
+        background: white;
+        margin: 30px;
+        width: 350px;
+        height: 350px;
+        box-shadow: 0 0 40px rgba(0, 0, 0, .2);
+        box-sizing: border-box;
+        padding: 50px;
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .accountPanel > .fa-user-circle {
+        font-size: 100px;
+        color: #DDD;
+    }
+
+    .user-name, .user-email, .user-community {
+        font-family: Roboto-Thin;
+        margin-top: 2px;
+        font-size: 15px;
+    }
+
+    .user-name {
+        font-size: 25px;
+        margin-top: 20px;
+        font-family: Roboto-Light;
+    }
+
+    .user-community {
+        margin-top: 10px;
+        font-family: Roboto-Light;
+        color: steelblue;
+    }
+
+    .panel-title {
+        font-size: 30px;
+        color: #555;
+        font-family: Roboto-Thin;
+    }
+
+    .panel-count {
+        font-size: 120px;
+        margin-top: 20px;
+        color: #AAA;
+        font-family: Roboto-Thin;
+    }
+
+    .white {
+        color: white;
+    }
+</style>
+
 <div style="width: 100%; height: 100%; background: url('images/background.png');">
     <div class="section section-header-spacer"></div>
-    DASHBOARD PAGE
+
+
+    <div class="accountContainer">
+        <div class="accountPanel animated fadeInUp" style="animation-delay: 0s;">
+            <i class="fa fa-user-circle"></i><br>
+            <div class="user-name">{{ user.name }}</div>
+            <div class="user-email">{{ user.email }}</div>
+            <div class="user-community">Illinois Institute of Technology</div>
+            <div class="action-button clickable" style="float: unset;">Account Settings</div>
+        </div>
+
+        <div class="accountPanel animated fadeInUp" style="animation-delay: 0.1s; padding-left: 20px; padding-right: 20px; background: steelblue">
+            <div class="panel-title white">My Schedules</div>
+            <div class="panel-count white">0</div>
+            <div class="action-button clickable" style="background: white; color: #000; float: unset;">
+                View Schedules
+            </div>
+            <div class="action-button clickable" style="background: white; color: #000; float: unset;">
+                Make Schedule
+            </div>
+        </div>
+
+        <div class="accountPanel animated fadeInUp" style="animation-delay: 0.2s;" ng-click="">
+            <div class="panel-title">Professor Search</div>
+            <div class="panel-count">{{}}</div>
+            <div class="action-button clickable" style="float: unset;">Search Professors</div>
+        </div>
+        <div class="accountPanel animated fadeInUp" style="animation-delay: 0.3s;" ng-click="">
+            <div class="panel-title">Class Search</div>
+            <div class="panel-count">{{}}
+            </div>
+            <div class="action-button clickable" style="float: unset;">Search Classes</div>
+        </div>
+
+        <div class="accountPanel animated fadeInUp" style="animation-delay: .4s; background: darkslategray;">
+            <div class="panel-title white">Degree Progress</div>
+            <div class="panel-count white">0</div>
+            <div class="action-button clickable" style="background: white; color: #000;float: unset;">View Progress</div>
+        </div>
+    </div>
+
 </div>

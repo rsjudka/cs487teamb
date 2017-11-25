@@ -46,6 +46,8 @@
 
     <div class="header-links clickable" style="float: left;"  ng-click="go('/home')">Home Page</div>
 
+    <div class="header-links clickable" style="float: left;">How It Works</div>
+
     <div class="header-links clickable" style="float: left;"  ng-click="go('/about')">About Us</div>
 
     <div class="header-links clickable" style="float: left;">Contact Us</div>
@@ -59,7 +61,7 @@
     <div class="action-button clickable" ng-show="loggedIn" ng-click="signOut()">Log Out</div>
 
     <div class="header-links clickable" ng-show="loggedIn" ng-click="go('/dashboard')">
-        Welcome, <b>{{ user.name }}</b> &nbsp;<i class="fa fa-user-circle" style="color: #AAA;"></i>
+        Welcome, <span style="font-family: Roboto-Regular, sans-serif;">{{ user.name }}</span> &nbsp;<i class="fa fa-user-circle" style="color: #AAA;"></i>
     </div>
 
 </div>
