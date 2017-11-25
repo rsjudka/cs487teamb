@@ -1,0 +1,25 @@
+{
+  "name": "CS 487 - Team B",
+  "homepage": "https://github.com/rsjudka/cs487teamb",
+  "authors": [
+    "CS 487 TEAM B"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "a0-angular-storage": "^0.0.15",
+    "angular": "angularjs#^1.6.6",
+    "angular-route": "^1.6.6",
+    "animate.css": "^3.5.2",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1"
+  }
+}

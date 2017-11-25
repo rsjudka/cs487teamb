@@ -1,0 +1,222 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: #EEE;
+    width: 100%;
+    height: 100%;
+    font-family: Roboto-Regular, sans-serif;
+}
+
+.header {
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    box-sizing: border-box;
+    padding: 0 75px 0 75px;
+    background: rgba(255, 255, 255, 1);
+    border-top: 3px solid steelblue;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-logo {
+    height: 100%;
+    display: inline-block;
+    float: left;
+}
+
+.header-logo-img {
+    height: 55px;
+    margin-top: 12.5px;
+}
+
+.section {
+    width: 100%;
+    float: top;
+    background: #EEE;
+    display: inline-block;
+}
+
+.section-header-spacer {
+    height: 80px;
+}
+
+.header-spacer-responsive {
+    width: 0;
+    height: 100%;
+}
+
+.header-links {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 17.5px 15px 17.5px 15px;
+    box-sizing: border-box;
+    font-size: 18px;
+    float: right;
+    color: #000;
+    font-family: Roboto-Light, sans-serif;
+}
+
+.header-links:hover {
+    background: rgba(0, 0, 0, 0.02);
+    color: steelblue !important;
+}
+
+.action-button {
+    border-radius: 5px;
+    background: steelblue;
+    border: 2px solid rgba(0, 0, 0, 0);
+    padding: 7px 12px 7px 12px;
+    margin-top: 20px;
+    color: #FFF;
+    font-size: 16px;
+    font-family: Roboto-Light, sans-serif;
+    display: inline-block;
+    float: right;
+    margin-left: 15px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.action-button:hover {
+    background: #3a7489;
+    color: #FFF;
+}
+
+
+/*******************************/
+/* LOGIN OVERLAY
+/*******************************/
+
+.loginOverlay {
+    width: 100%;
+    height: 100%;
+    min-width: 300px;
+    min-height: 300px;
+    background: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    z-index: 9999;
+    text-align: center;
+}
+
+.loginContainer {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 400px;
+    min-height: 520px;
+    display: inline-block;
+    border-radius: 10px;
+    float: top;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 0 100px rgba(70, 130, 180, 0.6);
+}
+
+.loginLogoContainer {
+    width: 100%;
+    height: 200px;
+}
+
+.loginTitleContainer {
+    height: 60px;
+    float: top;
+    width: 100%;
+    font-family: Roboto-Thin, sans-serif;
+    color: #333;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.registerButton, .googleLogin {
+    cursor: pointer;
+    background: #468fde;
+    vertical-align: top;
+    display: inline-block;
+    height: 60px;
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 2px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #FFF;
+    font-size: 20px;
+    font-family: RobotoLight, sans-serif;
+}
+
+.registerButton {
+    width: 270px;
+    font-size: 16px;
+    background: #DDD;
+    color: #555;
+    padding: 22px 10px 22px 10px;
+}
+
+.loginLogo {
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.alertMessage {
+    margin: 0 auto;
+    padding: 16.5px 15px 16.5px 15px;
+    width: 400px;
+    box-sizing: border-box;
+    height: 50px;
+    background: #333;
+    font-size: 17px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+    display: none;
+    color: white;
+    font-family: RobotoLight, sans-serif;
+}
+
+.loginClose {
+    position: absolute;
+    font-size: 25px;
+    color: #888;
+    margin-left: 350px;
+    width: 50px;
+    height: 50px;
+    padding: 12.5px;
+    box-sizing: border-box;
+    transition: all ease .5s;
+    cursor: pointer;
+}
+
+.loginClose:hover {
+    background: #EEE;
+}
+
+.inputBox {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 10px;
+    outline: none;
+    border: 0;
+    background: #F8F8F8;
+    color: black;
+    height: 60px;
+    box-sizing: border-box;
+    padding: 10px 20px 10px 20px;
+    font-size: 20px;
+    border-radius: 2px;
+    font-family: Roboto-Light, sans-serif;
+}
+
+/*******************************/
+/* END OF LOGIN OVERLAY
+/*******************************/
