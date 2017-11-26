@@ -7,7 +7,7 @@ var myScheduleApp = {
     },
     currentPage: null,
     apiURL: null,
-    angular: angular.module("myScheduleApp", ["ngRoute", "angular-storage"])
+    angular: angular.module("myScheduleApp", ["firebase", "ngRoute", "angular-storage"])
 };
 
 
@@ -34,7 +34,7 @@ myScheduleApp.angular.config(['$routeProvider', '$locationProvider', function ($
             templateUrl: "templates/about.html"
         })
         .when("/schedules", {
-            templateUrl: "templates/schedule.html",
+            templateUrl: "templates/schedules.html",
             controller: "scheduleController"
         }).otherwise({
         templateUrl: "templates/404.html"
@@ -45,7 +45,7 @@ myScheduleApp.angular.config(['$routeProvider', '$locationProvider', function ($
 }]);
 
 
-myScheduleApp.angular.controller('myScheduleController', function ($location, $scope, store, $http) {
+myScheduleApp.angular.controller('myScheduleController', function ($firebaseObject, $location, $scope, store, $http) {
 
 
     $scope.init = function () {
@@ -66,22 +66,18 @@ myScheduleApp.angular.controller('myScheduleController', function ($location, $s
         $scope.loggedIn = false;
     };
 
-    $scope.go = function ( path ) {
-        $location.path( path );
+    $scope.go = function (path) {
+        $location.path(path);
     };
 
     $scope.onSignIn = function (googleUser) {
         var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId());
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail());
-
+        //console.log('Google Profile: ', profile);
         $scope.user.email = profile.getEmail();
         $scope.user.name = profile.getName();
         $scope.user.token = profile.getId();
 
-        $scope.safeApply(function(){
+        $scope.safeApply(function () {
             $scope.loginSuccess();
         });
     };
@@ -102,20 +98,31 @@ myScheduleApp.angular.controller('myScheduleController', function ($location, $s
 
     $scope.loginSuccess = function () {
         $scope.loggedIn = true;
-        console.log("User: ", $scope.user);
+        //console.log("User: ", $scope.user);
         $scope.requireRegister = false;
         $scope.loginOverlay = false;
         store.set('userObject', $scope.user);
+
+        var usersRef = firebase.database().ref().child("users");
+        usersRef.once('value', function (snap) {
+            var userExists = false;
+            snap.forEach(function (childSnap) {
+                var user = childSnap.val();
+                if ($scope.user.token === user.token) userExists = true;
+            });
+
+            if (userExists) console.log("User Exists");
+            else {
+                usersRef.push($scope.user);
+                console.log("User Added");
+            }
+        });
     };
 
     $scope.checkLoggedIn = function () {
         var myUser = store.get('userObject');
         if (myUser) {
             $scope.user = myUser;
-            //alert("LOGGED IN");
-            $scope.loginSuccess();
-        } else {
-            //alert("NOT LOGGED IN");
         }
     };
 
@@ -159,12 +166,22 @@ myScheduleApp.angular.controller('homeController', function ($scope, $http) {
 });
 
 
-myScheduleApp.angular.controller('dashboardController', function (store, $scope, $http) {
+myScheduleApp.angular.controller('scheduleController', function ($scope, $http) {
+
+});
+
+
+myScheduleApp.angular.controller('dashboardController', function ($location, store, $scope, $http) {
     //Need User Details
 
     $scope.init = function () {
         $scope.user = store.get("userObject");
     };
+
+    $scope.go = function (path) {
+        $location.path(path);
+    };
+
 
     $scope.init();
 });

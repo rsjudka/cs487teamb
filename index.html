@@ -13,8 +13,7 @@
     <script src="bower_components/a0-angular-storage/dist/angular-storage.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="js/mySchedule.js"></script>
-    <script src="js/default.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.js"></script>
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" type="text/css">
@@ -22,10 +21,28 @@
     <link rel="stylesheet" href="bower_components/animate.css/animate.min.css" type="text/css">
     <link rel="stylesheet" href="css/default.css" type="text/css">
 
+    <!-- GOOGLE APIS -->
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id"
           content="373805643913-05b9vfmbhchqekc3sibs276o516cco89.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAXmObuDgyYPkjMb1WliyRN-kmLfs8KbuI",
+            authDomain: "myschedule-58636.firebaseapp.com",
+            databaseURL: "https://myschedule-58636.firebaseio.com",
+            projectId: "myschedule-58636",
+            storageBucket: "",
+            messagingSenderId: "201753646791"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <!-- LOAD APP SCRIPTS LAST -->
+    <script src="js/mySchedule.js"></script>
+    <script src="js/default.js"></script>
 
     <!-- FAVICON -->
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
@@ -74,7 +91,7 @@
             <i class="fa fa-close"></i>
         </div>
         <div class="loginLogoContainer">
-            <img src="images/logoTransparent.png" class="loginLogo">
+            <img src="images/logo-transparent.png" class="loginLogo">
         </div>
 
         <div class="loginPanel" ng-show="!requireRegister" style="z-index: 999; position: relative;">
