@@ -33,5 +33,40 @@
         "professor": "Dennis J Hood",
         "rating": 2.4,
         "difficulty": 3.3
+    },
+    {
+        "professor": "Jon Hanrath",
+        "rating": 4.6,
+        "difficulty": 2.0
+    },
+    {
+        "professor": "John Korah",
+        "rating": 3.0,
+        "difficulty": 3.0
+    },
+    {
+        "professor": "Rajkumar Venka Pandiyampalayam",
+        "rating": 2.5,
+        "difficulty": 2.5
+    },
+    {
+        "professor": "Matthew J Bauer",
+        "rating": 4.0,
+        "difficulty": 2.7
+    },
+    {
+        "professor": "Michael Kamol Saelee",
+        "rating": 4.3,
+        "difficulty": 3.2
+    },
+    {
+        "professor": "Kyle C Hale",
+        "rating": 5.0,
+        "difficulty": 4.2
+    },
+    {
+        "professor": "Omar Aldawud",
+        "rating": 2.4,
+        "difficulty": 2.5
     }
 ]
