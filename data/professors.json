@@ -1,3 +1,17 @@
 [
-
+    {
+        "professor": "Wu-Hon Francis Leung",
+        "rating": 2.6,
+        "difficulty": 3.4
+    },
+    {
+        "professor": "James T Sasaki",
+        "rating": 2.8,
+        "difficulty": 3.1
+    },
+    {
+        "professor": "Jesus Miranda",
+        "rating": 3.8,
+        "difficulty": 2.1
+    }
 ]
