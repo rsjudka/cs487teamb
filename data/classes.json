@@ -313,6 +313,48 @@
     },
     {
         "subject": "CS",
+        "course": 422,
+        "sections": [
+            {
+                "CRN": 28859,
+                "section": "01",
+                "location": "MC",
+                "credits": 3,
+                "timeSlots": {
+                    "Sunday": [],
+                    "Monday": [],
+                    "Tuesday": [6, 7],
+                    "Wednesday": [],
+                    "Thursday": [],
+                    "Friday": [],
+                    "Saturday": []
+                },
+                "classType": "normal",
+                "requires": null,
+                "professor": "Vijay Kumar Gurbani"
+            },
+            {
+                "CRN": 28860,
+                "section": "02",
+                "location": "IN",
+                "credits": 3,
+                "timeSlots": {
+                    "Sunday": [],
+                    "Monday": [],
+                    "Tuesday": [6, 7],
+                    "Wednesday": [],
+                    "Thursday": [],
+                    "Friday": [],
+                    "Saturday": []
+                },
+                "classType": "normal",
+                "requires": null,
+                "professor": "Vijay Kumar Gurbani"
+            }
+        ]
+    },
+    {
+        "subject": "CS",
         "course": 425,
         "sections": [
             {
@@ -333,6 +375,133 @@
                 "requires": null,
                 "professor": "Omar Aldawud"
             }
+        ]
+    },
+    {
+        "subject": "CS",
+        "course": 429,
+        "sections": [
+            {
+                "CRN": 24124,
+                "section": "01",
+                "location": "MC",
+                "credits": 3,
+                "timeSlots": {
+                    "Sunday": [],
+                    "Monday": [],
+                    "Tuesday": [5, 6],
+                    "Wednesday": [],
+                    "Thursday": [],
+                    "Friday": [],
+                    "Saturday": []
+                },
+                "classType": "normal",
+                "requires": null,
+                "professor": "John Korah"
+            },
+            {
+                "CRN": 24126,
+                "section": "02",
+                "location": "IN",
+                "credits": 3,
+                "timeSlots": {
+                    "Sunday": [],
+                    "Monday": [],
+                    "Tuesday": [5, 6],
+                    "Wednesday": [],
+                    "Thursday": [],
+                    "Friday": [],
+                    "Saturday": []
+                },
+                "classType": "normal",
+                "requires": null,
+                "professor": "John Korah"
+            }
+        ]
+    },
+    {
+        "subject": "CS",
+        "course": 430,
+        "sections": [
+            {
+                "CRN": 20047,
+                "section": "01",
+                "location": "MC",
+                "credits": 3,
+                "timeSlots": {
+                    "Sunday": [],
+                    "Monday": [2],
+                    "Tuesday": [],
+                    "Wednesday": [2],
+                    "Thursday": [],
+                    "Friday": [],
+                    "Saturday": []
+                },
+                "classType": "normal",
+                "requires": 28173,
+                "professor": "Edward M Reingold"
+            },
+            {
+                "CRN": 28173,
+                "section": "R01",
+                "location": "MC",
+                "credits": 0,
+                "timeSlots": {
+                    "Sunday": [],
+                    "Monday": [],
+                    "Tuesday": [],
+                    "Wednesday": [],
+                    "Thursday": [],
+                    "Friday": [2],
+                    "Saturday": []
+                },
+                "classType": "shortened",
+                "requires": 20047,
+                "professor": "Edward M Reingold"
+            }
+        ]
+    },
+    {
+        "subject": "CS",
+        "course": 485,
+        "sections": [
+            {
+                "CRN": 20068,
+                "section": "01",
+                "location": "MC",
+                "credits": 3,
+                "timeSlots": {
+                    "Sunday": [],
+                    "Monday": [0],
+                    "Tuesday": [],
+                    "Wednesday": [0],
+                    "Thursday": [],
+                    "Friday": [],
+                    "Saturday": []
+                },
+                "classType": "normal",
+                "requires": null,
+                "professor": "Jon Hanrath"
+            },
+            {
+                "CRN": 28868,
+                "section": "02",
+                "location": "MC",
+                "credits": 3,
+                "timeSlots": {
+                    "Sunday": [],
+                    "Monday": [2],
+                    "Tuesday": [],
+                    "Wednesday": [2],
+                    "Thursday": [],
+                    "Friday": [],
+                    "Saturday": []
+                },
+                "classType": "normal",
+                "requires": null,
+                "professor": "Jon Hanrath"
+            }
+
         ]
     },
     {
@@ -458,6 +627,30 @@
                 "classType": "normal",
                 "requires": null,
                 "professor": "Dennis J Hood"
+            }
+        ]
+    },
+    {
+        "subject": "CS",
+        "course": 513,
+        "sections": [
+            {
+                "CRN": 27388,
+                "section": "01",
+                "location": "MC",
+                "credits": 3,
+                "timeSlots": {
+                    "Sunday": [],
+                    "Monday": [],
+                    "Tuesday": [],
+                    "Wednesday": [],
+                    "Thursday": [],
+                    "Friday": [6, 7],
+                    "Saturday": []
+                },
+                "classType": "normal",
+                "requires": null,
+                "professor": "Xin Chen"
             }
         ]
     },
