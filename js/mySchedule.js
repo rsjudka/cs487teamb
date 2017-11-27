@@ -248,6 +248,7 @@ myScheduleApp.angular.controller('scheduleController', function ($scope, store, 
         myScheduleApp.currentPage = myScheduleApp.pages.schedules;
 
         $scope.mySchedules = [];
+        $scope.myDraftSchedules = [];
 
         var myUser = store.get('userObject');
         if (myUser) $scope.user = myUser;
@@ -263,6 +264,17 @@ myScheduleApp.angular.controller('scheduleController', function ($scope, store, 
                     var schedule = childSnap.val();
                     if ($scope.user.token === schedule.userToken)
                         $scope.mySchedules.push(schedule);
+                });
+            });
+        });
+
+        var schedulesRef = firebase.database().ref().child("drafts");
+        schedulesRef.once('value', function (snap) {
+            $scope.safeApply(function () {
+                snap.forEach(function (childSnap) {
+                    var schedule = childSnap.val();
+                    if ($scope.user.token === schedule.userToken)
+                        $scope.myDraftSchedules.push(schedule);
                 });
             });
         });
@@ -540,6 +552,31 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
                 $scope.showAlert("Schedule saved", 3000);
             });
         });
+    };
+
+    $scope.doneSchedule = function () {
+
+        if ($scope.currentSchedule.timeSaved === "Not Saved") {
+            $scope.currentSchedule.timeSaved = new Date();
+            var schedulesRef = firebase.database().ref().child("drafts");
+
+            schedulesRef.child($scope.schedulefirebaseToken + "").once('value', function (snap) {
+                if (snap.exists()) {
+                    console.log("Schedule Updated");
+                    schedulesRef.child($scope.schedulefirebaseToken + "").update(clean(($scope.currentSchedule)));
+                } else {
+                    $scope.schedulefirebaseToken = (schedulesRef.push(clean($scope.currentSchedule))).key;
+                    console.log("Schedule Added");
+                }
+
+                $scope.safeApply(function () {
+                    $scope.showAlert("Draft saved", 3000);
+                    $scope.go("schedules");
+                });
+            });
+        }else{
+            $scope.go("schedules");
+        }
     };
 
     $scope.deleteSchedule = function () {

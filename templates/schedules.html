@@ -6,20 +6,24 @@
         <div class="accountPanel animated fadeInUp" style="animation-delay: 0.2s; background: steelblue" ng-click="">
             <div class="panel-title white">My Schedules</div>
             <div class="panel-count white">{{ mySchedules.length }}</div>
-            <div class="action-button clickable" style="background: white; color: #000; float: unset;" ng-click="showOverlay(overlays.viewSchedules)">View All</div>
+            <div class="action-button clickable" style="background: white; color: #000; float: unset;"
+                 ng-click="showOverlay(overlays.viewSchedules)">View All
+            </div>
         </div>
 
         <div class="accountPanel animated fadeInUp" style="animation-delay: 0.2s;" ng-click="">
             <div class="panel-title">Create Schedules</div>
-            <div class="panel-count">{{}}</div>
+            <div class="panel-count"></div>
             <div class="action-button clickable" style=" float: unset;">From Template</div>
             <div class="action-button clickable" style="float: unset;" ng-click="go('newSchedule')">Blank Schedule</div>
         </div>
 
         <div class="accountPanel animated fadeInUp" style="animation-delay: .4s; background: darkslategray;">
             <div class="panel-title white">Saved Drafts</div>
-            <div class="panel-count white">0</div>
-            <div class="action-button clickable" style="background: white; color: #000;float: unset;" ng-click="showOverlay(overlays.viewDrafts)">View All</div>
+            <div class="panel-count white">{{ myDraftSchedules.length }}</div>
+            <div class="action-button clickable" style="background: white; color: #000;float: unset;"
+                 ng-click="showOverlay(overlays.viewDrafts)">View All
+            </div>
         </div>
     </div>
 
@@ -40,6 +44,7 @@
         .overlayTitleBar {
             width: 100%;
             height: 80px;
+            border-bottom: 1px solid #eee;
         }
 
         .overlayClose {
@@ -65,7 +70,28 @@
             font-size: 30px;
             padding: 25px 80px 25px 80px;
             display: inline-block;
-            float: left
+            float: left;
+        }
+
+        .overlayContent {
+            width: 100%;
+            overflow: auto;
+            height: calc(100% - 80px);
+            padding: 0 80px 0 80px;
+            box-sizing: border-box;
+            text-align: left;
+            padding-bottom: 50px;
+        }
+
+        .scheduleBlock {
+            padding: 20px;
+            height: 80px;
+            float: top;
+            box-sizing: border-box;
+            width: 500px;
+            margin-top: 15px;
+            background: #EEE;
+            font-size: 20px;
         }
     </style>
 
@@ -78,6 +104,12 @@
                     <i class="fa fa-close" ng-click="closeOverlay()"></i>
                 </div>
             </div>
+            <div class="overlayContent">
+                <div class="scheduleBlock" ng-repeat="schedule in mySchedules">
+                    {{ schedule.name }} <br>
+                    <span style="font-size: 15px; color: steelblue;">Saved at {{ schedule.timeSaved | date:"hh:mm:ss a on dd/MM/yyyy" }}</span>
+                </div>
+            </div>
         </div>
 
         <div ng-show="overlayShow.pages[overlays.viewDrafts]">
@@ -85,6 +117,12 @@
                 <div class="overlayTitle">Draft Schedules</div>
                 <div class="overlayClose">
                     <i class="fa fa-close" ng-click="closeOverlay()"></i>
+                </div>
+            </div>
+            <div class="overlayContent">
+                <div class="scheduleBlock" ng-repeat="schedule in myDraftSchedules">
+                    {{ schedule.name }} <br>
+                    <span style="font-size: 15px; color: steelblue;">Saved at {{ schedule.timeSaved | date:"hh:mm:ss a on dd/MM/yyyy" }}</span>
                 </div>
             </div>
         </div>

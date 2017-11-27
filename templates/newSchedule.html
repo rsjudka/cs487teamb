@@ -178,8 +178,13 @@
             <div class="schedule-credits animated fadeInLeft">{{ currentSchedule.credits }} Credit Hours</div>
         </div>
         <div style="float: right">
+            <div class="action-bar-button animated fadeInLeft" ng-click="doneSchedule()"
+                 style="animation-delay: .6s;"><i
+                    class="fa fa-check"></i>&nbsp;
+                Done
+            </div>
             <div class="action-bar-button animated fadeInLeft" ng-click="saveSchedule()"
-                 style="background: #333; color: white; animation-delay: .5s;"><i
+                 style="animation-delay: .5s;"><i
                     class="fa fa-save"></i>&nbsp;
                 Save
             </div>
