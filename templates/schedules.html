@@ -6,7 +6,7 @@
         <div class="accountPanel animated fadeInUp" style="animation-delay: 0.2s; background: steelblue" ng-click="">
             <div class="panel-title white">My Schedules</div>
             <div class="panel-count white">{{ mySchedules.length }}</div>
-            <div class="action-button clickable" style="background: white; color: #000; float: unset;">View All</div>
+            <div class="action-button clickable" style="background: white; color: #000; float: unset;" ng-click="showOverlay(overlays.viewSchedules)">View All</div>
         </div>
 
         <div class="accountPanel animated fadeInUp" style="animation-delay: 0.2s;" ng-click="">
@@ -19,8 +19,76 @@
         <div class="accountPanel animated fadeInUp" style="animation-delay: .4s; background: darkslategray;">
             <div class="panel-title white">Saved Drafts</div>
             <div class="panel-count white">0</div>
-            <div class="action-button clickable" style="background: white; color: #000;float: unset;">View All</div>
+            <div class="action-button clickable" style="background: white; color: #000;float: unset;" ng-click="showOverlay(overlays.viewDrafts)">View All</div>
         </div>
+    </div>
+
+
+    <style>
+        .overlay {
+            width: 100%;
+            height: 100%;
+            z-index: 700;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: white;
+            box-sizing: border-box;
+            padding-top: 80px;
+        }
+
+        .overlayTitleBar {
+            width: 100%;
+            height: 80px;
+        }
+
+        .overlayClose {
+            font-size: 25px;
+            color: #BBB;
+            float: right;
+            width: 50px;
+            height: 50px;
+            margin-top: 15px;
+            margin-right: 80px;
+            padding: 12px 15px 12px 15px;
+            box-sizing: border-box;
+            transition: all ease .2s;
+            cursor: pointer;
+        }
+
+        .overlayClose:hover {
+            background: #EEE;
+            color: #AAA;
+        }
+
+        .overlayTitle {
+            font-size: 30px;
+            padding: 25px 80px 25px 80px;
+            display: inline-block;
+            float: left
+        }
+    </style>
+
+    <div class="overlay animated fadeInUp" style="animation-duration: .5s;" ng-show="overlayShow.overlay">
+
+        <div ng-show="overlayShow.pages[overlays.viewSchedules]">
+            <div class="overlayTitleBar">
+                <div class="overlayTitle">My Schedules</div>
+                <div class="overlayClose">
+                    <i class="fa fa-close" ng-click="closeOverlay()"></i>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="overlayShow.pages[overlays.viewDrafts]">
+            <div class="overlayTitleBar">
+                <div class="overlayTitle">Draft Schedules</div>
+                <div class="overlayClose">
+                    <i class="fa fa-close" ng-click="closeOverlay()"></i>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>

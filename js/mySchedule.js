@@ -32,7 +32,8 @@ myScheduleApp.angular.config(['$routeProvider', '$locationProvider', function ($
             controller: "dashboardController"
         })
         .when("/about", {
-            templateUrl: "templates/about.html"
+            templateUrl: "templates/about.html",
+            controller: "aboutController"
         })
         .when("/schedules", {
             templateUrl: "templates/schedules.html",
@@ -50,128 +51,193 @@ myScheduleApp.angular.config(['$routeProvider', '$locationProvider', function ($
 
 myScheduleApp.angular.controller('myScheduleController', function ($firebaseObject, $location, $scope, store, $http) {
 
-    $scope.init = function () {
-        $scope.user = {
-            token: null,
-            name: null,
-            email: null,
-            community: null
+        $scope.init = function () {
+            $scope.user = {
+                token: null,
+                name: null,
+                email: null,
+                community: null
+            };
+
+            $scope.overlays = {
+                viewSchedules: 0,
+                viewDrafts: 1
+            };
+
+            $scope.overlayShow = {
+                overlay: false,
+                pages: [
+                    false,
+                    false
+                ]
+            };
+
+            $scope.requireRegister = false;
+            $scope.loginOverlay = false;
+            $scope.loggedIn = false;
+            $scope.currentPageName = null;
+            $scope.alertMessage = false;
+            $scope.pullMenu = false;
         };
 
-        $scope.requireRegister = false;
-        $scope.loginOverlay = false;
-        $scope.loggedIn = false;
-        $scope.currentPageName = null;
-    };
+        $scope.showOverlay = function (overlay) {
+            $scope.safeApply(function () {
+                for (var i = 0; i < $scope.overlayShow.pages.length; i++) $scope.overlayShow.pages[i] = false;
+                $scope.overlayShow.pages[overlay] = true;
+                $scope.overlayShow.overlay = true;
+            });
+        };
 
-    $scope.currentPage = function () {
-        switch (myScheduleApp.currentPage) {
-            case myScheduleApp.pages.home:
-                $scope.currentPageName = "Home";
-                break;
-            case myScheduleApp.pages.newSchedule:
-                $scope.currentPageName = "Create New Schedule";
-                break;
-            case myScheduleApp.pages.dashboard:
-                $scope.currentPageName = "Dashboard";
-                break;
-            case myScheduleApp.pages.schedules:
-                $scope.currentPageName = "Schedules";
-                break;
-        }
+        $scope.closeOverlay = function () {
+            $scope.overlayShow.overlay = false;
+        };
 
-        return $scope.currentPageName;
-    };
+        $scope.currentPage = function () {
+            switch (myScheduleApp.currentPage) {
+                case myScheduleApp.pages.home:
+                    $scope.currentPageName = "Home";
+                    break;
+                case myScheduleApp.pages.newSchedule:
+                    $scope.currentPageName = "Create New Schedule";
+                    break;
+                case myScheduleApp.pages.dashboard:
+                    $scope.currentPageName = "Dashboard";
+                    break;
+                case myScheduleApp.pages.aboutUs:
+                    $scope.currentPageName = "About Us";
+                    break;
+                case myScheduleApp.pages.schedules:
+                    $scope.currentPageName = "Schedules";
+                    break;
+            }
 
-    $scope.go = function (path) {
-        $location.path(path);
-    };
+            return $scope.currentPageName;
+        };
 
-    $scope.onSignIn = function (googleUser) {
-        var profile = googleUser.getBasicProfile();
-        //console.log('Google Profile: ', profile);
-        $scope.user.email = profile.getEmail();
-        $scope.user.name = profile.getName();
-        $scope.user.token = profile.getId();
+        $scope.toggleMenu = function () {
+            $scope.pullMenu = !$scope.pullMenu;
+        };
 
-        $scope.safeApply(function () {
-            $scope.loginSuccess();
-        });
-    };
+        $scope.go = function (path) {
+            $location.path(path);
+            $scope.pullMenu = false;
+        };
 
-    $scope.signOut = function () {
-        var auth2 = gapi.auth2.getAuthInstance();
+        $scope.showAlert = function (message, time) {
+            $scope.alertMessage = message;
+            setTimeout(function () {
+                $scope.safeApply(function () {
+                    $scope.alertMessage = false;
+                });
+            }, time);
+        };
 
-        auth2.signOut().then(function () {
-            console.log('User signed out.');
-        });
+        $scope.onSignIn = function (googleUser) {
+            var profile = googleUser.getBasicProfile();
+            //console.log('Google Profile: ', profile);
+            $scope.user.email = profile.getEmail();
+            $scope.user.name = profile.getName();
+            $scope.user.token = profile.getId();
 
-        store.remove('userObject');
-        $scope.loggedIn = false;
-        $location.path("home");
-        $scope.user = null;
-        $scope.init();
-    };
+            $scope.safeApply(function () {
+                $scope.loginSuccess();
+            });
+        };
 
-    $scope.loginSuccess = function () {
-        $scope.loggedIn = true;
-        //console.log("User: ", $scope.user);
-        $scope.requireRegister = false;
-        $scope.loginOverlay = false;
-        store.set('userObject', $scope.user);
+        $scope.signOut = function () {
+            var auth2 = gapi.auth2.getAuthInstance();
 
-        var usersRef = firebase.database().ref().child("users");
-        usersRef.once('value', function (snap) {
-            var userExists = false;
-            snap.forEach(function (childSnap) {
-                var user = childSnap.val();
-                if ($scope.user.token === user.token) userExists = true;
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
             });
 
-            if (userExists) console.log("User Exists");
-            else {
-                usersRef.push($scope.user);
-                console.log("User Added");
+            store.remove('userObject');
+            $scope.loggedIn = false;
+            $location.path("home");
+            $scope.user = null;
+            $scope.init();
+
+            $scope.safeApply(function () {
+                $scope.showAlert("Logged Out", 3000);
+            });
+
+        };
+
+        $scope.loginSuccess = function () {
+            $scope.loggedIn = true;
+            //console.log("User: ", $scope.user);
+            $scope.requireRegister = false;
+            $scope.loginOverlay = false;
+            store.set('userObject', $scope.user);
+
+            var usersRef = firebase.database().ref().child("users");
+            usersRef.once('value', function (snap) {
+                var userExists = false;
+                snap.forEach(function (childSnap) {
+                    var user = childSnap.val();
+                    if ($scope.user.token === user.token) userExists = true;
+                });
+
+                if (userExists) {
+                    console.log("User Exists");
+                    $scope.safeApply(function () {
+                        $scope.showAlert("Welcome back, " + $scope.user.name.split(" ")[0], 3000);
+                    });
+                } else {
+                    usersRef.push($scope.user);
+                    console.log("User Added");
+                    $scope.safeApply(function () {
+                        $scope.showAlert("New account created", 3000);
+                    });
+                }
+            });
+        };
+
+        $scope.checkLoggedIn = function () {
+            var myUser = store.get('userObject');
+            if (myUser) {
+                $scope.user = myUser;
             }
-        });
-    };
+        };
 
-    $scope.checkLoggedIn = function () {
-        var myUser = store.get('userObject');
-        if (myUser) {
-            $scope.user = myUser;
-        }
-    };
+        $scope.checkLoggedIn();
 
-    $scope.checkLoggedIn();
+        window.onSignIn = $scope.onSignIn;
+        window.signOut = $scope.signOut;
 
-    window.onSignIn = $scope.onSignIn;
-    window.signOut = $scope.signOut;
+        $scope.safeApply = function (fn) {
+            var phase = this.$root.$$phase;
+            if (phase === '$apply' || phase === '$digest') {
+                if (fn && (typeof(fn) === 'function'))
+                    fn();
+            } else
+                this.$apply(fn);
+        };
 
-    $scope.safeApply = function (fn) {
-        var phase = this.$root.$$phase;
-        if (phase === '$apply' || phase === '$digest') {
-            if (fn && (typeof(fn) === 'function'))
-                fn();
-        } else
-            this.$apply(fn);
-    };
+        $scope.showLogin = function () {
+            $scope.loginOverlay = true;
+        };
 
-    $scope.showLogin = function () {
-        $scope.loginOverlay = true;
-    };
+        $scope.hideLogin = function () {
+            $scope.loginOverlay = false;
+        };
 
-    $scope.hideLogin = function () {
-        $scope.loginOverlay = false;
-    };
-
-    $scope.init();
-});
+        $scope.init();
+    }
+);
 
 
 myScheduleApp.angular.controller('homeController', function ($scope, $http) {
     $scope.init = function () {
         myScheduleApp.currentPage = myScheduleApp.pages.home;
+    };
+
+    $scope.init();
+});
+
+myScheduleApp.angular.controller('aboutController', function ($scope, $http) {
+    $scope.init = function () {
+        myScheduleApp.currentPage = myScheduleApp.pages.aboutUs;
     };
 
     $scope.init();
@@ -469,6 +535,10 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
                 $scope.schedulefirebaseToken = (schedulesRef.push(clean($scope.currentSchedule))).key;
                 console.log("Schedule Added");
             }
+
+            $scope.safeApply(function () {
+                $scope.showAlert("Schedule saved", 3000);
+            });
         });
     };
 
@@ -478,6 +548,11 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
         console.log("Schedule Removed");
         $scope.currentSchedule.timeSaved = "Not Saved";
         $scope.go("/schedules");
+
+
+        $scope.safeApply(function () {
+            $scope.showAlert("Schedule deleted", 3000);
+        });
     };
 
     $scope.processSchedule = function () {

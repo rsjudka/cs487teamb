@@ -54,7 +54,7 @@
 <!-- HEADER CONTENT DESKTOP-->
 <div class="header">
 
-    <div class="header-links menu-button" ng-show="loggedIn">
+    <div class="header-links menu-button clickable" ng-show="loggedIn" ng-click="toggleMenu()">
         <i class="fa fa-bars" style="font-size: 34px;"></i>
     </div>
 
@@ -94,11 +94,72 @@
 
 </div>
 
+<style>
+
+
+    .pullMenuContainer {
+
+        left: 0;
+        top: 0;
+        z-index: 800;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        position: fixed;
+    }
+
+    .pullMenu {
+        width: 300px;
+        height: 100%;
+        background: white;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        padding-top: 150px;
+
+        float: left;
+    }
+
+    .pullMenuItem {
+        float: top;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 30px 50px 30px 50px;
+        font-size: 17px;
+        color: black;
+        text-align: left;
+        cursor: pointer;
+        transition: all ease .2s;
+    }
+
+    .pullMenuItem:hover {
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    .closeArea {
+        width: calc(100% - 300px);
+        height: 100%;
+        float: left;
+    }
+</style>
+
+<div class="pullMenuContainer animated fadeIn" style="animation-duration: .3s;" ng-show="pullMenu && loggedIn">
+    <div class="pullMenu animated slideInLeft">
+        <div class="pullMenuItem"><i class="fa fa-user-circle-o" style="opacity: .3;"></i> &nbsp;&nbsp; My Account</div>
+        <div class="pullMenuItem" ng-click="go('dashboard')"><i class="fa fa-dashboard" style="opacity: .3;"></i> &nbsp;&nbsp;Dashboard</div>
+        <div class="pullMenuItem" ng-click="go('schedules')"><i class="fa fa-calendar" style="opacity: .3;"></i> &nbsp;&nbsp;Schedules</div>
+        <div class="pullMenuItem"><i class="fa fa-question-circle-o" style="opacity: .3;"></i> &nbsp;&nbsp;Help</div>
+        <br><br><br>
+        <div class="pullMenuItem" ng-click="go('home')"><i class="fa fa-home" style="opacity: .3;"></i> &nbsp;&nbsp;Home</div>
+        <div class="pullMenuItem" ng-click="go('/about')"><i class="fa fa-info-circle" style="opacity: .3;"></i> &nbsp;&nbsp;About Us</div>
+        <div class="pullMenuItem"><i class="fa fa-phone" style="opacity: .3;"></i> &nbsp;&nbsp;Contact Us</div>
+    </div>
+    <div class="closeArea" ng-click="toggleMenu()"></div>
+</div>
+
+
 <div class="loginOverlay" ng-show="loginOverlay">
-
     <div class="loginContainer" style="background: #FFF;">
-
-        <div class="loginClose" ng-show="!showLogin" ng-click="hideLogin()">
+        <div class="loginClose" ng-click="hideLogin()">
             <i class="fa fa-close"></i>
         </div>
         <div class="loginLogoContainer">
@@ -117,8 +178,10 @@
         </div>
 
     </div>
+</div>
 
-    <div class="alertMessage">Alert Message Text</div>
+<div class="alertMessage animated fadeInUp" ng-show="alertMessage">
+    {{ alertMessage }}
 </div>
 
 <ng-view autoscroll="true" style="top:100px"></ng-view>
