@@ -1,44 +1,230 @@
 [
     {
-		"CRN": "28862",
+		"CRN": 21008,
+        "subject": "COM",
+        "course": 421,
+		"section": "01",
+		"location": "MC",
+        "credits": 3,
+        "timeSlots": {
+            "Sunday": [],
+            "Monday": [3],
+            "Tuesday": [],
+            "Wednesday": [3],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": []
+        },
+        "classType": "normal",
+		"professor": "Andrew J Roback"
+    },
+    {
+		"CRN": 28862,
         "subject": "CS",
-        "course": "440",
-		"section": 1,
+        "course": 440,
+		"section": "01",
 		"location": "MC",
 		"credits": 3,
-        "days": "MW",
-        "timeSlot": 3,
+        "timeSlots": {
+            "Sunday": [],
+            "Monday": [3],
+            "Tuesday": [],
+            "Wednesday": [3],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": []
+        },
+        "classType": "normal",
 		"professor": "James T Sasaki"
     },
     {
-		"CRN": "20059",
+		"CRN": 20059,
         "subject": "CS",
-        "course": "450",
-		"section": 1,
+        "course": 450,
+		"section": "01",
 		"location": "MC",
 		"credits": 3,
-        "days": "MW",
-        "timeSlot": 1,
+        "timeSlots": {
+            "Sunday": [],
+            "Monday": [1],
+            "Tuesday": [],
+            "Wednesday": [1],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": []
+        },
+        "classType": "normal",
 		"professor": "Wu-Hon Francis Leung"
     },
     {
-		"CRN": "20061",
+		"CRN": 20061,
         "subject": "CS",
-        "course": "450",
-		"section": 2,
+        "course": 450,
+		"section": "02",
 		"location": "IN",
-		"credits": 3,
+        "credits": 3,
+        "timeSlots": {
+            "Sunday": [],
+            "Monday": [1],
+            "Tuesday": [],
+            "Wednesday": [1],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": []
+        },
+        "classType": "normal",
 		"professor": "Wu-Hon Francis Leung"
     },
     {
-		"CRN": "20164",
+		"CRN": 20069,
+        "subject": "CS",
+        "course": 487,
+		"section": "01",
+		"location": "MC",
+        "credits": 3,
+        "timeSlots": {
+            "Sunday": [],
+            "Monday": [],
+            "Tuesday": [1],
+            "Wednesday": [],
+            "Thursday": [1],
+            "Friday": [],
+            "Saturday": []
+        },
+        "classType": "normal",
+		"professor": "Dennis J Hood"
+    },
+    {
+		"CRN": 28869,
+        "subject": "CS",
+        "course": 487,
+		"section": "02",
+		"location": "MC",
+        "credits": 3,
+        "timeSlots": {
+            "Sunday": [],
+            "Monday": [],
+            "Tuesday": [3],
+            "Wednesday": [],
+            "Thursday": [3],
+            "Friday": [],
+            "Saturday": []
+        },
+        "classType": "normal",
+		"professor": "Dennis J Hood"
+    },
+    {
+		"CRN": 20071,
+        "subject": "CS",
+        "course": 487,
+		"section": "03",
+		"location": "IN",
+        "credits": 3,
+        "timeSlots": {
+            "Sunday": [],
+            "Monday": [],
+            "Tuesday": [3],
+            "Wednesday": [],
+            "Thursday": [3],
+            "Friday": [],
+            "Saturday": []
+        },
+        "classType": "normal",
+		"professor": "Dennis J Hood"
+    },
+    {
+        "CRN": 25560,
+        "subject": "HIST",
+        "course": 340,
+		"section": "01",
+		"location": "MC",
+		"credits": 3,
+        "timeSlots": {
+            "Sunday": [],
+            "Monday": [0],
+            "Tuesday": [],
+            "Wednesday": [0],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": []
+        },
+        "classType": "normal",
+		"professor": "Val Jason Martin" 
+    },
+    {
+		"CRN": 20164,
         "subject": "MATH",
-        "course": "251",
-		"section": 2,
+        "course": 251,
+		"section": "02",
 		"location": "MC",
 		"credits": 4,
-        "days": "MWF",
-        "timeSlot": 3,
+        "timeSlots": {
+            "Sunday": [],
+            "Monday": [3],
+            "Tuesday": [],
+            "Wednesday": [3],
+            "Thursday": [],
+            "Friday": [3],
+            "Saturday": []
+        },
+        "classType": "normal",
 		"professor": "Jesus Miranda"
+    },
+    {
+		"CRN": 20953,
+        "subject": "PSYC",
+        "course": 301,
+		"section": "01",
+		"location": "MC",
+		"credits": 3,
+        "timeSlots": {
+            "Sunday": [],
+            "Monday": [2],
+            "Tuesday": [],
+            "Wednesday": [2],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": []
+        },
+        "classType": "normal",
+		"professor": "Mahima Saxena"
+    },
+    {
+		"CRN": 20954,
+        "subject": "PSYC",
+        "course": 301,
+		"section": "02",
+		"location": "MC",
+		"credits": 3,
+        "timeSlots": {
+            "Sunday": [],
+            "Monday": [4],
+            "Tuesday": [],
+            "Wednesday": [4],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": []
+        },
+        "classType": "normal",
+		"professor": "Mahima Saxena"
+    },
+    {
+		"CRN": 28221,
+        "subject": "PSYC",
+        "course": 301,
+		"section": "04",
+		"location": "MC",
+		"credits": 3,
+        "timeSlots": {
+            "Sunday": [],
+            "Monday": [],
+            "Tuesday": [4],
+            "Wednesday": [],
+            "Thursday": [4],
+            "Friday": [],
+            "Saturday": []
+        },
+        "classType": "normal",
+		"professor": "Kristina Bauer"
     }
 ]

@@ -13,5 +13,25 @@
         "professor": "Jesus Miranda",
         "rating": 3.8,
         "difficulty": 2.1
+    },
+    {
+        "professor": "Mahima Saxena",
+        "rating": 3.4,
+        "difficulty": 2.6
+    },
+    {
+        "professor": "Kristina Bauer",
+        "rating": 3.7,
+        "difficulty": 3.5
+    },
+    {
+        "professor": "Andrew J Roback",
+        "rating": 4.0,
+        "difficulty": 2.0
+    },
+    {
+        "professor": "Dennis J Hood",
+        "rating": 2.4,
+        "difficulty": 3.3
     }
 ]
