@@ -1,3 +1,44 @@
 [
-
+    {
+		"CRN": "28862",
+        "subject": "CS",
+        "course": "440",
+		"section": 1,
+		"campus": "MC",
+		"credits": 3,
+        "days": "MW",
+        "timeSlot": 3,
+		"instructor": "James T Sasaki"
+    },
+    {
+		"CRN": "20059",
+        "subject": "CS",
+        "course": "450",
+		"section": 1,
+		"campus": "MC",
+		"credits": 3,
+        "days": "MW",
+        "timeSlot": 1,
+		"instructor": "Wu-Hon Francis Leung"
+    },
+    {
+		"CRN": "20061",
+        "subject": "CS",
+        "course": "450",
+		"section": 2,
+		"campus": "IN",
+		"credits": 3,
+		"instructor": "Wu-Hon Francis Leung"
+    },
+    {
+		"CRN": "20164",
+        "subject": "MATH",
+        "course": "251",
+		"section": 2,
+		"campus": "MC",
+		"credits": 4,
+        "days": "MWF",
+        "timeSlot": 3,
+		"instructor": "Jesus Miranda"
+    }
 ]
