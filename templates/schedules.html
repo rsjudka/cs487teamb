@@ -3,16 +3,17 @@
 
     <div class="accountContainer">
 
-        <div class="accountPanel animated fadeInUp" style="animation-delay: 0.2s;" ng-click="">
-            <div class="panel-title">Create From Template</div>
-            <div class="panel-count">{{}}</div>
-            <div class="action-button clickable" style="float: unset;">Start</div>
+        <div class="accountPanel animated fadeInUp" style="animation-delay: 0.2s; background: steelblue" ng-click="">
+            <div class="panel-title white">My Schedules</div>
+            <div class="panel-count white">{{ mySchedules.length }}</div>
+            <div class="action-button clickable" style="background: white; color: #000; float: unset;">View All</div>
         </div>
-        <div class="accountPanel animated fadeInUp" style="animation-delay: 0.3s;" ng-click="go('newSchedule')">
-            <div class="panel-title">Create Blank Schedule</div>
-            <div class="panel-count">{{}}
-            </div>
-            <div class="action-button clickable" style="float: unset;">Start</div>
+
+        <div class="accountPanel animated fadeInUp" style="animation-delay: 0.2s;" ng-click="">
+            <div class="panel-title">Create Schedules</div>
+            <div class="panel-count">{{}}</div>
+            <div class="action-button clickable" style=" float: unset;">From Template</div>
+            <div class="action-button clickable" style="float: unset;" ng-click="go('newSchedule')">Blank Schedule</div>
         </div>
 
         <div class="accountPanel animated fadeInUp" style="animation-delay: .4s; background: darkslategray;">

@@ -4,21 +4,21 @@
     <style>
         .schedule-container {
             width: 100%;
-            min-height: 555px;
-            height: calc(100% - 120px - 80px - 60px);
+            min-height: 600px;
+            height: calc(100% - 120px - 80px);
             margin: 0 auto;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
 
         .schedule-time-container {
-            width: calc(100% / 8);
+            width: 150px;
             float: left;
             background: #333;
             height: 100%;
         }
 
         .schedule-days {
-            width: calc(100% / 8 - 1px);
+            width: calc((100% - 150px) / 7 - 1px);
             height: 100%;
             background: white;
             float: left;
@@ -60,27 +60,19 @@
             background: #444
         }
 
-        .schedule-action-bar {
-            width: 100%;
-            height: 60px;
-            background: cornflowerblue;
-            margin: 0 auto;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            z-index: 999;
-        }
-
         .action-bar-button {
-            width: 20%;
-            float: left;
+            display: inline-block;
+            height: 50px;
+            float: right;
             font-size: 16px;
-            color: white;
+            color: #333;
             text-align: center;
+            margin-top: 10px;
             cursor: pointer;
             box-sizing: border-box;
-            padding: 24px;
+            padding: 16px 25px 22px 25px;
+            border-radius: 10px;
+            margin-right: 5px;
         }
 
         .action-bar-button:hover {
@@ -107,7 +99,7 @@
         }
 
         .schedule-credits {
-            color: cornflowerblue;
+            color: steelblue;
             font-family: Roboto-Regular, sans-serif;
         }
 
@@ -115,7 +107,8 @@
             padding: 0;
             outline: none;
             border: 0;
-            width: auto;
+            min-width: 250px;
+            width: 250px;
             display: inline-block;
             font-size: 30px;
             background: rgba(0, 0, 0, 0);
@@ -126,15 +119,85 @@
         .schedule-name-input:focus {
             background: white;
         }
+
+        .schedule-class-container {
+            width: 100%;
+            height: calc((100% - 35px) / 8);
+            box-sizing: border-box;
+            padding: 8px 20px 8px 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .normalBox {
+
+        }
+
+        .x2Box {
+            height: calc(((100% - 35px) / 8) * 2);
+            padding: 35px 20px 35px 20px;
+        }
+
+        .smallBox {
+            height: calc(((100% - 35px) / 8) - 15px);
+            margin-bottom: 15px;
+            padding: 3px 20px 3px 20px;
+        }
+
+        .schedule-class-code {
+            font-size: 20px;
+            width: 100%;
+            font-family: Roboto-Regular, sans-serif;
+        }
+
+        .schedule-class-name {
+            font-size: 12px;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .schedule-class-time {
+            font-size: 10px;
+            width: 100%;
+            margin-top: 2px;
+            opacity: .7;
+        }
     </style>
 
     <div class="name-container animated fadeIn">
-        <div class="savedTime animated fadeInLeft">{{ currentSchedule.timeSaved }}</div>
-        <div class="schedule-name animated fadeInLeft">
-            <input class="schedule-name-input" onkeypress="this.style.width = ((this.value.length + 9) * 10) + 'px';" value="{{ currentSchedule.name }}"> &nbsp;
-            <i class="fa fa-pencil clickable" style="color: #AAA;"></i>
+        <div style="float: left;">
+            <div class="savedTime animated fadeInLeft">Last Saved: {{ currentSchedule.timeSaved |  date:'hh:mm:ss a on MM/dd/yyyy' }}</div>
+            <div class="schedule-name animated fadeInLeft">
+                <input class="schedule-name-input" placeholder="Untitled Schedule"
+                       onkeypress="this.style.width = ((this.value.length + 9) * 10) + 'px';"
+                       ng-model="currentSchedule.name"> &nbsp;
+                <i class="fa fa-pencil clickable" style="color: #AAA;"></i>
+            </div>
+            <div class="schedule-credits animated fadeInLeft">{{ currentSchedule.credits }} Credit Hours</div>
         </div>
-        <div class="schedule-credits animated fadeInLeft">{{ currentSchedule.credits }} Credit Hours</div>
+        <div style="float: right">
+            <div class="action-bar-button animated fadeInLeft" ng-click="saveSchedule()"
+                 style="background: #333; color: white; animation-delay: .5s;"><i
+                    class="fa fa-save"></i>&nbsp;
+                Save
+            </div>
+            <div class="action-bar-button animated fadeInLeft"  ng-click="deleteSchedule()"
+                 style="animation-delay: .4s;"><i class="fa fa-trash"></i>&nbsp;
+                Delete
+            </div>
+            <div class="action-bar-button animated fadeInLeft" style="animation-delay: .3s;"><i
+                    class="fa fa-refresh"></i>&nbsp;
+                Reset
+            </div>
+            <div class="action-bar-button animated fadeInLeft" style="animation-delay: .2s;"><i class="fa fa-magic"></i>&nbsp;
+                Schedule Wizard
+            </div>
+            <div class="action-bar-button animated fadeInLeft" style="animation-delay: .1s;"><i class="fa fa-plus"></i>&nbsp;
+                Add Class
+            </div>
+        </div>
     </div>
 
     <div class="schedule-container animated fadeIn">
@@ -167,58 +230,108 @@
                 <div class="vertical-aligner">07:50 PM - 09:05 PM</div>
             </div>
         </div>
+
         <div class="schedule-days animated fadeInRight" style="animation-delay: 1.1s;">
-            <div class="schedule-dayofweek">
-                Sunday
+            <div class="schedule-dayofweek">Sunday</div>
+
+            <div ng-repeat="class in currentSchedule.sunday" class="animated fadeInUp" style="animation-delay: {{ 1 + $index*0.1 }}s;">
+                <div class="schedule-class-container" ng-show="class.spacer"></div>
+                <div class="schedule-class-container {{ class.boxSize }}" ng-show="!class.spacer"
+                     style="background: {{ class.color.background }}; color: {{ class.color.color }};">
+                    <div class="schedule-class-code">{{class.subject}} {{class.course}}</div>
+                    <div class="schedule-class-name">{{ class.title }}</div>
+                    <div class="schedule-class-time">{{ class.times }}</div>
+                </div>
             </div>
+
         </div>
+
         <div class="schedule-days animated fadeInRight" style="animation-delay: 1.2s;">
-            <div class="schedule-dayofweek">
-                Monday
+
+            <div class="schedule-dayofweek">Monday</div>
+
+            <div ng-repeat="class in currentSchedule.monday" class="animated fadeInUp" style="animation-delay: {{ 1 + $index*0.1 }}s;">
+                <div class="schedule-class-container" ng-show="class.spacer"></div>
+                <div class="schedule-class-container {{ class.boxSize }}" ng-show="!class.spacer"
+                     style="background: {{ class.color.background }}; color: {{ class.color.color }};">
+                    <div class="schedule-class-code">{{class.subject}} {{class.course}}</div>
+                    <div class="schedule-class-name">{{ class.title }}</div>
+                    <div class="schedule-class-time">{{ class.times }}</div>
+                </div>
             </div>
         </div>
+
         <div class="schedule-days animated fadeInRight" style="animation-delay: 1.3s;">
-            <div class="schedule-dayofweek">
-                Tuesday
+            <div class="schedule-dayofweek">Tuesday</div>
+
+            <div ng-repeat="class in currentSchedule.tuesday"  class="animated fadeInUp" style="animation-delay: {{ 1 + $index*0.1 }}s;">
+                <div class="schedule-class-container" ng-show="class.spacer"></div>
+                <div class="schedule-class-container {{ class.boxSize }}" ng-show="!class.spacer"
+                     style="background: {{ class.color.background }}; color: {{ class.color.color }};">
+                    <div class="schedule-class-code">{{class.subject}} {{class.course}}</div>
+                    <div class="schedule-class-name">{{ class.title }}</div>
+                    <div class="schedule-class-time">{{ class.times }}</div>
+                </div>
             </div>
         </div>
+
         <div class="schedule-days animated fadeInRight" style="animation-delay: 1.4s;">
-            <div class="schedule-dayofweek">
-                Wednesday
+            <div class="schedule-dayofweek">Wednesday</div>
+
+            <div ng-repeat="class in currentSchedule.wednesday"  class="animated fadeInUp" style="animation-delay: {{ 1 + $index*0.1 }}s;">
+                <div class="schedule-class-container" ng-show="class.spacer"></div>
+                <div class="schedule-class-container {{ class.boxSize }}" ng-show="!class.spacer"
+                     style="background: {{ class.color.background }}; color: {{ class.color.color }};">
+                    <div class="schedule-class-code">{{class.subject}} {{class.course}}</div>
+                    <div class="schedule-class-name">{{ class.title }}</div>
+                    <div class="schedule-class-time">{{ class.times }}</div>
+                </div>
             </div>
         </div>
+
         <div class="schedule-days animated fadeInRight" style="animation-delay: 1.5s;">
-            <div class="schedule-dayofweek">
-                Thursday
+            <div class="schedule-dayofweek">Thursday</div>
+
+            <div ng-repeat="class in currentSchedule.thursday"  class="animated fadeInUp" style="animation-delay: {{ 1 + $index*0.1 }}s;">
+                <div class="schedule-class-container" ng-show="class.spacer"></div>
+                <div class="schedule-class-container {{ class.boxSize }}" ng-show="!class.spacer"
+                     style="background: {{ class.color.background }}; color: {{ class.color.color }};">
+                    <div class="schedule-class-code">{{class.subject}} {{class.course}}</div>
+                    <div class="schedule-class-name">{{ class.title }}</div>
+                    <div class="schedule-class-time">{{ class.times }}</div>
+                </div>
             </div>
+
         </div>
+
         <div class="schedule-days animated fadeInRight" style="animation-delay: 1.6s;">
-            <div class="schedule-dayofweek">
-                Friday
+            <div class="schedule-dayofweek">Friday</div>
+
+            <div ng-repeat="class in currentSchedule.friday"  class="animated fadeInUp" style="animation-delay: {{ 1 + $index*0.1 }}s;">
+                <div class="schedule-class-container" ng-show="class.spacer"></div>
+                <div class="schedule-class-container {{ class.boxSize }}" ng-show="!class.spacer"
+                     style="background: {{ class.color.background }}; color: {{ class.color.color }};">
+                    <div class="schedule-class-code">{{class.subject}} {{class.course}}</div>
+                    <div class="schedule-class-name">{{ class.title }}</div>
+                    <div class="schedule-class-time">{{ class.times }}</div>
+                </div>
             </div>
         </div>
+
         <div class="schedule-days animated fadeInRight" style="animation-delay: 1.7s;">
-            <div class="schedule-dayofweek">
-                Saturday
+            <div class="schedule-dayofweek">Saturday</div>
+
+            <div ng-repeat="class in currentSchedule.saturday"  class="animated fadeInUp" style="animation-delay: {{ 1 + $index*0.1 }}s;">
+                <div class="schedule-class-container" ng-show="class.spacer"></div>
+                <div class="schedule-class-container {{ class.boxSize }}" ng-show="!class.spacer"
+                     style="background: {{ class.color.background }}; color: {{ class.color.color }};">
+                    <div class="schedule-class-code">{{class.subject}} {{class.course}}</div>
+                    <div class="schedule-class-name">{{ class.title }}</div>
+                    <div class="schedule-class-time">{{ class.times }}</div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="schedule-action-bar animated fadeIn">
-        <div class="action-bar-button animated fadeInLeft" style="animation-delay: .1s;"><i class="fa fa-plus"></i>&nbsp;
-            Add Class
-        </div>
-        <div class="action-bar-button animated fadeInLeft" style="animation-delay: .2s;"><i class="fa fa-magic"></i>&nbsp;
-            Schedule Wizard
-        </div>
-        <div class="action-bar-button animated fadeInLeft" style="animation-delay: .3s;"><i class="fa fa-refresh"></i>&nbsp;
-            Reset Schedule
-        </div>
-        <div class="action-bar-button animated fadeInLeft" style="animation-delay: .4s;"><i class="fa fa-trash"></i>&nbsp;
-            Delete Schedule
-        </div>
-        <div class="action-bar-button animated fadeInLeft" style="animation-delay: .5s;"><i class="fa fa-save"></i>&nbsp;
-            Save Schedule
-        </div>
-    </div>
+
 
 </div>
