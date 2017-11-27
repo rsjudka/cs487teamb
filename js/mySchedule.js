@@ -3,7 +3,8 @@ var myScheduleApp = {
         home: 0,
         dashboard: 1,
         schedules: 2,
-        aboutUs: 3
+        aboutUs: 3,
+        newSchedule: 4
     },
     currentPage: null,
     apiURL: null,
@@ -36,34 +37,50 @@ myScheduleApp.angular.config(['$routeProvider', '$locationProvider', function ($
         .when("/schedules", {
             templateUrl: "templates/schedules.html",
             controller: "scheduleController"
+        })
+        .when("/newSchedule", {
+            templateUrl: "templates/newSchedule.html",
+            controller: "newScheduleController"
         }).otherwise({
         templateUrl: "templates/404.html"
     });
-
-    //$locationProvider.html5Mode({enabled: true, rewriteLinks: false});
 
 }]);
 
 
 myScheduleApp.angular.controller('myScheduleController', function ($firebaseObject, $location, $scope, store, $http) {
 
-
     $scope.init = function () {
         $scope.user = {
             token: null,
             name: null,
             email: null,
-            phoneNo: null,
-            aNo: null,
-            bNumber: null,
-            city: null,
             community: null
         };
 
-        $scope.communities = null;
         $scope.requireRegister = false;
         $scope.loginOverlay = false;
         $scope.loggedIn = false;
+        $scope.currentPageName = null;
+    };
+
+    $scope.currentPage = function () {
+        switch (myScheduleApp.currentPage) {
+            case myScheduleApp.pages.home:
+                $scope.currentPageName = "Home";
+                break;
+            case myScheduleApp.pages.newSchedule:
+                $scope.currentPageName = "Create New Schedule";
+                break;
+            case myScheduleApp.pages.dashboard:
+                $scope.currentPageName = "Dashboard";
+                break;
+            case myScheduleApp.pages.schedules:
+                $scope.currentPageName = "Schedules";
+                break;
+        }
+
+        return $scope.currentPageName;
     };
 
     $scope.go = function (path) {
@@ -131,15 +148,6 @@ myScheduleApp.angular.controller('myScheduleController', function ($firebaseObje
     window.onSignIn = $scope.onSignIn;
     window.signOut = $scope.signOut;
 
-    $scope.register = function () {
-        console.log($scope.user);
-        altruistApp.requests.register($scope.user, function (response) {
-            $scope.safeApply(function () {
-                $scope.login();
-            })
-        });
-    };
-
     $scope.safeApply = function (fn) {
         var phase = this.$root.$$phase;
         if (phase === '$apply' || phase === '$digest') {
@@ -162,26 +170,55 @@ myScheduleApp.angular.controller('myScheduleController', function ($firebaseObje
 
 
 myScheduleApp.angular.controller('homeController', function ($scope, $http) {
+    $scope.init = function () {
+        myScheduleApp.currentPage = myScheduleApp.pages.home;
+    };
 
+    $scope.init();
 });
 
 
 myScheduleApp.angular.controller('scheduleController', function ($scope, $http) {
+    $scope.init = function () {
+        myScheduleApp.currentPage = myScheduleApp.pages.schedules;
+    };
 
+    $scope.init();
 });
 
 
-myScheduleApp.angular.controller('dashboardController', function ($location, store, $scope, $http) {
+myScheduleApp.angular.controller('newScheduleController', function ($scope, $http) {
+
+    $scope.init = function () {
+        $scope.currentSchedule = {
+            name: "Untitled Schedule",
+            credits: 0,
+            timeSaved: "Not Saved"
+        };
+        myScheduleApp.currentPage = myScheduleApp.pages.newSchedule;
+    };
+
+    $scope.init();
+
+    $scope.schedule = {
+        sunday: [],
+        monday: [],
+        tuesday: [],
+        wednesday: [],
+        thursday: [],
+        friday: [],
+        saturday: []
+    }
+
+});
+
+myScheduleApp.angular.controller('dashboardController', function (store, $scope, $http) {
     //Need User Details
 
     $scope.init = function () {
         $scope.user = store.get("userObject");
+        myScheduleApp.currentPage = myScheduleApp.pages.dashboard;
     };
-
-    $scope.go = function (path) {
-        $location.path(path);
-    };
-
 
     $scope.init();
 });

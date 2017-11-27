@@ -54,31 +54,42 @@
 <!-- HEADER CONTENT DESKTOP-->
 <div class="header">
 
-    <div class="header-spacer-responsive" style="float: left;"></div>
-
-    <div class="header-logo clickable"  ng-click="go('/home')">
-        <img src="images/logo-menu.png" class="header-logo-img clickable">
-        <img src="images/logo-text.png" style="height: 50px; margin-top: -10px; margin-right: 70px;">
+    <div class="header-links menu-button" ng-show="loggedIn">
+        <i class="fa fa-bars" style="font-size: 34px;"></i>
     </div>
 
-    <div class="header-links clickable" style="float: left;"  ng-click="go('/home')">Home Page</div>
+    <div class="header-spacer" ng-show="!loggedIn"></div>
 
-    <div class="header-links clickable" style="float: left;">How It Works</div>
+    <div class="header-logo clickable" ng-click="go('/home')">
+        <img src="images/logo-menu.png" class="header-logo-img clickable">
+        <span style="font-size: 30px; padding-top: 20px; margin-left: 20px; float: left;">mySchedule</span>
+    </div>
 
-    <div class="header-links clickable" style="float: left;"  ng-click="go('/about')">About Us</div>
+    <div class="header-spacer" ng-show="!loggedIn"></div>
 
-    <div class="header-links clickable" style="float: left;">Contact Us</div>
-    <div class="header-links clickable" style="float: left;">Help</div>
+    <div ng-show="loggedIn" class="pageTitle">
+        {{ currentPage() }}
+    </div>
 
-    <div class="header-spacer-responsive" style="float: right;"></div>
+    <div ng-show="!loggedIn">
+        <div class="header-links clickable" style="float: left;" ng-click="go('/home')">Home Page</div>
+        <div class="header-links clickable" style="float: left;">How It Works</div>
+        <div class="header-links clickable" style="float: left;" ng-click="go('/about')">About Us</div>
+        <div class="header-links clickable" style="float: left;">Contact Us</div>
+        <div class="header-links clickable" style="float: left;">Help</div>
 
-    <div class="action-button clickable" ng-show="!loggedIn" ng-click="showLogin()">Sign In</div>
-    <div class="action-button clickable getstarted-button" ng-show="!loggedIn">Get Started</div>
+        <div class="action-button clickable" ng-show="!loggedIn" ng-click="showLogin()">Sign In</div>
+        <div class="action-button clickable getstarted-button" ng-show="!loggedIn">Get Started</div>
+    </div>
 
     <div class="action-button clickable" ng-show="loggedIn" ng-click="signOut()">Log Out</div>
 
     <div class="header-links clickable" ng-show="loggedIn" ng-click="go('/dashboard')">
-        Welcome, <span style="font-family: Roboto-Regular, sans-serif;">{{ user.name }}</span> &nbsp;<i class="fa fa-user-circle" style="color: #AAA;"></i>
+        Welcome,
+        <span style="font-family: Roboto-Regular, sans-serif;">
+            {{ user.name }}
+        </span> &nbsp;
+        <i class="fa fa-user-circle" style="color: #AAA;"></i>
     </div>
 
 </div>
@@ -98,33 +109,12 @@
             <div class="loginTitleContainer">Sign-in to mySchedule</div>
 
             <div class="g-signin2" data-onsuccess="onSignIn"
-                 style="width: 270px; margin: 0 auto; height: 60px; margin-top: 20px;"></div>
+                 style="width: 270px; margin: 0 auto; height: 60px; margin-top: 30px;"></div>
 
-            <div style="width: 100%; box-sizing: border-box; padding: 20px 100px 20px 100px; color: #AAA; font-family: Roboto-Light">
+            <div style="width: 100%; box-sizing: border-box; padding: 20px 100px 20px 100px;  margin-top: 30px; color: #AAA;">
                 We'll help you register if you don't have an account.
             </div>
         </div>
-
-        <div class="registerPanel" ng-show="requireRegister"
-             style="z-index: 999; position: relative; text-align: center">
-            <div class="loginTitleContainer">Sign-in up for mySchedule</div>
-
-            <input class="inputBox" type="text" placeholder="Name" ng-model="user.name"><br>
-            <input class="inputBox" type="email" style="background: rgba(255,255,255,.5)" placeholder="Email"
-                   ng-model="user.email" disabled><br>
-            <input class="inputBox" type="text" placeholder="Phone" maxlength="10" ng-model="user.phoneNo"><br>
-            <br>
-
-            <select class="inputBox clickable" ng-model="user.community">
-                <option disabled selected>Select a Community</option>
-                <option ng-repeat="community in communities" value="{{community.__id}}">{{ community.name }}</option>
-            </select> <br>
-
-            <div class="action-button clickable" ng-click="register()"
-                 style="margin: 0 auto; float: unset; margin-top: 15px; padding: 15px 25px 15px 25px;">Continue
-            </div>
-        </div>
-
 
     </div>
 

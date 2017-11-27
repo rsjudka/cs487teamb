@@ -1,87 +1,87 @@
 [
-    {
-        "professor": "Wu-Hon Francis Leung",
-        "rating": 2.6,
-        "difficulty": 3.4
-    },
-    {
-        "professor": "James T Sasaki",
-        "rating": 2.8,
-        "difficulty": 3.1
-    },
-    {
-        "professor": "Jesus Miranda",
-        "rating": 3.8,
-        "difficulty": 2.1
-    },
-    {
-        "professor": "Mahima Saxena",
-        "rating": 3.4,
-        "difficulty": 2.6
-    },
-    {
-        "professor": "Kristina Bauer",
-        "rating": 3.7,
-        "difficulty": 3.5
-    },
-    {
-        "professor": "Andrew J Roback",
-        "rating": 4.0,
-        "difficulty": 2.0
-    },
-    {
-        "professor": "Dennis J Hood",
-        "rating": 2.4,
-        "difficulty": 3.3
-    },
-    {
-        "professor": "Jon Hanrath",
-        "rating": 4.6,
-        "difficulty": 2.0
-    },
-    {
-        "professor": "John Korah",
-        "rating": 3.0,
-        "difficulty": 3.0
-    },
-    {
-        "professor": "Rajkumar Venka Pandiyampalayam",
-        "rating": 2.5,
-        "difficulty": 2.5
-    },
-    {
-        "professor": "Matthew J Bauer",
-        "rating": 4.0,
-        "difficulty": 2.7
-    },
-    {
-        "professor": "Michael Kamol Saelee",
-        "rating": 4.3,
-        "difficulty": 3.2
-    },
-    {
-        "professor": "Kyle C Hale",
-        "rating": 5.0,
-        "difficulty": 4.2
-    },
-    {
-        "professor": "Omar Aldawud",
-        "rating": 2.4,
-        "difficulty": 2.5
-    },
-    {
-        "professor": "Edward M Reingold",
-        "rating": 3.0,
-        "difficulty": 4.4
-    },
-    {
-        "professor": "Vijay K Gurbani",
-        "rating": 4.5,
-        "difficulty": 2.7
-    },
-    {
-        "professor": "Xin Chen",
-        "rating": 5.0,
-        "difficulty": 1.5
-    }
+  {
+    "professor": "Wu-Hon Francis Leung",
+    "rating": 2.6,
+    "difficulty": 3.4
+  },
+  {
+    "professor": "James T Sasaki",
+    "rating": 2.8,
+    "difficulty": 3.1
+  },
+  {
+    "professor": "Jesus Miranda",
+    "rating": 3.8,
+    "difficulty": 2.1
+  },
+  {
+    "professor": "Mahima Saxena",
+    "rating": 3.4,
+    "difficulty": 2.6
+  },
+  {
+    "professor": "Kristina Bauer",
+    "rating": 3.7,
+    "difficulty": 3.5
+  },
+  {
+    "professor": "Andrew J Roback",
+    "rating": 4.0,
+    "difficulty": 2.0
+  },
+  {
+    "professor": "Dennis J Hood",
+    "rating": 2.4,
+    "difficulty": 3.3
+  },
+  {
+    "professor": "Jon Hanrath",
+    "rating": 4.6,
+    "difficulty": 2.0
+  },
+  {
+    "professor": "John Korah",
+    "rating": 3.0,
+    "difficulty": 3.0
+  },
+  {
+    "professor": "Rajkumar Venka Pandiyampalayam",
+    "rating": 2.5,
+    "difficulty": 2.5
+  },
+  {
+    "professor": "Matthew J Bauer",
+    "rating": 4.0,
+    "difficulty": 2.7
+  },
+  {
+    "professor": "Michael Kamol Saelee",
+    "rating": 4.3,
+    "difficulty": 3.2
+  },
+  {
+    "professor": "Kyle C Hale",
+    "rating": 5.0,
+    "difficulty": 4.2
+  },
+  {
+    "professor": "Omar Aldawud",
+    "rating": 2.4,
+    "difficulty": 2.5
+  },
+  {
+    "professor": "Edward M Reingold",
+    "rating": 3.0,
+    "difficulty": 4.4
+  },
+  {
+    "professor": "Vijay K Gurbani",
+    "rating": 4.5,
+    "difficulty": 2.7
+  },
+  {
+    "professor": "Xin Chen",
+    "rating": 5.0,
+    "difficulty": 1.5
+  }
 ]
