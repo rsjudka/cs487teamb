@@ -62,12 +62,14 @@ myScheduleApp.angular.controller('myScheduleController', function ($firebaseObje
             $scope.overlays = {
                 viewSchedules: 0,
                 viewDrafts: 1,
-                scheduleWizard: 2
+                scheduleWizard: 2,
+                selectClasses: 3
             };
 
             $scope.overlayShow = {
                 overlay: false,
                 pages: [
+                    false,
                     false,
                     false,
                     false

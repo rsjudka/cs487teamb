@@ -168,8 +168,8 @@
 
     <div class="name-container animated fadeIn">
         <div style="float: left;">
-            <div class="savedTime animated fadeInLeft">Last Saved: {{ currentSchedule.timeSaved | date:'hh:mm:ss a on
-                MM/dd/yyyy' }}
+            <div class="savedTime animated fadeInLeft">
+                Last Saved: {{ currentSchedule.timeSaved | date:'hh:mm:ss a on dd/MM/yyyy' }}
             </div>
             <div class="schedule-name animated fadeInLeft">
                 <input class="schedule-name-input" placeholder="Untitled Schedule"
@@ -198,7 +198,7 @@
                     class="fa fa-refresh"></i>&nbsp;
                 Reset
             </div>
-            <div class="action-bar-button animated fadeInLeft" ng-click="showOverlay(overlays.scheduleWizard)"
+            <div class="action-bar-button animated fadeInLeft" ng-click="showOverlay(overlays.selectClasses)"
                  style="animation-delay: .2s;"><i class="fa fa-magic"></i>&nbsp;
                 Schedule Wizard
             </div>
@@ -411,7 +411,7 @@
 
         <div ng-show="overlayShow.pages[overlays.scheduleWizard]">
             <div class="overlayTitleBar">
-                <div class="overlayTitle">Schedule Wizard</div>
+                <div class="overlayTitle">Schedule Wizard (Step 2)</div>
                 <div class="overlayClose">
                     <i class="fa fa-close" ng-click="closeOverlay()"></i>
                 </div>
@@ -523,6 +523,25 @@
             </div>
         </div>
 
+        <div ng-show="overlayShow.pages[overlays.selectClasses]">
+            <div class="overlayTitleBar">
+                <div class="overlayTitle">Schedule Wizard (Step 1)</div>
+                <div class="overlayClose">
+                    <i class="fa fa-close" ng-click="closeOverlay()"></i>
+                </div>
+            </div>
+            <div class="overlayContent">
+                <div class="wizard-question">Select classes you're interested in </div>
+
+
+                <div class="action-button generateButton clickable" style="color: #AAA; background: #FFF;"
+                     ng-click="closeOverlay()">Cancel
+                </div>
+                <div class="action-button generateButton clickable" style="background: #67BC88"
+                     ng-click="showOverlay(overlays.scheduleWizard)">Next
+                </div>
+            </div>
+        </div>
     </div>
 
 
