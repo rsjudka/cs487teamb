@@ -1111,4 +1111,8 @@ function compareTimes(current, chosen) {
     return false;
 }
 
+function sortClasses(chosenClasses, params) {
+    console.log("here we will include priorities");
+}
+
 var generatedSchedule = generateSchedule(requiredClasses, optionalClasses, params);
