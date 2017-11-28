@@ -61,15 +61,24 @@ myScheduleApp.angular.controller('myScheduleController', function ($firebaseObje
 
             $scope.overlays = {
                 viewSchedules: 0,
-                viewDrafts: 1
+                viewDrafts: 1,
+                scheduleWizard: 2
             };
 
             $scope.overlayShow = {
                 overlay: false,
                 pages: [
                     false,
+                    false,
                     false
                 ]
+            };
+
+            $scope.wizardParams = {
+                credits: null,
+                difficulty: null,
+                times: [false, false, false, false, false],
+                optimize: [false, false, false, false, false]
             };
 
             $scope.requireRegister = false;
@@ -78,6 +87,31 @@ myScheduleApp.angular.controller('myScheduleController', function ($firebaseObje
             $scope.currentPageName = null;
             $scope.alertMessage = false;
             $scope.pullMenu = false;
+        };
+
+        $scope.generateSchedule = function(){
+            console.log($scope.wizardParams);
+        };
+
+        $scope.getColor = function(item, index){
+            if(item===index) return " selectdOption";
+            else return "";
+        };
+
+        $scope.updateOptimize = function (index) {
+            $scope.wizardParams.optimize[index] = !$scope.wizardParams.optimize[index];
+        };
+
+        $scope.updateDifficulty = function (index) {
+            $scope.wizardParams.difficulty = index;
+        };
+
+        $scope.updateCredits = function (index) {
+            $scope.wizardParams.credits = index;
+        };
+
+        $scope.updateTimes = function (index) {
+            $scope.wizardParams.times[index] = !$scope.wizardParams.times[index];
         };
 
         $scope.showOverlay = function (overlay) {
@@ -574,7 +608,7 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
                     $scope.go("schedules");
                 });
             });
-        }else{
+        } else {
             $scope.go("schedules");
         }
     };
