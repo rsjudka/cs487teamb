@@ -386,6 +386,7 @@
             background: white;
             box-sizing: border-box;
             padding: 50px;
+            overflow: auto;
         }
 
         .optimize-option {
@@ -547,21 +548,36 @@
                 </div>
             </div>
             <div class="overlayContent">
-                <div class="wizard-question">Select classes you're interested in</div>
 
-                <select multiple ng-model="selectedClasses" ng-options="myclass.subject + ' ' + myclass.course for myclass in classes" class="class-select">
-                    <!--<option ng-repeat="class in classes" class="class-select-option">
-                        {{ class.subject + " " + class.course }} [{{ class.title }}]
-                    </option>-->
-                </select>
+                <div style="float: left">
 
-                <br><br>
+                    <div class="wizard-question">Select classes you're interested in</div>
 
-                <div class="action-button generateButton clickable" style="color: #AAA; background: #FFF;"
-                     ng-click="closeOverlay()">Cancel
+
+                    <select multiple ng-model="selectedClasses"
+                            ng-options="myclass.subject + ' ' + myclass.course + ' [' + myclass.title + ']' for myclass in classes"
+                            class="class-select">
+                    </select>
+
+                    <br><br>
+
+                    <div class="action-button generateButton clickable" style="color: #AAA; background: #FFF;"
+                         ng-click="closeOverlay()">Cancel
+                    </div>
+                    <div class="action-button generateButton clickable" style="background: #67BC88"
+                         ng-click="showOverlay(overlays.scheduleWizard); test();">Next
+                    </div>
                 </div>
-                <div class="action-button generateButton clickable" style="background: #67BC88"
-                     ng-click="showOverlay(overlays.scheduleWizard); test();">Next
+
+                <div class="optimizationBox">
+                    <div style="font-size: 30px; font-family: Roboto-Thin;">Selected Classes</div>
+                    <br>
+
+                    <div ng-repeat="selectedClass in selectedClasses" style="width: 100%; margin-top: 15px;">
+                        <span style="font-size: 12px;">{{ selectedClass.subject + " " + selectedClass.course }}</span> <br>
+                        <span style="font-family: Roboto-Regular, sans-serif; color: steelblue;">{{ selectedClass.title }}</span>
+                    </div>
+
                 </div>
             </div>
         </div>

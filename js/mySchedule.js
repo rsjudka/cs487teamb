@@ -12,6 +12,17 @@ var myScheduleApp = {
 };
 
 
+function makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 8; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
+
+
 myScheduleApp.angular.config(["$locationProvider", function ($locationProvider) {
     //$locationProvider.html5Mode(true);
 }]);
@@ -265,6 +276,30 @@ myScheduleApp.angular.controller('scheduleController', function ($scope, store, 
         $scope.getSchedules();
     };
 
+
+    $scope.deleteSavedSchedule = function (sid) {
+
+
+        var schedulesRef = firebase.database().ref().child("schedules");
+        schedulesRef.once('value', function (snap) {
+            snap.forEach(function (childSnap) {
+                if (schedule.sid === sid) {
+                    schedulesRef.child(childSnap.key).remove();
+                    $scope.init();
+                }
+            });
+        });
+
+        console.log("Schedule Removed");
+
+
+        $scope.safeApply(function () {
+            $scope.showAlert("Schedule deleted", 3000);
+
+        });
+    };
+
+
     $scope.getSchedules = function () {
         var schedulesRef = firebase.database().ref().child("schedules");
         schedulesRef.once('value', function (snap) {
@@ -316,6 +351,12 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
         };
 
         $scope.currentSchedule = {
+            name: "Untitled Schedule",
+            creditHours: 0,
+            timeSaved: "Not Saved"
+        };
+
+        /* $scope.currentSchedule = {
             name: "Untitled Schedule",
             creditHours: 0,
             timeSaved: "Not Saved",
@@ -449,7 +490,7 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
                 }
             ],
             saturday: []
-        };
+        };*/
 
         $scope.colors = [
             {background: "#EE534F", color: "#FFFFFF"},
@@ -476,7 +517,7 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
 
         $scope.selectedClasses = [];
 
-        $scope.processSchedule();
+        //$scope.processSchedule();
 
         $http.get('data/classes.json')
             .then(function (response) {
@@ -610,6 +651,7 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
 
     $scope.saveSchedule = function () {
         $scope.currentSchedule.timeSaved = new Date();
+        $scope.currentSchedule.sid = makeid();
         var schedulesRef = firebase.database().ref().child("schedules");
 
         schedulesRef.child($scope.schedulefirebaseToken + "").once('value', function (snap) {

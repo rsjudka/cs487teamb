@@ -361,12 +361,13 @@ html, body {
 }
 
 .scheduleBlock {
-    padding: 20px;
-    height: 80px;
+    padding: 25px;
+    display: inline-block;
     float: top;
     box-sizing: border-box;
     width: 500px;
     margin-top: 15px;
-    background: #EEE;
     font-size: 20px;
+    border: 1px solid #EEE;
+    border-radius: 10px;
 }
