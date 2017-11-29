@@ -90,7 +90,7 @@
     "difficulty": 4.0
   },
   {
-    "professor": "Arthur R. Lubin",
+    "professor": "Arthur R Lubin",
     "rating": 3.0,
     "difficulty": 3.6
   },
@@ -138,5 +138,10 @@
     "professor": "Limia Shunia",
     "rating": 2.5,
     "difficulty": 2.5
+  },
+  {
+    "professor": "Val J Martin",
+    "rating": 2.7,
+    "difficulty": 2.0
   }
 ]
