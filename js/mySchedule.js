@@ -70,6 +70,13 @@ myScheduleApp.angular.controller('myScheduleController', function ($firebaseObje
                 community: null
             };
 
+            $scope.currentSchedule = {
+                name: "Untitled Schedule",
+                creditHours: 0,
+                timeSaved: "Not Saved"
+            };
+
+
             $scope.overlays = {
                 viewSchedules: 0,
                 viewDrafts: 1,
@@ -93,6 +100,24 @@ myScheduleApp.angular.controller('myScheduleController', function ($firebaseObje
             $scope.currentPageName = null;
             $scope.alertMessage = false;
             $scope.pullMenu = false;
+        };
+
+        $scope.resetOverlays = function(){
+            $scope.overlayShow = {
+                overlay: false,
+                pages: [
+                    false,
+                    false,
+                    false,
+                    false
+                ]
+            };
+        };
+
+        $scope.viewSavedSchedule = function(schedule){
+            $scope.currentSchedule = schedule;
+            $scope.resetOverlays();
+            $scope.go('newSchedule');
         };
 
         $scope.getColor = function (item, index) {
@@ -278,8 +303,6 @@ myScheduleApp.angular.controller('scheduleController', function ($scope, store, 
 
 
     $scope.deleteSavedSchedule = function (sid) {
-
-
         var schedulesRef = firebase.database().ref().child("schedules");
         schedulesRef.once('value', function (snap) {
             snap.forEach(function (childSnap) {
@@ -291,14 +314,11 @@ myScheduleApp.angular.controller('scheduleController', function ($scope, store, 
         });
 
         console.log("Schedule Removed");
-
-
         $scope.safeApply(function () {
             $scope.showAlert("Schedule deleted", 3000);
 
         });
     };
-
 
     $scope.getSchedules = function () {
         var schedulesRef = firebase.database().ref().child("schedules");
@@ -348,12 +368,6 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
             difficulty: null,
             times: [false, false, false, false, false],
             optimize: [false, false, false, false, false]
-        };
-
-        $scope.currentSchedule = {
-            name: "Untitled Schedule",
-            creditHours: 0,
-            timeSaved: "Not Saved"
         };
 
         /* $scope.currentSchedule = {
@@ -701,6 +715,11 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
         $scope.currentSchedule.timeSaved = "Not Saved";
         $scope.go("/schedules");
 
+        $scope.currentSchedule = {
+            name: "Untitled Schedule",
+            creditHours: 0,
+            timeSaved: "Not Saved"
+        };
 
         $scope.safeApply(function () {
             $scope.showAlert("Schedule deleted", 3000);
