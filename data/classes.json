@@ -2,6 +2,7 @@
   {
     "subject": "COM",
     "course": 421,
+    "title": "Technical Communication",
     "sections": [
       {
         "CRN": 21008,
@@ -30,6 +31,7 @@
   {
     "subject": "CS",
     "course": 115,
+    "title": "Object-Oriented Programming I",
     "sections": [
       {
         "CRN": 20024,
@@ -78,6 +80,7 @@
   {
     "subject": "CS",
     "course": 116,
+    "title": "Object-Oriented Programming II",
     "sections": [
       {
         "CRN": 29929,
@@ -124,6 +127,7 @@
   {
     "subject": "CS",
     "course": 330,
+    "title": "Discrete Structures",
     "sections": [
       {
         "CRN": 20030,
@@ -172,6 +176,7 @@
   {
     "subject": "CS",
     "course": 331,
+    "title": "Data Structures and Algorithms",
     "sections": [
       {
         "CRN": 20031,
@@ -262,6 +267,7 @@
   {
     "subject": "CS",
     "course": 350,
+    "title": "Computer Organization and Assembly Language Programming",
     "sections": [
       {
         "CRN": 20033,
@@ -310,6 +316,7 @@
   {
     "subject": "CS",
     "course": 351,
+    "title": "Systems Programming",
     "sections": [
       {
         "CRN": 20034,
@@ -358,6 +365,7 @@
   {
     "subject": "CS",
     "course": 422,
+    "title": "Data Mining",
     "sections": [
       {
         "CRN": 28859,
@@ -406,6 +414,7 @@
   {
     "subject": "CS",
     "course": 425,
+    "title": "Database Organization",
     "sections": [
       {
         "CRN": 20044,
@@ -433,6 +442,7 @@
   {
     "subject": "CS",
     "course": 429,
+    "title": "Information Retrieval",
     "sections": [
       {
         "CRN": 24124,
@@ -481,6 +491,7 @@
   {
     "subject": "CS",
     "course": 430,
+    "title": "Introduction to Algorithms",
     "sections": [
       {
         "CRN": 20047,
@@ -529,6 +540,7 @@
   {
     "subject": "CS",
     "course": 485,
+    "title": "Computers and Society",
     "sections": [
       {
         "CRN": 20068,
@@ -579,6 +591,7 @@
   {
     "subject": "CS",
     "course": 440,
+    "title": "Programming Languages and Translators",
     "sections": [
       {
         "CRN": 28862,
@@ -607,6 +620,7 @@
   {
     "subject": "CS",
     "course": 450,
+    "title": "Operating Systems",
     "sections": [
       {
         "CRN": 20059,
@@ -657,6 +671,7 @@
   {
     "subject": "CS",
     "course": 487,
+    "title": "Software Engineering",
     "sections": [
       {
         "CRN": 20069,
@@ -729,6 +744,7 @@
   {
     "subject": "CS",
     "course": 513,
+    "title": "Geospatial Vision and Visualization",
     "sections": [
       {
         "CRN": 27388,
@@ -754,8 +770,38 @@
     ]
   },
   {
+    "subject": "CHEM",
+    "course": 122,
+    "title": "Principles of Chemistry I Without Laboratory",
+    "sections": [
+      {
+        "CRN": 20001,
+        "section": "01",
+        "location": "MC",
+        "credits": 3,
+        "timeSlots": {
+          "Sunday": [],
+          "Monday": [
+            0
+          ],
+          "Tuesday": [],
+          "Wednesday": [
+            0
+          ],
+          "Thursday": [],
+          "Friday": [],
+          "Saturday": []
+        },
+        "classType": "normal",
+        "requires": null,
+        "professor": "David Minh"
+      }
+    ]
+  },
+  {
     "subject": "HIST",
     "course": 340,
+    "title": "Rise of Global Economy",
     "sections": [
       {
         "CRN": 25560,
@@ -784,6 +830,7 @@
   {
     "subject": "MATH",
     "course": 251,
+    "title": "Multivariate and Vector Calculus",
     "sections": [
       {
         "CRN": 20164,
@@ -812,8 +859,222 @@
     ]
   },
   {
+    "subject": "MATH",
+    "course": 333,
+    "title": "Matrix Algebra and Complex Variables",
+    "sections": [
+      {
+        "CRN": 20619,
+        "section": "01",
+        "location": "MC",
+        "credits": 3,
+        "timeSlots": {
+          "Sunday": [],
+          "Monday": [
+            2
+          ],
+          "Tuesday": [],
+          "Wednesday": [
+            2
+          ],
+          "Thursday": [],
+          "Friday": [],
+          "Saturday": []
+        },
+        "classType": "normal",
+        "requires": null,
+        "professor": "Arthur R. Lubin"
+      },
+      {
+        "CRN": 29496,
+        "section": "02",
+        "location": "MC",
+        "credits": 3,
+        "timeSlots": {
+          "Sunday": [],
+          "Monday": [
+            6
+          ],
+          "Tuesday": [],
+          "Wednesday": [
+            6
+          ],
+          "Thursday": [],
+          "Friday": [],
+          "Saturday": []
+        },
+        "classType": "normal",
+        "requires": null,
+        "professor": "Arthur R. Lubin"
+      }
+    ]
+  },
+  {
+    "subject": "MATH",
+    "course": 474,
+    "title": "Probability and Statistics",
+    "sections": [
+      {
+        "CRN": 20171,
+        "section": "01",
+        "location": "MC",
+        "credits": 3,
+        "timeSlots": {
+          "Sunday": [],
+          "Monday": [],
+          "Tuesday": [
+            0
+          ],
+          "Wednesday": [],
+          "Thursday": [
+            0
+          ],
+          "Friday": [],
+          "Saturday": []
+        },
+        "classType": "normal",
+        "requires": null,
+        "professor": "Despina Stasi"
+      }
+    ]
+  },
+  {
+    "subject": "PHYS",
+    "course": 221,
+    "title": "General Physics II: Electricity and Magnetism",
+    "sections": [
+      {
+        "CRN": 20204,
+        "section": "01",
+        "location": "MC",
+        "credits": 4,
+        "timeSlots": {
+          "Sunday": [],
+          "Monday": [
+            3
+          ],
+          "Tuesday": [],
+          "Wednesday": [
+            3
+          ],
+          "Thursday": [],
+          "Friday": [],
+          "Saturday": []
+        },
+        "classType": "normal",
+        "requires": 20205,
+        "professor": "Alan Glodowski"
+      },
+      {
+        "CRN": 20208,
+        "section": "02",
+        "location": "MC",
+        "credits": 4,
+        "timeSlots": {
+          "Sunday": [],
+          "Monday": [],
+          "Tuesday": [
+            3
+          ],
+          "Wednesday": [],
+          "Thursday": [
+            3
+          ],
+          "Friday": [],
+          "Saturday": []
+        },
+        "classType": "normal",
+        "requires": 20207,
+        "professor": "Yagmur Torun"
+      },
+      {
+        "CRN": 28210,
+        "section": "03",
+        "location": "MC",
+        "credits": 4,
+        "timeSlots": {
+          "Sunday": [],
+          "Monday": [],
+          "Tuesday": [
+            2
+          ],
+          "Wednesday": [],
+          "Thursday": [
+            2
+          ],
+          "Friday": [],
+          "Saturday": []
+        },
+        "classType": "normal",
+        "requires": 28211,
+        "professor": "Pavel Snopok"
+      },
+      {
+        "CRN": 20205,
+        "section": "L01",
+        "location": "MC",
+        "credits": 0,
+        "timeSlots": {
+          "Sunday": [],
+          "Monday": [],
+          "Tuesday": [
+            0,1
+          ],
+          "Wednesday": [],
+          "Thursday": [],
+          "Friday": [],
+          "Saturday": []
+        },
+        "classType": "normal",
+        "requires": 20204,
+        "professor": "Alan Glodowski"
+      },
+      {
+        "CRN": 20207,
+        "section": "L04",
+        "location": "MC",
+        "credits": 0,
+        "timeSlots": {
+          "Sunday": [],
+          "Monday": [],
+          "Tuesday": [],
+          "Wednesday": [
+            6,7
+          ],
+          "Thursday": [],
+          "Friday": [],
+          "Saturday": []
+        },
+        "classType": "normal",
+        "requires": 20208,
+        "professor": "Yagmur Torun"
+      },
+      {
+        "CRN": 28211,
+        "section": "L05",
+        "location": "MC",
+        "credits": 0,
+        "timeSlots": {
+          "Sunday": [],
+          "Monday": [],
+          "Tuesday": [],
+          "Wednesday": [
+            0,1
+          ],
+          "Thursday": [],
+          "Friday": [],
+          "Saturday": []
+        },
+        "classType": "normal",
+        "requires": 28210,
+        "professor": "Pavel Snopok"
+      }
+    ]
+  },
+  {
     "subject": "PSYC",
     "course": 301,
+    "title": "Industrial Psychology",
     "sections": [
       {
         "CRN": 20953,
@@ -880,6 +1141,120 @@
         "classType": "normal",
         "requires": null,
         "professor": "Kristina Bauer"
+      }
+    ]
+  },
+  {
+    "subject": "BIOL",
+    "course": 426,
+    "title": "Concepts of Cancer Biology",
+    "sections": [
+      {
+        "CRN": 29926,
+        "section": "01",
+        "location": "MC",
+        "credits": 4,
+        "timeSlots": {
+          "Sunday": [],
+          "Monday": [],
+          "Tuesday": [],
+          "Wednesday": [],
+          "Thursday": [],
+          "Friday": [
+            5,6
+          ],
+          "Saturday": []
+        },
+        "classType": "normal",
+        "requires": null,
+        "professor": "Genoveva Murillo"
+      }
+    ]
+  },
+  {
+    "subject": "IPRO",
+    "course": 397,
+    "title": "Interprofessional by Design",
+    "sections": [
+      {
+        "CRN": 24472,
+        "section": "100",
+        "location": "MC",
+        "credits": 3,
+        "timeSlots": {
+          "Sunday": [],
+          "Monday": [],
+          "Tuesday": [],
+          "Wednesday": [],
+          "Thursday": [
+            3,4
+          ],
+          "Friday": [],
+          "Saturday": []
+        },
+        "classType": "normal",
+        "requires": null,
+        "professor": "Thomas Brandenburg"
+      },
+      {
+        "CRN": 24473,
+        "section": "200",
+        "location": "MC",
+        "credits": 3,
+        "timeSlots": {
+          "Sunday": [],
+          "Monday": [],
+          "Tuesday": [],
+          "Wednesday": [],
+          "Thursday": [],
+          "Friday": [
+            1,2
+          ],
+          "Saturday": []
+        },
+        "classType": "normal",
+        "requires": null,
+        "professor": "James Braband"
+      },
+      {
+        "CRN": 26746,
+        "section": "300",
+        "location": "MC",
+        "credits": 3,
+        "timeSlots": {
+          "Sunday": [],
+          "Monday": [],
+          "Tuesday": [],
+          "Wednesday": [],
+          "Thursday": [],
+          "Friday": [
+            1,2
+          ],
+          "Saturday": []
+        },
+        "classType": "normal",
+        "requires": null,
+        "professor": "Kristina Bauer"
+      },
+      {
+        "CRN": 27365,
+        "section": "500",
+        "location": "MC",
+        "credits": 3,
+        "timeSlots": {
+          "Sunday": [],
+          "Monday": [],
+          "Tuesday": [
+            3,4
+          ],
+          "Wednesday": [],
+          "Thursday": [],
+          "Friday": [],
+          "Saturday": []
+        },
+        "classType": "normal",
+        "requires": null,
+        "professor": "Limia Shunia"
       }
     ]
   }
