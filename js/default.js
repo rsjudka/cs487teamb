@@ -1,12 +1,9 @@
 function generateSchedule(classes, professors, params) {
     var sortedClasses = sortTimes(classes, params);
-    //sortOtherParams(sortedClasses, professors, params);
-    // console.log(sortedClasses);
+    sortOtherParams(sortedClasses, professors, params);
     var scheduleData = addClasses(sortedClasses, params, totalCredits);
     var classList = scheduleData[0];
     var totalCredits = scheduleData[1];
-    // console.log(classList);
-    // console.log(totalCredits);
 
     var finalSchedule = createSchedule(classList, totalCredits);
     console.log(finalSchedule);
@@ -287,10 +284,10 @@ function sortTimes(classes, params) {
         for (var j = 0; j < ac[i]['sections'].length; j++) {
             var section = ac[i]['sections'][j];
             if (!(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {                
-                sortedClasses.push([createClass(tmpAC[i], section), 0]);
+                sortedClasses.push([createClass(ac[i], section), 0]);
                 if (section['requires'] != null) {
                     requiredSection = findRequired(ac[i], section['requires']);
-                    sortedClasses.push([createClass(tmpAC[i], requiredSection), 0]);
+                    sortedClasses.push([createClass(ac[i], requiredSection), 0]);
                 } 
             }  
         }
