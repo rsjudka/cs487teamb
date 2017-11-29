@@ -1,12 +1,11 @@
 function generateSchedule(classes, professors, params) {
     var sortedClasses = sortTimes(classes, params);
-    sortOtherParams(sortedClasses, professors, params);
+    //sortOtherParams(sortedClasses, professors, params);
     var scheduleData = addClasses(sortedClasses, params, totalCredits);
     var classList = scheduleData[0];
     var totalCredits = scheduleData[1];
 
     var finalSchedule = createSchedule(classList, totalCredits);
-    console.log(finalSchedule);
     return finalSchedule;
 }
 
@@ -177,7 +176,7 @@ function sortTimes(classes, params) {
                 for (day in section['timeSlots']) {
                     dayArr = section['timeSlots'][day];
                     for (var d = 0; d < dayArr.length; d++) {
-                        if (dayArr[d] < 3 && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
+                        if (dayArr[d] <= 1 && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
                             timesOption = true;
                         }
                         else {
@@ -205,7 +204,7 @@ function sortTimes(classes, params) {
                 for (day in section['timeSlots']) {
                     dayArr = section['timeSlots'][day];
                     for (var d = 0; d < dayArr.length; d++) {
-                        if ((dayArr[d] > 2 && dayArr[d] < 5) && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
+                        if ((dayArr[d] >= 2 && dayArr[d] <= 3) && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
                             timesOption = true;
                         }
                         else {
@@ -233,7 +232,7 @@ function sortTimes(classes, params) {
                 for (day in section['timeSlots']) {
                     dayArr = section['timeSlots'][day];
                     for (var d = 0; d < dayArr.length; d++) {
-                        if ((dayArr[d] > 4 && dayArr[d] < 7) && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
+                        if ((dayArr[d] >= 4 && dayArr[d] <= 5) && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
                             timesOption = true;
                         }
                         else {
@@ -261,7 +260,7 @@ function sortTimes(classes, params) {
                 for (day in section['timeSlots']) {
                     dayArr = section['timeSlots'][day];
                     for (var d = 0; d < dayArr.length; d++) {
-                        if (dayArr[d] > 6 && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
+                        if (dayArr[d] >= 6 && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
                             timesOption = true;
                         }
                         else {
