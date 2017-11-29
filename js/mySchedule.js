@@ -317,7 +317,7 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
 
         $scope.currentSchedule = {
             name: "Untitled Schedule",
-            credits: 0,
+            creditHours: 0,
             timeSaved: "Not Saved",
             userToken: $scope.user.token,
             sunday: [],
@@ -480,7 +480,7 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
 
         $http.get('data/classes.json')
             .then(function (response) {
-                $scope.safeApply(function(){
+                $scope.safeApply(function () {
                     $scope.classes = response.data;
                     //console.log($scope.classes);
                 });
@@ -488,14 +488,14 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
 
         $http.get('data/professors.json')
             .then(function (response) {
-                $scope.safeApply(function(){
+                $scope.safeApply(function () {
                     $scope.professors = response.data;
                     //console.log($scope.professors);
                 });
             });
     };
 
-    $scope.test = function(){
+    $scope.test = function () {
         console.log($scope.selectedClasses);
     };
 
@@ -668,6 +668,7 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
     $scope.processSchedule = function () {
 
         $scope.myClasses = [];
+        $scope.creditClasses = [];
 
         $scope.iterateTimes($scope.currentSchedule.sunday, $scope.myClasses);
         $scope.iterateTimes($scope.currentSchedule.monday, $scope.myClasses);
