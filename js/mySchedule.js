@@ -76,13 +76,6 @@ myScheduleApp.angular.controller('myScheduleController', function ($firebaseObje
                 ]
             };
 
-            $scope.wizardParams = {
-                credits: null,
-                difficulty: null,
-                times: [false, false, false, false, false],
-                optimize: [false, false, false, false, false]
-            };
-
             $scope.requireRegister = false;
             $scope.loginOverlay = false;
             $scope.loggedIn = false;
@@ -91,29 +84,9 @@ myScheduleApp.angular.controller('myScheduleController', function ($firebaseObje
             $scope.pullMenu = false;
         };
 
-        $scope.generateSchedule = function(){
-            console.log($scope.wizardParams);
-        };
-
-        $scope.getColor = function(item, index){
-            if(item===index) return " selectdOption";
+        $scope.getColor = function (item, index) {
+            if (item === index) return " selectdOption";
             else return "";
-        };
-
-        $scope.updateOptimize = function (index) {
-            $scope.wizardParams.optimize[index] = !$scope.wizardParams.optimize[index];
-        };
-
-        $scope.updateDifficulty = function (index) {
-            $scope.wizardParams.difficulty = index;
-        };
-
-        $scope.updateCredits = function (index) {
-            $scope.wizardParams.credits = index;
-        };
-
-        $scope.updateTimes = function (index) {
-            $scope.wizardParams.times[index] = !$scope.wizardParams.times[index];
         };
 
         $scope.showOverlay = function (overlay) {
@@ -334,6 +307,14 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
             $scope.user = myUser;
         }
 
+
+        $scope.wizardParams = {
+            credits: null,
+            difficulty: null,
+            times: [false, false, false, false, false],
+            optimize: [false, false, false, false, false]
+        };
+
         $scope.currentSchedule = {
             name: "Untitled Schedule",
             credits: 0,
@@ -493,7 +474,61 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
 
         myScheduleApp.currentPage = myScheduleApp.pages.newSchedule;
 
+        $scope.selectedClasses = [];
+
         $scope.processSchedule();
+
+        $http.get('data/classes.json')
+            .then(function (response) {
+                $scope.safeApply(function(){
+                    $scope.classes = response.data;
+                    //console.log($scope.classes);
+                });
+            });
+
+        $http.get('data/professors.json')
+            .then(function (response) {
+                $scope.safeApply(function(){
+                    $scope.professors = response.data;
+                    //console.log($scope.professors);
+                });
+            });
+    };
+
+    $scope.test = function(){
+        console.log($scope.selectedClasses);
+    };
+
+    $scope.updateOptimize = function (index) {
+        $scope.wizardParams.optimize[index] = !$scope.wizardParams.optimize[index];
+    };
+
+    $scope.updateDifficulty = function (index) {
+        $scope.wizardParams.difficulty = index;
+    };
+
+    $scope.updateCredits = function (index) {
+        $scope.wizardParams.credits = index;
+    };
+
+    $scope.updateTimes = function (index) {
+        $scope.wizardParams.times[index] = !$scope.wizardParams.times[index];
+    };
+
+
+    $scope.generateSchedule = function () {
+        console.log($scope.wizardParams);
+        //console.log();
+
+        $scope.closeOverlay();
+        $scope.currentSchedule = generateSchedule($scope.selectedClasses, $scope.professors, $scope.wizardParams);
+        console.log($scope.currentSchedule);
+        $scope.processSchedule();
+        console.log($scope.currentSchedule);
+
+        $scope.currentSchedule.timeSaved = "Not Saved";
+        $scope.currentSchedule.userToken = $scope.user.token;
+
     };
 
     $scope.iterateTimes = function (day, classes) {
@@ -540,9 +575,11 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
             }
         }
 
+        console.log(day);
+
         // SORT ACCORDING TO TIMESLOT POSITION
-        for (var i = 0; i < 7 - 1; i++) {
-            for (var j = 0; j < 7 - i - 1; j++) {
+        for (var i = 0; i < day.length - 1; i++) {
+            for (var j = 0; j < day.length - i - 1; j++) {
                 var timeSlotCompare1, timeSlotCompare2;
 
                 if (day[j].timeSlot.length > 1) timeSlotCompare1 = day[j].timeSlot[0];
@@ -559,7 +596,7 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
             }
         }
 
-        console.log("Empty Slots: ", slots);
+        //console.log("Empty Slots: ", slots);
     };
 
     $scope.iterateColors = function (day) {
@@ -648,7 +685,7 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
         $scope.iterateColors($scope.currentSchedule.friday, $scope.myClasses);
         $scope.iterateColors($scope.currentSchedule.saturday, $scope.myClasses);
 
-        console.log($scope.myClasses);
+        //console.log($scope.myClasses);
     };
 
     $scope.getTimeSlot = function (myClass) {

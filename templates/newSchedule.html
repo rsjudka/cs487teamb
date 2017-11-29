@@ -523,6 +523,22 @@
             </div>
         </div>
 
+        <style>
+            .class-select {
+                width: 500px;
+                outline: none;
+                border: 0;
+                height: 400px;
+            }
+
+            .class-select > option {
+                height: 40px;
+                box-sizing: border-box;
+                padding: 10px;
+            }
+        </style>
+
+
         <div ng-show="overlayShow.pages[overlays.selectClasses]">
             <div class="overlayTitleBar">
                 <div class="overlayTitle">Schedule Wizard (Step 1)</div>
@@ -531,14 +547,21 @@
                 </div>
             </div>
             <div class="overlayContent">
-                <div class="wizard-question">Select classes you're interested in </div>
+                <div class="wizard-question">Select classes you're interested in</div>
 
+                <select multiple ng-model="selectedClasses" ng-options="myclass.subject + ' ' + myclass.course for myclass in classes" class="class-select">
+                    <!--<option ng-repeat="class in classes" class="class-select-option">
+                        {{ class.subject + " " + class.course }} [{{ class.title }}]
+                    </option>-->
+                </select>
+
+                <br><br>
 
                 <div class="action-button generateButton clickable" style="color: #AAA; background: #FFF;"
                      ng-click="closeOverlay()">Cancel
                 </div>
                 <div class="action-button generateButton clickable" style="background: #67BC88"
-                     ng-click="showOverlay(overlays.scheduleWizard)">Next
+                     ng-click="showOverlay(overlays.scheduleWizard); test();">Next
                 </div>
             </div>
         </div>

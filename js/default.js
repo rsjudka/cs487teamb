@@ -10,17 +10,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               3
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               3
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -39,17 +39,17 @@
 //           "location": "MC",
 //           "credits": 2,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               1
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               1
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": 23963,
@@ -61,15 +61,15 @@
 //           "location": "MC",
 //           "credits": 0,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [],
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [
 //               1
 //             ],
-//             "Saturday": []
+//             "saturday": []
 //           },
 //           "classType": "shortened",
 //           "requires": 20024,
@@ -88,15 +88,15 @@
 //           "location": "MC",
 //           "credits": 2,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               5
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "tuesday": [],
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": 29930,
@@ -108,15 +108,15 @@
 //           "location": "MC",
 //           "credits": 0,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               6
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "tuesday": [],
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": 29929,
@@ -135,17 +135,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [
 //               1
 //             ],
-//             "Wednesday": [],
-//             "Thursday": [
+//             "wednesday": [],
+//             "thursday": [
 //               1
 //             ],
-//             "Friday": [],
-//             "Saturday": []
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": 28856,
@@ -157,15 +157,15 @@
 //           "location": "MC",
 //           "credits": 0,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [],
+//             "wednesday": [
 //               1
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "shortened",
 //           "requires": 20030,
@@ -184,17 +184,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               2
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               2
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": 24121,
@@ -206,17 +206,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [],
+//             "wednesday": [
 //               3
 //             ],
-//             "Thursday": [],
-//             "Friday": [
+//             "thursday": [],
+//             "friday": [
 //               3
 //             ],
-//             "Saturday": []
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": 29605,
@@ -228,15 +228,15 @@
 //           "location": "MC",
 //           "credits": 0,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [],
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [
 //               2
 //             ],
-//             "Saturday": []
+//             "saturday": []
 //           },
 //           "classType": "shortened",
 //           "requires": 20031,
@@ -248,15 +248,15 @@
 //           "location": "MC",
 //           "credits": 0,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               3
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "tuesday": [],
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "shortened",
 //           "requires": 28165,
@@ -275,17 +275,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               4
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               4
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": 22642,
@@ -297,15 +297,15 @@
 //           "location": "MC",
 //           "credits": 0,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [],
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [
 //               4
 //             ],
-//             "Saturday": []
+//             "saturday": []
 //           },
 //           "classType": "shortened",
 //           "requires": 20033,
@@ -324,17 +324,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [],
+//             "wednesday": [
 //               4
 //             ],
-//             "Thursday": [],
-//             "Friday": [
+//             "thursday": [],
+//             "friday": [
 //               4
 //             ],
-//             "Saturday": []
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": 23001,
@@ -346,15 +346,15 @@
 //           "location": "MC",
 //           "credits": 0,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               1
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "tuesday": [],
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "shortened",
 //           "requires": 20034,
@@ -373,16 +373,16 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [
 //               6,
 //               7
 //             ],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -394,16 +394,16 @@
 //           "location": "IN",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [
 //               6,
 //               7
 //             ],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -422,16 +422,16 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [],
-//             "Wednesday": [],
-//             "Thursday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [],
+//             "wednesday": [],
+//             "thursday": [
 //               6,
 //               7
 //             ],
-//             "Friday": [],
-//             "Saturday": []
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -450,16 +450,16 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [
 //               5,
 //               6
 //             ],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -471,16 +471,16 @@
 //           "location": "IN",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [
 //               5,
 //               6
 //             ],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -499,17 +499,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               2
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               2
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": 28173,
@@ -521,15 +521,15 @@
 //           "location": "MC",
 //           "credits": 0,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [],
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [
 //               2
 //             ],
-//             "Saturday": []
+//             "saturday": []
 //           },
 //           "classType": "shortened",
 //           "requires": 20047,
@@ -548,17 +548,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               0
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               0
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -570,17 +570,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               2
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               2
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -599,17 +599,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               3
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               3
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -628,17 +628,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               1
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               1
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -650,17 +650,17 @@
 //           "location": "IN",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               1
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               1
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -679,17 +679,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [
 //               1
 //             ],
-//             "Wednesday": [],
-//             "Thursday": [
+//             "wednesday": [],
+//             "thursday": [
 //               1
 //             ],
-//             "Friday": [],
-//             "Saturday": []
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -701,17 +701,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [
 //               3
 //             ],
-//             "Wednesday": [],
-//             "Thursday": [
+//             "wednesday": [],
+//             "thursday": [
 //               3
 //             ],
-//             "Friday": [],
-//             "Saturday": []
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -723,17 +723,17 @@
 //           "location": "IN",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [
 //               3
 //             ],
-//             "Wednesday": [],
-//             "Thursday": [
+//             "wednesday": [],
+//             "thursday": [
 //               3
 //             ],
-//             "Friday": [],
-//             "Saturday": []
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -752,16 +752,16 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [],
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [
 //               6,
 //               7
 //             ],
-//             "Saturday": []
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -780,17 +780,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               0
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               0
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -809,17 +809,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               0
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               0
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -838,19 +838,19 @@
 //           "location": "MC",
 //           "credits": 4,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               3
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               3
 //             ],
-//             "Thursday": [],
-//             "Friday": [
+//             "thursday": [],
+//             "friday": [
 //               3
 //             ],
-//             "Saturday": []
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -869,17 +869,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               2
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               2
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -891,17 +891,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               6
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               6
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -920,17 +920,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [
 //               0
 //             ],
-//             "Wednesday": [],
-//             "Thursday": [
+//             "wednesday": [],
+//             "thursday": [
 //               0
 //             ],
-//             "Friday": [],
-//             "Saturday": []
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -949,17 +949,17 @@
 //           "location": "MC",
 //           "credits": 4,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               3
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               3
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": 20205,
@@ -971,17 +971,17 @@
 //           "location": "MC",
 //           "credits": 4,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [
 //               3
 //             ],
-//             "Wednesday": [],
-//             "Thursday": [
+//             "wednesday": [],
+//             "thursday": [
 //               3
 //             ],
-//             "Friday": [],
-//             "Saturday": []
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": 20207,
@@ -993,17 +993,17 @@
 //           "location": "MC",
 //           "credits": 4,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [
 //               2
 //             ],
-//             "Wednesday": [],
-//             "Thursday": [
+//             "wednesday": [],
+//             "thursday": [
 //               2
 //             ],
-//             "Friday": [],
-//             "Saturday": []
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": 28211,
@@ -1015,15 +1015,15 @@
 //           "location": "MC",
 //           "credits": 0,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [
 //               0,1
 //             ],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": 20204,
@@ -1035,15 +1035,15 @@
 //           "location": "MC",
 //           "credits": 0,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [],
+//             "wednesday": [
 //               6,7
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": 20208,
@@ -1055,15 +1055,15 @@
 //           "location": "MC",
 //           "credits": 0,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [],
+//             "wednesday": [
 //               0,1
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": 28210,
@@ -1082,17 +1082,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               2
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               2
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -1104,17 +1104,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [
+//             "sunday": [],
+//             "monday": [
 //               4
 //             ],
-//             "Tuesday": [],
-//             "Wednesday": [
+//             "tuesday": [],
+//             "wednesday": [
 //               4
 //             ],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -1126,17 +1126,17 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [
 //               4
 //             ],
-//             "Wednesday": [],
-//             "Thursday": [
+//             "wednesday": [],
+//             "thursday": [
 //               4
 //             ],
-//             "Friday": [],
-//             "Saturday": []
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -1155,15 +1155,15 @@
 //           "location": "MC",
 //           "credits": 4,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [],
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [
 //               5,6
 //             ],
-//             "Saturday": []
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -1182,15 +1182,15 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [],
-//             "Wednesday": [],
-//             "Thursday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [],
+//             "wednesday": [],
+//             "thursday": [
 //               3,4
 //             ],
-//             "Friday": [],
-//             "Saturday": []
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -1202,15 +1202,15 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [],
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [
 //               1,2
 //             ],
-//             "Saturday": []
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -1222,15 +1222,15 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [],
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [
 //               1,2
 //             ],
-//             "Saturday": []
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -1242,15 +1242,15 @@
 //           "location": "MC",
 //           "credits": 3,
 //           "timeSlots": {
-//             "Sunday": [],
-//             "Monday": [],
-//             "Tuesday": [
+//             "sunday": [],
+//             "monday": [],
+//             "tuesday": [
 //               3,4
 //             ],
-//             "Wednesday": [],
-//             "Thursday": [],
-//             "Friday": [],
-//             "Saturday": []
+//             "wednesday": [],
+//             "thursday": [],
+//             "friday": [],
+//             "saturday": []
 //           },
 //           "classType": "normal",
 //           "requires": null,
@@ -1371,13 +1371,13 @@ function createSchedule(classList, totalCredits) {
         name: "Untitled Schedule",
         savedTime: "Not Saved",
         creditHours: totalCredits,
-        Sunday: [],
-        Monday: [],
-        Tuesday: [],
-        Wednesday: [],
-        Thursday: [],
-        Friday: [],
-        Saturday: []
+        sunday: [],
+        monday: [],
+        tuesday: [],
+        wednesday: [],
+        thursday: [],
+        friday: [],
+        saturday: []
     };
     for (var i = 0; i < classList.length; i++) {
         var c = classList[i];
@@ -1445,25 +1445,25 @@ function checkTimeConflict(currentSection, chosenClasses) {
     var currentSectionTimes = currentSection['timeSlots'];
     for (var i = 0; i < chosenClasses.length; i++) {
         var chosenClassTimes = chosenClasses[i]['timeSlots'];
-        if (compareTimes(currentSectionTimes['Sunday'], chosenClassTimes['Sunday'])) {
+        if (compareTimes(currentSectionTimes['sunday'], chosenClassTimes['sunday'])) {
             return false;
         }
-        if (compareTimes(currentSectionTimes['Monday'], chosenClassTimes['Monday'])) {
+        if (compareTimes(currentSectionTimes['monday'], chosenClassTimes['monday'])) {
             return false;
         }
-        if (compareTimes(currentSectionTimes['Tuesday'], chosenClassTimes['Tuesday'])) {
+        if (compareTimes(currentSectionTimes['tuesday'], chosenClassTimes['tuesday'])) {
             return false;
         }
-        if (compareTimes(currentSectionTimes['Wednesday'], chosenClassTimes['Wednesday'])) {
+        if (compareTimes(currentSectionTimes['wednesday'], chosenClassTimes['wednesday'])) {
             return false;
         }
-        if (compareTimes(currentSectionTimes['Thursday'], chosenClassTimes['Thursday'])) {
+        if (compareTimes(currentSectionTimes['thursday'], chosenClassTimes['thursday'])) {
             return false;
         }
-        if (compareTimes(currentSectionTimes['Friday'], chosenClassTimes['Friday'])) {
+        if (compareTimes(currentSectionTimes['friday'], chosenClassTimes['friday'])) {
             return false;
         }
-        if (compareTimes(currentSectionTimes['Saturday'], chosenClassTimes['Saturday'])) {
+        if (compareTimes(currentSectionTimes['saturday'], chosenClassTimes['saturday'])) {
             return false;
         }
     }
