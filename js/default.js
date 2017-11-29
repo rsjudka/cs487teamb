@@ -1421,8 +1421,8 @@ var picks = [
 
 function generateSchedule(classes, professors, params) {
     var sortedClasses = sortTimes(classes, params);
-    sortOtherParams(sortedClasses, professors, params);
-    console.log(sortedClasses);
+    //sortOtherParams(sortedClasses, professors, params);
+    // console.log(sortedClasses);
     var scheduleData = addClasses(sortedClasses, params, totalCredits);
     var classList = scheduleData[0];
     var totalCredits = scheduleData[1];
@@ -1487,23 +1487,25 @@ function addClasses(classes, params) {
     var chosenClasses = [];
     var credits = 0;
     for (var i = 0; i < classes.length; i++) {
-        addCredits = credits + classes[i][0]['credits'];
-        if (addCredits <= creditsIdx[params['credits']][1]) {
-            if (classes[i][0]['requires'] == null) {
-                if (checkTimeConflict(classes[i][0], chosenClasses)) {
-                    chosenClasses.push(classes[i][0]);
-                    credits = addCredits;
-                }
-            }
-            else {
-                if (checkTimeConflict(classes[i][0], chosenClasses) && checkTimeConflict(classes[i+1][0], chosenClasses)) {
-                    chosenClasses.push(classes[i][0]);
-                    chosenClasses.push(classes[i+1][0]);
-                    credits = addCredits;
-                }
-                i++;
-            }
-        }
+      if (checkDuplicate(classes[i][0], chosenClasses)) {
+          addCredits = credits + classes[i][0]['credits'];
+          if (addCredits <= creditsIdx[params['credits']][1]) {
+              if (classes[i][0]['requires'] == null) {
+                  if (checkTimeConflict(classes[i][0], chosenClasses)) {
+                      chosenClasses.push(classes[i][0]);
+                      credits = addCredits;
+                  }
+              }
+              else {
+                  if (checkTimeConflict(classes[i][0], chosenClasses) && checkTimeConflict(classes[i+1][0], chosenClasses)) {
+                      chosenClasses.push(classes[i][0]);
+                      chosenClasses.push(classes[i+1][0]);
+                      credits = addCredits;
+                  }
+                  i++;
+              }
+          }
+      }
     }
     return [chosenClasses, credits];
 }
@@ -1531,6 +1533,19 @@ function checkTimeConflict(currentSection, chosenClasses) {
             return false;
         }
         if (compareTimes(currentSectionTimes['saturday'], chosenClassTimes['saturday'])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function checkDuplicate(currentSection, chosenClasses) {
+    var currentSectionSubject = currentSection['subject'];
+    var currentSectionCourse = currentSection['course'];
+    for (var i = 0; i < chosenClasses.length; i++) {
+        var chosenSectionSubject = chosenClasses[i]['subject'];
+        var chosenSectionCourse = chosenClasses[i]['course'];
+        if (currentSectionSubject == chosenSectionSubject && currentSectionCourse == chosenSectionCourse) {
             return false;
         }
     }
@@ -1766,4 +1781,4 @@ function createClass(c, s) {
 }
 
 var schedule = generateSchedule(picks, professors, params);
-console.log(schedule);
+// console.log(schedule);
