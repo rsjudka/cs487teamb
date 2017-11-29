@@ -1355,11 +1355,22 @@ var picks = [
     classes[0], classes[6], classes[8], classes[7], classes[18], classes[17], classes[16], classes[10]
 ]
 function generateSchedule(classes, professors, params) {
-    totalCredits = 0;
+    var sortedClasses = sortTimes(classes, params);
+    var scheduleData = addClasses(sortedClasses, params, totalCredits);
+    var classList = scheduleData[0];
+    var totalCredits = scheduleData[1];
+    // console.log(classList);
+    // console.log(totalCredits);
+
+    var finalSchedule = createSchedule(classList, totalCredits);
+    return finalSchedule;
+}
+
+function createSchedule(classList, totalCredits) {
     var finalSchedule = {
-        name: null,
-        savedTime: null,
-        creditHours: null,
+        name: "Untitled Schedule",
+        savedTime: "Not Saved",
+        creditHours: totalCredits,
         Sunday: [],
         Monday: [],
         Tuesday: [],
@@ -1368,100 +1379,72 @@ function generateSchedule(classes, professors, params) {
         Friday: [],
         Saturday: []
     };
-    var classList = [];
-    var sortedClasses = sortTimes(classes, professors, params);
-    console.log(sortedClasses);
-    // var scheduleData = addClasses(classes, classList, professors, params, totalCredits);
-    // classList = scheduleData[0];
-    // totalCredits = scheduleData[1];
-    // console.log(classList);
-    // console.log(totalCredits);
+    for (var i = 0; i < classList.length; i++) {
+        var c = classList[i];
+        var ts = c['timeSlots'];
+        for (var t in ts) {
+            if (ts[t].length > 0) {
+                var cc = finalClass(c, ts[t]);
+                finalSchedule[t].push(cc);
+            }
+        }
+    }
+    return finalSchedule;
 }
 
-function addClasses(classes, currentClasses, professors, params, credits) {
+function finalClass(c, t) {
+    cTitle = c['title'];
+    if (c['section'][0] == 'R') {
+        cTitle = '(Recitation) ' + c['title'];
+    }
+    else if (c['section'][0] == 'L') {
+        cTitle = '(Lab) ' + c['title'];
+    }
+    return {
+        title: cTitle,
+        subject: c['subject'],
+        course: c['course'],
+        CRN: c['CRN'],
+        section: c['section'],
+        location: c['location'],
+        credits: c['credits'],
+        timeSlot: t,
+        classType: c['classType'],
+        requires: c['requires'],
+        professor: c['professor']
+    }
+}
+
+function addClasses(classes, params) {
     var creditsIdx = {0: [3,6], 1: [6,9], 2: [9,12], 3: [12,15], 4: [15,18], 5: [18,21], 6: [0,18]};    
-    var chosenClasses = currentClasses.slice();
+    var chosenClasses = [];
+    var credits = 0;
     for (var i = 0; i < classes.length; i++) {
-        addCredits = credits + classes[i]['sections'][0]['credits'];
-        console.log(addCredits, classes[i])
+        addCredits = credits + classes[i]['credits'];
         if (addCredits <= creditsIdx[params['credits']][1]) {
-            if (classes[i]['sections'].length === 1) {
-                if (chosenClasses.length == 0) {
-                    chosenClasses.push({
-                        subject: classes[i]['subject'],
-                        course: classes[i]['course'],
-                        section: classes[i]['sections'][0]
-                    });
+            if (classes[i]['requires'] == null) {
+                if (checkTimeConflict(classes[i], chosenClasses)) {
+                    chosenClasses.push(classes[i]);
                     credits = addCredits;
-                }
-                else {
-                    if (checkTimeConflict(classes[i]['sections'][0], chosenClasses)) {
-                        chosenClasses.push({
-                            subject:classes[i]['subject'],
-                            course:  classes[i]['course'],
-                            section: classes[i]['sections'][0]
-                        });   
-                        credits = addCredits; 
-                    } 
-                }
-            }
-            else if (classes[i]['sections'].length == 2 && classes[i]['sections'][0]['requires'] != null) {
-                if (chosenClasses.length == 0) {
-                    chosenClasses.push({
-                        subject: classes[i]['subject'],
-                        course: classes[i]['course'],
-                        section: classes[i]['sections'][0]
-                    },
-                    {
-                        subject: classes[i]['subject'],
-                        course: classes[i]['course'],
-                        section: classes[i]['sections'][1]
-                    });
-                    credits = addCredits;
-                }
-                else {
-                    if (checkTimeConflict(classes[i]['sections'][0], chosenClasses) && checkTimeConflict(classes[i]['sections'][1], chosenClasses)) {
-                        chosenClasses.push({
-                            subject: classes[i]['subject'],
-                            course: classes[i]['course'],
-                            section: classes[i]['sections'][0]
-                        },
-                        {
-                            subject: classes[i]['subject'],
-                            course: classes[i]['course'],
-                            section: classes[i]['sections'][1]
-                        });
-                        credits = addCredits;
-        
-                    }
                 }
             }
             else {
-                var section = chooseSection(classes[i]['sections'], professors, params);
-                if (section != null) {
-                    chosenClasses.push({
-                        subject:classes[i]['subject'],
-                        course:  classes[i]['course'],
-                        section: classes[i]['sections'][0]
-                    });   
+                if (checkTimeConflict(classes[i], chosenClasses) && checkTimeConflict(classes[i+1], chosenClasses)) {
+                    chosenClasses.push(classes[i]);
+                    chosenClasses.push(classes[i+1]);
                     credits = addCredits;
                 }
+                i++;
             }
         }
     }
     return [chosenClasses, credits];
 }
 
-function chooseSection(sections, professors, params) {
-    for (var i = 0; i < sections.length; i++) {
-        console.log(sections[i]);
-    }
-}
-
 function checkTimeConflict(currentSection, chosenClasses) {
+    var currentSectionTimes = currentSection['timeSlots'];
     for (var i = 0; i < chosenClasses.length; i++) {
-        var chosenClassTimes = chosenClasses[i]['section']['timeSlots'];
-        var currentSectionTimes = currentSection['timeSlots'];
+        var chosenClassTimes = chosenClasses[i]['timeSlots'];
         if (compareTimes(currentSectionTimes['Sunday'], chosenClassTimes['Sunday'])) {
             return false;
         }
@@ -1483,9 +1466,8 @@ function checkTimeConflict(currentSection, chosenClasses) {
         if (compareTimes(currentSectionTimes['Saturday'], chosenClassTimes['Saturday'])) {
             return false;
         }
-        return true;
     }
-
+    return true;
 }
 
 function compareTimes(current, chosen) {
@@ -1500,10 +1482,9 @@ function compareTimes(current, chosen) {
     return false;
 }
 
-function sortTimes(classes, professors, params) {
+function sortTimes(classes, params) {
     var ac = JSON.parse(JSON.stringify(classes));
     var sortedClasses = [];
-    var profs = ratedProfessors(professors);
     if (params['optimize'][3]) {
         var tmpAC = ac.slice();
         for (var i = 0; i < tmpAC.length; i++) {
@@ -1655,8 +1636,9 @@ function findRequired(c, crn) {
     }
 }
 
-function otherParams(tc, cc, profs, options) {
-
+function sortOtherParams(classes, professors, params) {
+    var ac = JSON.parse(JSON.stringify(classes));    
+    var profs = ratedProfessors(professors);
 }
 
 function ratedProfessors(professors) {
@@ -1686,4 +1668,5 @@ function createClass(c, s) {
     }
 }
 
-generateSchedule(picks, professors, params);
+var schedule = generateSchedule(picks, professors, params);
+console.log(schedule);
