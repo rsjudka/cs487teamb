@@ -2,6 +2,7 @@ var classes = [
     {
       "subject": "COM",
       "course": 421,
+      "title": "Technical Communication",
       "sections": [
         {
           "CRN": 21008,
@@ -30,6 +31,7 @@ var classes = [
     {
       "subject": "CS",
       "course": 115,
+      "title": "Object-Oriented Programming I",
       "sections": [
         {
           "CRN": 20024,
@@ -78,6 +80,7 @@ var classes = [
     {
       "subject": "CS",
       "course": 116,
+      "title": "Object-Oriented Programming II",
       "sections": [
         {
           "CRN": 29929,
@@ -124,6 +127,7 @@ var classes = [
     {
       "subject": "CS",
       "course": 330,
+      "title": "Discrete Structures",
       "sections": [
         {
           "CRN": 20030,
@@ -172,6 +176,7 @@ var classes = [
     {
       "subject": "CS",
       "course": 331,
+      "title": "Data Structures and Algorithms",
       "sections": [
         {
           "CRN": 20031,
@@ -262,6 +267,7 @@ var classes = [
     {
       "subject": "CS",
       "course": 350,
+      "title": "Computer Organization and Assembly Language Programming",
       "sections": [
         {
           "CRN": 20033,
@@ -310,6 +316,7 @@ var classes = [
     {
       "subject": "CS",
       "course": 351,
+      "title": "Systems Programming",
       "sections": [
         {
           "CRN": 20034,
@@ -358,6 +365,7 @@ var classes = [
     {
       "subject": "CS",
       "course": 422,
+      "title": "Data Mining",
       "sections": [
         {
           "CRN": 28859,
@@ -406,6 +414,7 @@ var classes = [
     {
       "subject": "CS",
       "course": 425,
+      "title": "Database Organization",
       "sections": [
         {
           "CRN": 20044,
@@ -433,6 +442,7 @@ var classes = [
     {
       "subject": "CS",
       "course": 429,
+      "title": "Information Retrieval",
       "sections": [
         {
           "CRN": 24124,
@@ -481,6 +491,7 @@ var classes = [
     {
       "subject": "CS",
       "course": 430,
+      "title": "Introduction to Algorithms",
       "sections": [
         {
           "CRN": 20047,
@@ -529,6 +540,7 @@ var classes = [
     {
       "subject": "CS",
       "course": 485,
+      "title": "Computers and Society",
       "sections": [
         {
           "CRN": 20068,
@@ -579,6 +591,7 @@ var classes = [
     {
       "subject": "CS",
       "course": 440,
+      "title": "Programming Languages and Translators",
       "sections": [
         {
           "CRN": 28862,
@@ -607,6 +620,7 @@ var classes = [
     {
       "subject": "CS",
       "course": 450,
+      "title": "Operating Systems",
       "sections": [
         {
           "CRN": 20059,
@@ -657,6 +671,7 @@ var classes = [
     {
       "subject": "CS",
       "course": 487,
+      "title": "Software Engineering",
       "sections": [
         {
           "CRN": 20069,
@@ -729,6 +744,7 @@ var classes = [
     {
       "subject": "CS",
       "course": 513,
+      "title": "Geospatial Vision and Visualization",
       "sections": [
         {
           "CRN": 27388,
@@ -754,8 +770,38 @@ var classes = [
       ]
     },
     {
+      "subject": "CHEM",
+      "course": 122,
+      "title": "Principles of Chemistry I Without Laboratory",
+      "sections": [
+        {
+          "CRN": 20001,
+          "section": "01",
+          "location": "MC",
+          "credits": 3,
+          "timeSlots": {
+            "Sunday": [],
+            "Monday": [
+              0
+            ],
+            "Tuesday": [],
+            "Wednesday": [
+              0
+            ],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": []
+          },
+          "classType": "normal",
+          "requires": null,
+          "professor": "David Minh"
+        }
+      ]
+    },
+    {
       "subject": "HIST",
       "course": 340,
+      "title": "Rise of Global Economy",
       "sections": [
         {
           "CRN": 25560,
@@ -784,6 +830,7 @@ var classes = [
     {
       "subject": "MATH",
       "course": 251,
+      "title": "Multivariate and Vector Calculus",
       "sections": [
         {
           "CRN": 20164,
@@ -812,8 +859,222 @@ var classes = [
       ]
     },
     {
+      "subject": "MATH",
+      "course": 333,
+      "title": "Matrix Algebra and Complex Variables",
+      "sections": [
+        {
+          "CRN": 20619,
+          "section": "01",
+          "location": "MC",
+          "credits": 3,
+          "timeSlots": {
+            "Sunday": [],
+            "Monday": [
+              2
+            ],
+            "Tuesday": [],
+            "Wednesday": [
+              2
+            ],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": []
+          },
+          "classType": "normal",
+          "requires": null,
+          "professor": "Arthur R. Lubin"
+        },
+        {
+          "CRN": 29496,
+          "section": "02",
+          "location": "MC",
+          "credits": 3,
+          "timeSlots": {
+            "Sunday": [],
+            "Monday": [
+              6
+            ],
+            "Tuesday": [],
+            "Wednesday": [
+              6
+            ],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": []
+          },
+          "classType": "normal",
+          "requires": null,
+          "professor": "Arthur R. Lubin"
+        }
+      ]
+    },
+    {
+      "subject": "MATH",
+      "course": 474,
+      "title": "Probability and Statistics",
+      "sections": [
+        {
+          "CRN": 20171,
+          "section": "01",
+          "location": "MC",
+          "credits": 3,
+          "timeSlots": {
+            "Sunday": [],
+            "Monday": [],
+            "Tuesday": [
+              0
+            ],
+            "Wednesday": [],
+            "Thursday": [
+              0
+            ],
+            "Friday": [],
+            "Saturday": []
+          },
+          "classType": "normal",
+          "requires": null,
+          "professor": "Despina Stasi"
+        }
+      ]
+    },
+    {
+      "subject": "PHYS",
+      "course": 221,
+      "title": "General Physics II: Electricity and Magnetism",
+      "sections": [
+        {
+          "CRN": 20204,
+          "section": "01",
+          "location": "MC",
+          "credits": 4,
+          "timeSlots": {
+            "Sunday": [],
+            "Monday": [
+              3
+            ],
+            "Tuesday": [],
+            "Wednesday": [
+              3
+            ],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": []
+          },
+          "classType": "normal",
+          "requires": 20205,
+          "professor": "Alan Glodowski"
+        },
+        {
+          "CRN": 20208,
+          "section": "02",
+          "location": "MC",
+          "credits": 4,
+          "timeSlots": {
+            "Sunday": [],
+            "Monday": [],
+            "Tuesday": [
+              3
+            ],
+            "Wednesday": [],
+            "Thursday": [
+              3
+            ],
+            "Friday": [],
+            "Saturday": []
+          },
+          "classType": "normal",
+          "requires": 20207,
+          "professor": "Yagmur Torun"
+        },
+        {
+          "CRN": 28210,
+          "section": "03",
+          "location": "MC",
+          "credits": 4,
+          "timeSlots": {
+            "Sunday": [],
+            "Monday": [],
+            "Tuesday": [
+              2
+            ],
+            "Wednesday": [],
+            "Thursday": [
+              2
+            ],
+            "Friday": [],
+            "Saturday": []
+          },
+          "classType": "normal",
+          "requires": 28211,
+          "professor": "Pavel Snopok"
+        },
+        {
+          "CRN": 20205,
+          "section": "L01",
+          "location": "MC",
+          "credits": 0,
+          "timeSlots": {
+            "Sunday": [],
+            "Monday": [],
+            "Tuesday": [
+              0,1
+            ],
+            "Wednesday": [],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": []
+          },
+          "classType": "normal",
+          "requires": 20204,
+          "professor": "Alan Glodowski"
+        },
+        {
+          "CRN": 20207,
+          "section": "L04",
+          "location": "MC",
+          "credits": 0,
+          "timeSlots": {
+            "Sunday": [],
+            "Monday": [],
+            "Tuesday": [],
+            "Wednesday": [
+              6,7
+            ],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": []
+          },
+          "classType": "normal",
+          "requires": 20208,
+          "professor": "Yagmur Torun"
+        },
+        {
+          "CRN": 28211,
+          "section": "L05",
+          "location": "MC",
+          "credits": 0,
+          "timeSlots": {
+            "Sunday": [],
+            "Monday": [],
+            "Tuesday": [],
+            "Wednesday": [
+              0,1
+            ],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": []
+          },
+          "classType": "normal",
+          "requires": 28210,
+          "professor": "Pavel Snopok"
+        }
+      ]
+    },
+    {
       "subject": "PSYC",
       "course": 301,
+      "title": "Industrial Psychology",
       "sections": [
         {
           "CRN": 20953,
@@ -880,6 +1141,120 @@ var classes = [
           "classType": "normal",
           "requires": null,
           "professor": "Kristina Bauer"
+        }
+      ]
+    },
+    {
+      "subject": "BIOL",
+      "course": 426,
+      "title": "Concepts of Cancer Biology",
+      "sections": [
+        {
+          "CRN": 29926,
+          "section": "01",
+          "location": "MC",
+          "credits": 4,
+          "timeSlots": {
+            "Sunday": [],
+            "Monday": [],
+            "Tuesday": [],
+            "Wednesday": [],
+            "Thursday": [],
+            "Friday": [
+              5,6
+            ],
+            "Saturday": []
+          },
+          "classType": "normal",
+          "requires": null,
+          "professor": "Genoveva Murillo"
+        }
+      ]
+    },
+    {
+      "subject": "IPRO",
+      "course": 397,
+      "title": "Interprofessional by Design",
+      "sections": [
+        {
+          "CRN": 24472,
+          "section": "100",
+          "location": "MC",
+          "credits": 3,
+          "timeSlots": {
+            "Sunday": [],
+            "Monday": [],
+            "Tuesday": [],
+            "Wednesday": [],
+            "Thursday": [
+              3,4
+            ],
+            "Friday": [],
+            "Saturday": []
+          },
+          "classType": "normal",
+          "requires": null,
+          "professor": "Thomas Brandenburg"
+        },
+        {
+          "CRN": 24473,
+          "section": "200",
+          "location": "MC",
+          "credits": 3,
+          "timeSlots": {
+            "Sunday": [],
+            "Monday": [],
+            "Tuesday": [],
+            "Wednesday": [],
+            "Thursday": [],
+            "Friday": [
+              1,2
+            ],
+            "Saturday": []
+          },
+          "classType": "normal",
+          "requires": null,
+          "professor": "James Braband"
+        },
+        {
+          "CRN": 26746,
+          "section": "300",
+          "location": "MC",
+          "credits": 3,
+          "timeSlots": {
+            "Sunday": [],
+            "Monday": [],
+            "Tuesday": [],
+            "Wednesday": [],
+            "Thursday": [],
+            "Friday": [
+              1,2
+            ],
+            "Saturday": []
+          },
+          "classType": "normal",
+          "requires": null,
+          "professor": "Kristina Bauer"
+        },
+        {
+          "CRN": 27365,
+          "section": "500",
+          "location": "MC",
+          "credits": 3,
+          "timeSlots": {
+            "Sunday": [],
+            "Monday": [],
+            "Tuesday": [
+              3,4
+            ],
+            "Wednesday": [],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": []
+          },
+          "classType": "normal",
+          "requires": null,
+          "professor": "Limia Shunia"
         }
       ]
     }
@@ -979,7 +1354,6 @@ var params = {
 var picks = [
     classes[0], classes[6], classes[8], classes[7], classes[18], classes[17], classes[16], classes[10]
 ]
-
 function generateSchedule(classes, professors, params) {
     totalCredits = 0;
     var finalSchedule = {
@@ -995,7 +1369,8 @@ function generateSchedule(classes, professors, params) {
         Saturday: []
     };
     var classList = [];
-    var sortedClasses = sortClasses(classes, professors, params);
+    var sortedClasses = sortTimes(classes, professors, params);
+    console.log(sortedClasses);
     // var scheduleData = addClasses(classes, classList, professors, params, totalCredits);
     // classList = scheduleData[0];
     // totalCredits = scheduleData[1];
@@ -1125,8 +1500,8 @@ function compareTimes(current, chosen) {
     return false;
 }
 
-function sortClasses(classes, professors, params) {
-    var ac = classes.slice();
+function sortTimes(classes, professors, params) {
+    var ac = JSON.parse(JSON.stringify(classes));
     var sortedClasses = [];
     var profs = ratedProfessors(professors);
     if (params['optimize'][3]) {
@@ -1136,13 +1511,11 @@ function sortClasses(classes, professors, params) {
                 var section = tmpAC[i]['sections'][j];
                 if (section['location'] == 'IN' && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
                     sortedClasses.push(createClass(tmpAC[i], section));
-                    var requiredSection = null;
                     if (section['requires'] != null) {
-                        requiredSection = findRequired(tmpAC[i], section['requires']);
+                        var requiredSection = findRequired(tmpAC[i], section['requires']);
                         sortedClasses.push(createClass(tmpAC[i], requiredSection));
                     }
-                    ac.splice(i, 1);
-                    break;
+                    ac[i]['sections'].splice(j, 1);
                 }
             }
         }
@@ -1152,25 +1525,25 @@ function sortClasses(classes, professors, params) {
         for (var i = 0; i < tmpAC.length; i++) {
             for (var j = 0; j < tmpAC[i]['sections'].length; j++) {
                 var section = tmpAC[i]['sections'][j];
-                var dayDone = false;
+                var timesOption = false;
                 for (day in section['timeSlots']) {
                     dayArr = section['timeSlots'][day];
                     for (var d = 0; d < dayArr.length; d++) {
                         if (dayArr[d] < 3 && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
-                            sortedClasses.push(createClass(tmpAC[i], section));
-                            var requiredSection = null;
-                            if (section['requires'] != null) {
-                                requiredSection = findRequired(tmpAC[i], section['requires']);
-                                sortedClasses.push(createClass(tmpAC[i], requiredSection));
-                            }        
-                            ac.splice(i, 1);
-                            dayDone = true;
-                            break;
+                            timesOption = true;
+                        }
+                        else {
+                            timesOption = false;
                         }
                     }
-                    if (dayDone) {
-                        break;
-                    }
+                }
+                if (timesOption) {
+                    sortedClasses.push(createClass(tmpAC[i], section));
+                    if (section['requires'] != null) {
+                        requiredSection = findRequired(tmpAC[i], section['requires']);
+                        sortedClasses.push(createClass(tmpAC[i], requiredSection));
+                    }        
+                    ac[i]['sections'].splice(j, 1);
                 }
             }
         }
@@ -1180,25 +1553,25 @@ function sortClasses(classes, professors, params) {
         for (var i = 0; i < tmpAC.length; i++) {
             for (var j = 0; j < tmpAC[i]['sections'].length; j++) {
                 var section = tmpAC[i]['sections'][j];
-                dayDone = false;
+                var timesOption = false;
                 for (day in section['timeSlots']) {
                     dayArr = section['timeSlots'][day];
                     for (var d = 0; d < dayArr.length; d++) {
                         if ((dayArr[d] > 2 && dayArr[d] < 5) && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
-                            sortedClasses.push(createClass(tmpAC[i], section));
-                            var requiredSection = null;
-                            if (section['requires'] != null) {
-                                requiredSection = findRequired(tmpAC[i], section['requires']);
-                                sortedClasses.push(createClass(tmpAC[i], requiredSection));
-                            }        
-                            ac.splice(i, 1);
-                            dayDone = true;
-                            break;
+                            timesOption = true;
+                        }
+                        else {
+                            timesOption = false;
                         }
                     }
-                    if (dayDone) {
-                        break;
-                    }
+                }
+                if (timesOption) {
+                    sortedClasses.push(createClass(tmpAC[i], section));
+                    if (section['requires'] != null) {
+                        requiredSection = findRequired(tmpAC[i], section['requires']);
+                        sortedClasses.push(createClass(tmpAC[i], requiredSection));
+                    }        
+                    ac[i]['sections'].splice(j, 1);
                 }
             }
         }
@@ -1208,25 +1581,25 @@ function sortClasses(classes, professors, params) {
         for (var i = 0; i < tmpAC.length; i++) {
             for (var j = 0; j < tmpAC[i]['sections'].length; j++) {
                 var section = tmpAC[i]['sections'][j];
-                dayDone = false;
+                var timesOption = false;
                 for (day in section['timeSlots']) {
                     dayArr = section['timeSlots'][day];
                     for (var d = 0; d < dayArr.length; d++) {
                         if ((dayArr[d] > 4 && dayArr[d] < 7) && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
-                            sortedClasses.push(createClass(tmpAC[i], section));
-                            var requiredSection = null;
-                            if (section['requires'] != null) {
-                                requiredSection = findRequired(tmpAC[i], section['requires']);
-                                sortedClasses.push(createClass(tmpAC[i], requiredSection));
-                            }        
-                            ac.splice(i, 1);
-                            dayDone = true;
-                            break;
+                            timesOption = true;
+                        }
+                        else {
+                            timesOption = false;
                         }
                     }
-                    if (dayDone) {
-                        break;
-                    }
+                }
+                if (timesOption) {
+                    sortedClasses.push(createClass(tmpAC[i], section));
+                    if (section['requires'] != null) {
+                        requiredSection = findRequired(tmpAC[i], section['requires']);
+                        sortedClasses.push(createClass(tmpAC[i], requiredSection));
+                    }        
+                    ac[i]['sections'].splice(j, 1);
                 }
             }
         }
@@ -1236,30 +1609,42 @@ function sortClasses(classes, professors, params) {
         for (var i = 0; i < tmpAC.length; i++) {
             for (var j = 0; j < tmpAC[i]['sections'].length; j++) {
                 var section = tmpAC[i]['sections'][j];
-                dayDone = false;
+                var timesOption = false;
                 for (day in section['timeSlots']) {
                     dayArr = section['timeSlots'][day];
                     for (var d = 0; d < dayArr.length; d++) {
                         if (dayArr[d] > 6 && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
-                            sortedClasses.push(createClass(tmpAC[i], section));
-                            var requiredSection = null;
-                            if (section['requires'] != null) {
-                                requiredSection = findRequired(tmpAC[i], section['requires']);
-                                sortedClasses.push(createClass(tmpAC[i], requiredSection));
-                            }        
-                            ac.splice(i, 1);
-                            dayDone = true;
-                            break;
+                            timesOption = true;
+                        }
+                        else {
+                            timesOption = false;
                         }
                     }
-                    if (dayDone) {
-                        break;
-                    }
+                }
+                if (timesOption) {
+                    sortedClasses.push(createClass(tmpAC[i], section));
+                    if (section['requires'] != null) {
+                        requiredSection = findRequired(tmpAC[i], section['requires']);
+                        sortedClasses.push(createClass(tmpAC[i], requiredSection));
+                    }        
+                    ac[i]['sections'].splice(j, 1);
                 }
             }
         }
     }
-    console.log(sortedClasses.slice());
+    for (var i = 0; i < ac.length; i++) {
+        for (var j = 0; j < ac[i]['sections'].length; j++) {
+            var section = ac[i]['sections'][j];
+            if (!(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {                
+                sortedClasses.push(createClass(ac[i], section));
+                if (section['requires'] != null) {
+                    requiredSection = findRequired(ac[i], section['requires']);
+                    sortedClasses.push(createClass(ac[i], requiredSection));
+                } 
+            }  
+        }
+    }
+    return sortedClasses;
 }
 
 function findRequired(c, crn) {
@@ -1270,7 +1655,7 @@ function findRequired(c, crn) {
     }
 }
 
-function checkOptions(tc, cc, profs, options) {
+function otherParams(tc, cc, profs, options) {
 
 }
 
@@ -1301,4 +1686,4 @@ function createClass(c, s) {
     }
 }
 
-var generatedSchedule = generateSchedule(picks, professors, params);
+generateSchedule(picks, professors, params);
