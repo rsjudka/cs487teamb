@@ -83,5 +83,60 @@
     "professor": "Xin Chen",
     "rating": 5.0,
     "difficulty": 1.5
+  },
+  {
+    "professor": "David Minh",
+    "rating": 2.3,
+    "difficulty": 4.0
+  },
+  {
+    "professor": "Arthur R. Lubin",
+    "rating": 3.0,
+    "difficulty": 3.6
+  },
+  {
+    "professor": "Despina Stasi",
+    "rating": 2.0,
+    "difficulty": 5.0
+  },
+  {
+    "professor": "Alan Glodowski",
+    "rating": 3.5,
+    "difficulty": 3.4
+  },
+  {
+    "professor": "Yagmur Torun",
+    "rating": 2.5,
+    "difficulty": 2.5
+  },
+  {
+    "professor": "Pavel Snopok",
+    "rating": 2.5,
+    "difficulty": 2.5
+  },
+  {
+    "professor": "Genoveva Murillo",
+    "rating": 2.5,
+    "difficulty": 2.5
+  },
+  {
+    "professor": "Thomas Brandenburg",
+    "rating": 2.5,
+    "difficulty": 2.5
+  },
+  {
+    "professor": "James Braband",
+    "rating": 2.5,
+    "difficulty": 2.5
+  },
+  {
+    "professor": "Kristina Bauer",
+    "rating": 2.5,
+    "difficulty": 2.5
+  },
+  {
+    "professor": "Limia Shunia",
+    "rating": 2.5,
+    "difficulty": 2.5
   }
 ]
