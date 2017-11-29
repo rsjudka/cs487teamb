@@ -973,10 +973,9 @@ var professors = [
   ];
 var params = {
     credits: 5,
-    online: true,
     difficulty: 0,
-    optimize: [true, false, false, true, true],
-    times: [true, true, false, false, false]};
+    times: [true, true, false, false, false],
+    optimize: [true, false, false, true, true]};
 var picks = [
     classes[0], classes[6], classes[8], classes[7], classes[18], classes[17], classes[16], classes[10]
 ]
@@ -1130,19 +1129,149 @@ function sortClasses(classes, professors, params) {
     var ac = classes.slice();
     var sortedClasses = [];
     var profs = ratedProfessors(professors);
-    if (params['online']) {
+    if (params['optimize'][3]) {
         var tmpAC = ac.slice();
         for (var i = 0; i < tmpAC.length; i++) {
             for (var j = 0; j < tmpAC[i]['sections'].length; j++) {
                 var section = tmpAC[i]['sections'][j];
-                if (section['location'] == 'IN') {
+                if (section['location'] == 'IN' && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
                     sortedClasses.push(createClass(tmpAC[i], section));
+                    var requiredSection = null;
+                    if (section['requires'] != null) {
+                        requiredSection = findRequired(tmpAC[i], section['requires']);
+                        sortedClasses.push(createClass(tmpAC[i], requiredSection));
+                    }
                     ac.splice(i, 1);
                     break;
                 }
             }
         }
     }
+    if (params['times'][0]) {
+        var tmpAC = ac.slice();
+        for (var i = 0; i < tmpAC.length; i++) {
+            for (var j = 0; j < tmpAC[i]['sections'].length; j++) {
+                var section = tmpAC[i]['sections'][j];
+                var dayDone = false;
+                for (day in section['timeSlots']) {
+                    dayArr = section['timeSlots'][day];
+                    for (var d = 0; d < dayArr.length; d++) {
+                        if (dayArr[d] < 3 && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
+                            sortedClasses.push(createClass(tmpAC[i], section));
+                            var requiredSection = null;
+                            if (section['requires'] != null) {
+                                requiredSection = findRequired(tmpAC[i], section['requires']);
+                                sortedClasses.push(createClass(tmpAC[i], requiredSection));
+                            }        
+                            ac.splice(i, 1);
+                            dayDone = true;
+                            break;
+                        }
+                    }
+                    if (dayDone) {
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    if (params['times'][1]) {
+        var tmpAC = ac.slice();
+        for (var i = 0; i < tmpAC.length; i++) {
+            for (var j = 0; j < tmpAC[i]['sections'].length; j++) {
+                var section = tmpAC[i]['sections'][j];
+                dayDone = false;
+                for (day in section['timeSlots']) {
+                    dayArr = section['timeSlots'][day];
+                    for (var d = 0; d < dayArr.length; d++) {
+                        if ((dayArr[d] > 2 && dayArr[d] < 5) && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
+                            sortedClasses.push(createClass(tmpAC[i], section));
+                            var requiredSection = null;
+                            if (section['requires'] != null) {
+                                requiredSection = findRequired(tmpAC[i], section['requires']);
+                                sortedClasses.push(createClass(tmpAC[i], requiredSection));
+                            }        
+                            ac.splice(i, 1);
+                            dayDone = true;
+                            break;
+                        }
+                    }
+                    if (dayDone) {
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    if (params['times'][2]) {
+        var tmpAC = ac.slice();
+        for (var i = 0; i < tmpAC.length; i++) {
+            for (var j = 0; j < tmpAC[i]['sections'].length; j++) {
+                var section = tmpAC[i]['sections'][j];
+                dayDone = false;
+                for (day in section['timeSlots']) {
+                    dayArr = section['timeSlots'][day];
+                    for (var d = 0; d < dayArr.length; d++) {
+                        if ((dayArr[d] > 4 && dayArr[d] < 7) && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
+                            sortedClasses.push(createClass(tmpAC[i], section));
+                            var requiredSection = null;
+                            if (section['requires'] != null) {
+                                requiredSection = findRequired(tmpAC[i], section['requires']);
+                                sortedClasses.push(createClass(tmpAC[i], requiredSection));
+                            }        
+                            ac.splice(i, 1);
+                            dayDone = true;
+                            break;
+                        }
+                    }
+                    if (dayDone) {
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    if (params['times'][3]) {
+        var tmpAC = ac.slice();
+        for (var i = 0; i < tmpAC.length; i++) {
+            for (var j = 0; j < tmpAC[i]['sections'].length; j++) {
+                var section = tmpAC[i]['sections'][j];
+                dayDone = false;
+                for (day in section['timeSlots']) {
+                    dayArr = section['timeSlots'][day];
+                    for (var d = 0; d < dayArr.length; d++) {
+                        if (dayArr[d] > 6 && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
+                            sortedClasses.push(createClass(tmpAC[i], section));
+                            var requiredSection = null;
+                            if (section['requires'] != null) {
+                                requiredSection = findRequired(tmpAC[i], section['requires']);
+                                sortedClasses.push(createClass(tmpAC[i], requiredSection));
+                            }        
+                            ac.splice(i, 1);
+                            dayDone = true;
+                            break;
+                        }
+                    }
+                    if (dayDone) {
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    console.log(sortedClasses.slice());
+}
+
+function findRequired(c, crn) {
+    for (var i = 0; i < c['sections'].length; i++) {
+        if (c['sections'][i]['CRN'] == crn) {
+            return c['sections'][i];
+        }
+    }
+}
+
+function checkOptions(tc, cc, profs, options) {
+
 }
 
 function ratedProfessors(professors) {
