@@ -605,6 +605,11 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
         $scope.currentSchedule.timeSaved = "Not Saved";
         $scope.currentSchedule.userToken = $scope.user.token;
 
+
+        $scope.safeApply(function () {
+            $scope.showAlert("Schedule generated", 3000);
+        });
+
     };
 
     $scope.iterateTimes = function (day, classes) {
