@@ -63,7 +63,16 @@
             <div class="overlayContent">
                 <div class="scheduleBlock" ng-repeat="schedule in myDraftSchedules">
                     {{ schedule.name }} <br>
-                    <span style="font-size: 15px; color: steelblue;">Saved at {{ schedule.timeSaved | date:"hh:mm:ss a on dd/MM/yyyy" }}</span>
+                    <span style="font-size: 15px; color: steelblue;">Saved at {{ schedule.timeSaved | date:"hh:mm:ss a on dd/MM/yyyy" }}</span><br><br>
+                    <div ng-click="viewSavedSchedule(schedule)" style="float: left; font-size: 15px; font-family: Roboto-Medium,sans-serif; color: steelblue;"
+                         class="clickable">
+                        <i class="fa fa-eye"></i> &nbsp; VIEW
+                    </div>
+                    <div ng-click="deleteDraftSchedule(sid);"
+                         style="font-size: 15px; margin-left: 50px; float: left; font-family: Roboto-Medium,sans-serif; color: darkred;"
+                         class="clickable">
+                        <i class="fa fa-trash"></i> &nbsp; DELETE
+                    </div>
                 </div>
             </div>
         </div>

@@ -320,6 +320,25 @@ myScheduleApp.angular.controller('scheduleController', function ($scope, store, 
         });
     };
 
+
+    $scope.deleteDraftSchedule = function (sid) {
+        var schedulesRef = firebase.database().ref().child("drafts");
+        schedulesRef.once('value', function (snap) {
+            snap.forEach(function (childSnap) {
+                if (schedule.sid === sid) {
+                    schedulesRef.child(childSnap.key).remove();
+                    $scope.init();
+                }
+            });
+        });
+
+        console.log("Schedule Removed");
+        $scope.safeApply(function () {
+            $scope.showAlert("Schedule deleted", 3000);
+
+        });
+    };
+
     $scope.getSchedules = function () {
         var schedulesRef = firebase.database().ref().child("schedules");
         schedulesRef.once('value', function (snap) {
@@ -681,6 +700,20 @@ myScheduleApp.angular.controller('newScheduleController', function ($scope, stor
                 $scope.showAlert("Schedule saved", 3000);
             });
         });
+    };
+
+    $scope.resetSchedule = function(){
+
+        $scope.currentSchedule = {
+            name: "Untitled Schedule",
+            creditHours: 0,
+            timeSaved: "Not Saved"
+        };
+
+        $scope.safeApply(function () {
+            $scope.showAlert("Schedule reset", 3000);
+        });
+
     };
 
     $scope.doneSchedule = function () {
