@@ -179,9 +179,6 @@ function sortTimes(classes, params) {
                         if (dayArr[d] <= 1 && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
                             timesOption = true;
                         }
-                        else {
-                            timesOption = false;
-                        }
                     }
                 }
                 if (timesOption) {
@@ -204,11 +201,8 @@ function sortTimes(classes, params) {
                 for (day in section['timeSlots']) {
                     dayArr = section['timeSlots'][day];
                     for (var d = 0; d < dayArr.length; d++) {
-                        if ((dayArr[d] >= 2 && dayArr[d] <= 3) && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
+                        if ((dayArr[d] == 2 || dayArr[d] == 3) && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
                             timesOption = true;
-                        }
-                        else {
-                            timesOption = false;
                         }
                     }
                 }
@@ -232,11 +226,8 @@ function sortTimes(classes, params) {
                 for (day in section['timeSlots']) {
                     dayArr = section['timeSlots'][day];
                     for (var d = 0; d < dayArr.length; d++) {
-                        if ((dayArr[d] >= 4 && dayArr[d] <= 5) && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
+                        if ((dayArr[d] == 4 || dayArr[d] == 5) && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
                             timesOption = true;
-                        }
-                        else {
-                            timesOption = false;
                         }
                     }
                 }
@@ -262,9 +253,6 @@ function sortTimes(classes, params) {
                     for (var d = 0; d < dayArr.length; d++) {
                         if (dayArr[d] >= 6 && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
                             timesOption = true;
-                        }
-                        else {
-                            timesOption = false;
                         }
                     }
                 }
