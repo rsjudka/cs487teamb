@@ -9,6 +9,7 @@ function generateSchedule(classes, professors, params) {
     // console.log(totalCredits);
 
     var finalSchedule = createSchedule(classList, totalCredits);
+    console.log(finalSchedule);
     return finalSchedule;
 }
 
@@ -67,10 +68,6 @@ function addClasses(classes, params) {
     var credits = 0;
     for (var i = 0; i < classes.length; i++) {
         if (!(classes[i][0]['section'][0] == "R" || classes[i][0]['section'][0] == "L")) {
-            console.log('here');
-            console.log('here');
-            console.log('here');
-            console.log(classes[i][0]['section'][0]);
             if (checkDuplicate(classes[i][0], chosenClasses)) {
                 addCredits = credits + classes[i][0]['credits'];
                 if (addCredits <= creditsIdx[params['credits']][1]) {
@@ -98,6 +95,9 @@ function addClasses(classes, params) {
 }
 
 function checkTimeConflict(currentSection, chosenClasses) {
+    if (currentSection['location'] == 'IN') {
+        return true;
+    }
     var currentSectionTimes = currentSection['timeSlots'];
     for (var i = 0; i < chosenClasses.length; i++) {
         var chosenClassTimes = chosenClasses[i]['timeSlots'];
@@ -141,12 +141,13 @@ function checkDuplicate(currentSection, chosenClasses) {
 
 function compareTimes(current, chosen) {
     if (current.length > 0 && chosen.length > 0) {
-        var i = current.length;
-        if (i != chosen.length) return false;
-        while (i--) {
-            if (current[i] !== chosen[i]) return false;
+        for (var i = 0; i < chosen.length; i++) {
+            for (var j = 0; j < current.length; j++) {
+                if (current[j] == chosen[i]) {
+                    return true;
+                }
+            }
         }
-        return true;
     }
     return false;
 }
