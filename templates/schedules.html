@@ -40,16 +40,20 @@
                 <div class="scheduleBlock" ng-repeat="schedule in mySchedules">
                     {{ schedule.name }} <br>
                     <span style="font-size: 15px; color: steelblue;">Saved at {{ schedule.timeSaved | date:"hh:mm:ss a on dd/MM/yyyy" }}</span><br><br>
-                    <div ng-click="viewSavedSchedule(schedule)" style="float: left; font-size: 15px; font-family: Roboto-Medium,sans-serif; color: steelblue;"
+                    <div ng-click="viewSavedSchedule(schedule)"
+                         style="float: left; font-size: 15px; font-family: Roboto-Medium,sans-serif; color: steelblue;"
                          class="clickable">
                         <i class="fa fa-eye"></i> &nbsp; VIEW
                     </div>
-                    <div ng-click="deleteSavedSchedule(sid);"
+                    <div ng-click="deleteSavedSchedule(schedule.sid);"
                          style="font-size: 15px; margin-left: 50px; float: left; font-family: Roboto-Medium,sans-serif; color: darkred;"
                          class="clickable">
                         <i class="fa fa-trash"></i> &nbsp; DELETE
                     </div>
                 </div>
+
+                <span ng-show="mySchedules.length === 0" style="color: #888; font-size: 20px;"><br><br>You don't have any saved schedules.</span>
+
             </div>
         </div>
 
@@ -64,16 +68,19 @@
                 <div class="scheduleBlock" ng-repeat="schedule in myDraftSchedules">
                     {{ schedule.name }} <br>
                     <span style="font-size: 15px; color: steelblue;">Saved at {{ schedule.timeSaved | date:"hh:mm:ss a on dd/MM/yyyy" }}</span><br><br>
-                    <div ng-click="viewSavedSchedule(schedule)" style="float: left; font-size: 15px; font-family: Roboto-Medium,sans-serif; color: steelblue;"
+                    <div ng-click="viewSavedSchedule(schedule)"
+                         style="float: left; font-size: 15px; font-family: Roboto-Medium,sans-serif; color: steelblue;"
                          class="clickable">
                         <i class="fa fa-eye"></i> &nbsp; VIEW
                     </div>
-                    <div ng-click="deleteDraftSchedule(sid);"
+                    <div ng-click="deleteDraftSchedule(schedule.sid);"
                          style="font-size: 15px; margin-left: 50px; float: left; font-family: Roboto-Medium,sans-serif; color: darkred;"
                          class="clickable">
                         <i class="fa fa-trash"></i> &nbsp; DELETE
                     </div>
                 </div>
+
+                <span ng-show="myDraftSchedules.length === 0" style="color: #888; font-size: 20px;"><br><br>You don't have any draft schedules.</span>
             </div>
         </div>
 

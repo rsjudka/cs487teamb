@@ -304,8 +304,11 @@ myScheduleApp.angular.controller('scheduleController', function ($scope, store, 
 
     $scope.deleteSavedSchedule = function (sid) {
         var schedulesRef = firebase.database().ref().child("schedules");
+
         schedulesRef.once('value', function (snap) {
             snap.forEach(function (childSnap) {
+                var schedule = childSnap.val();
+                console.log(schedule);
                 if (schedule.sid === sid) {
                     schedulesRef.child(childSnap.key).remove();
                     $scope.init();
@@ -313,10 +316,8 @@ myScheduleApp.angular.controller('scheduleController', function ($scope, store, 
             });
         });
 
-        console.log("Schedule Removed");
         $scope.safeApply(function () {
             $scope.showAlert("Schedule deleted", 3000);
-
         });
     };
 
@@ -325,6 +326,7 @@ myScheduleApp.angular.controller('scheduleController', function ($scope, store, 
         var schedulesRef = firebase.database().ref().child("drafts");
         schedulesRef.once('value', function (snap) {
             snap.forEach(function (childSnap) {
+                var schedule = childSnap.val();
                 if (schedule.sid === sid) {
                     schedulesRef.child(childSnap.key).remove();
                     $scope.init();
