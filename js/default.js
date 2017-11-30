@@ -151,143 +151,135 @@ function compareTimes(current, chosen) {
 function sortTimes(classes, params) {
     var ac = JSON.parse(JSON.stringify(classes));
     var sortedClasses = [];
-    if (params['optimize'][3]) {
+
+    function findRequired(c, crn) {
+        for (var i = 0; i < c['sections'].length; i++) {
+            if (c['sections'][i]['CRN'] == crn) {
+                return c['sections'][i];
+            }
+        }
+    }
+
+    function addSections(lowerBound, upperBound) {
+        var tmpAC = ac.slice();
+        var requiredIdx;
+        for (var i = 0; i < tmpAC.length; i++) {
+            requiredIdx = [];
+            for (var j = 0; j < tmpAC[i]['sections'].length; j++) {
+                var section = tmpAC[i]['sections'][j];
+                if (section['location'] != 'IN') {
+                    var timesOption = false;
+                    for (day in section['timeSlots']) {
+                        dayArr = section['timeSlots'][day];
+                        for (var d = 0; d < dayArr.length; d++) {
+                            if ((dayArr[d] == lowerBound || dayArr[d] == upperBound) && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
+                                timesOption = true;
+                            }
+                        }
+                    }
+                    if (timesOption) {
+                        sortedClasses.push([createClass(tmpAC[i], section), 1]);
+                        if (section['requires'] != null) {
+                            requiredSection = findRequired(tmpAC[i], section['requires']);
+                            requiredIdx.push(j);
+                            sortedClasses.push([createClass(tmpAC[i], requiredSection), 1]);
+                        }
+                        ac[i]['sections'].splice(j, 1);
+                    }
+                }
+                else {
+                    ac[i]['sections'].splice(j, 1);
+                }
+            }
+            if (requiredIdx != null) {
+                for (var k = 0; k < requiredIdx.length; k++) {
+                    ac[i]['sections'].splice(requiredIdx[k]);
+                }
+            }
+        }
+    }
+
+    function removeEmptyClasses() {
         var tmpAC = ac.slice();
         for (var i = 0; i < tmpAC.length; i++) {
+            if (tmpAC[i]['sections'] == null || tmpAC[i]['sections'] == undefined || tmpAC[i]['sections'].length == 0) {
+                ac.splice(i, 1);
+            }
+        }
+    }
+
+    if (params['optimize'][3]) {
+        var tmpAC = ac.slice();
+        var requiredIdx;
+        for (var i = 0; i < tmpAC.length; i++) {
+            requiredIdx = [];
             for (var j = 0; j < tmpAC[i]['sections'].length; j++) {
                 var section = tmpAC[i]['sections'][j];
                 if (section['location'] == 'IN' && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
                     sortedClasses.push([createClass(tmpAC[i], section), 1]);
                     if (section['requires'] != null) {
                         var requiredSection = findRequired(tmpAC[i], section['requires']);
+                        requiredIdx.push(j);
                         sortedClasses.push([createClass(tmpAC[i], requiredSection), 1]);
                     }
                     ac[i]['sections'].splice(j, 1);
+                }
+            }
+            if (requiredIdx != null) {
+                for (var k = 0; k < requiredIdx.length; k++) {
+                    ac[i]['sections'].splice(requiredIdx[k]);
                 }
             }
         }
     }
     if (params['times'][0]) {
-        var tmpAC = ac.slice();
-        for (var i = 0; i < tmpAC.length; i++) {
-            for (var j = 0; j < tmpAC[i]['sections'].length; j++) {
-                var section = tmpAC[i]['sections'][j];
-                var timesOption = false;
-                for (day in section['timeSlots']) {
-                    dayArr = section['timeSlots'][day];
-                    for (var d = 0; d < dayArr.length; d++) {
-                        if (dayArr[d] <= 1 && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
-                            timesOption = true;
-                        }
-                    }
-                }
-                if (timesOption) {
-                    sortedClasses.push([createClass(tmpAC[i], section), 1]);
-                    if (section['requires'] != null) {
-                        requiredSection = findRequired(tmpAC[i], section['requires']);
-                        sortedClasses.push([createClass(tmpAC[i], requiredSection), 1]);
-                    }        
-                    ac[i]['sections'].splice(j, 1);
-                }
-            }
-        }
+        addSections(0, 1);
     }
     if (params['times'][1]) {
-        var tmpAC = ac.slice();
-        for (var i = 0; i < tmpAC.length; i++) {
-            for (var j = 0; j < tmpAC[i]['sections'].length; j++) {
-                var section = tmpAC[i]['sections'][j];
-                var timesOption = false;
-                for (day in section['timeSlots']) {
-                    dayArr = section['timeSlots'][day];
-                    for (var d = 0; d < dayArr.length; d++) {
-                        if ((dayArr[d] == 2 || dayArr[d] == 3) && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
-                            timesOption = true;
-                        }
-                    }
-                }
-                if (timesOption) {
-                    sortedClasses.push([createClass(tmpAC[i], section), 1]);
-                    if (section['requires'] != null) {
-                        requiredSection = findRequired(tmpAC[i], section['requires']);
-                        sortedClasses.push([createClass(tmpAC[i], requiredSection), 1]);
-                    }        
-                    ac[i]['sections'].splice(j, 1);
-                }
-            }
-        }
+        addSections(2, 3);
     }
     if (params['times'][2]) {
-        var tmpAC = ac.slice();
-        for (var i = 0; i < tmpAC.length; i++) {
-            for (var j = 0; j < tmpAC[i]['sections'].length; j++) {
-                var section = tmpAC[i]['sections'][j];
-                var timesOption = false;
-                for (day in section['timeSlots']) {
-                    dayArr = section['timeSlots'][day];
-                    for (var d = 0; d < dayArr.length; d++) {
-                        if ((dayArr[d] == 4 || dayArr[d] == 5) && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
-                            timesOption = true;
-                        }
-                    }
-                }
-                if (timesOption) {
-                    sortedClasses.push([createClass(tmpAC[i], section), 1]);
-                    if (section['requires'] != null) {
-                        requiredSection = findRequired(tmpAC[i], section['requires']);
-                        sortedClasses.push([createClass(tmpAC[i], requiredSection), 1]);
-                    }        
-                    ac[i]['sections'].splice(j, 1);
-                }
-            }
-        }
+        addSections(4, 5);
     }
     if (params['times'][3]) {
-        var tmpAC = ac.slice();
-        for (var i = 0; i < tmpAC.length; i++) {
-            for (var j = 0; j < tmpAC[i]['sections'].length; j++) {
-                var section = tmpAC[i]['sections'][j];
-                var timesOption = false;
-                for (day in section['timeSlots']) {
-                    dayArr = section['timeSlots'][day];
-                    for (var d = 0; d < dayArr.length; d++) {
-                        if (dayArr[d] >= 6 && !(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {
-                            timesOption = true;
-                        }
-                    }
-                }
-                if (timesOption) {
-                    sortedClasses.push([createClass(tmpAC[i], section), 1]);
-                    if (section['requires'] != null) {
-                        requiredSection = findRequired(tmpAC[i], section['requires']);
-                        sortedClasses.push([createClass(tmpAC[i], requiredSection), 1]);
-                    }        
-                    ac[i]['sections'].splice(j, 1);
-                }
-            }
-        }
+        addSections(6, 7);
     }
-    for (var i = 0; i < ac.length; i++) {
-        for (var j = 0; j < ac[i]['sections'].length; j++) {
-            var section = ac[i]['sections'][j];
-            if (!(section['section'][0] == 'L' ||  section['section'][0] == 'R')) {                
-                sortedClasses.push([createClass(ac[i], section), 0]);
-                if (section['requires'] != null) {
-                    requiredSection = findRequired(ac[i], section['requires']);
-                    sortedClasses.push([createClass(ac[i], requiredSection), 0]);
-                } 
-            }  
-        }
+    if (params['times'][4]) {
+        addSections(0, 7);
+    }
+    removeEmptyClasses();
+    if (params['times'][0] && !params['times'][1] && !params['times'][2] && !params['times'][3]) {
+        addSections(2, 3);
+        addSections(4, 5);
+        addSections(6, 7);
+    }
+    else if (params['times'][1] && !params['times'][0] && !params['times'][2] && !params['times'][3]) {
+        addSections(0, 1);
+        addSections(4, 5);
+        addSections(6, 7);
+    }
+    else if (params['times'][2] && !params['times'][0] && !params['times'][1] && !params['times'][3]) {
+        addSections(2, 3);
+        addSections(6, 7);
+        addSections(0, 1);
+    }
+    else if (params['times'][3] && !params['times'][0] && !params['times'][1] && !params['times'][2]) {
+        addSections(4, 5);
+        addSections(2, 3);
+        addSections(0, 1);
+    }
+    else if (params['times'][0] && params['times'][1] && !params['times'][2] && !params['times'][3]) {
+        addSections(4, 5);
+        addSections(6, 7);
+    }
+    else if (!params['times'][0] && !params['times'][1] && params['times'][2] && params['times'][3]) {
+        addSections(2, 3);
+        addSections(0, 1);
+    }
+    else {
+        addSections(0, 7);
     }
     return sortedClasses;
-}
-
-function findRequired(c, crn) {
-    for (var i = 0; i < c['sections'].length; i++) {
-        if (c['sections'][i]['CRN'] == crn) {
-            return c['sections'][i];
-        }
-    }
 }
 
 function sortOtherParams(classes, professors, params) {
