@@ -94,54 +94,6 @@
 
 </div>
 
-<style>
-
-
-    .pullMenuContainer {
-
-        left: 0;
-        top: 0;
-        z-index: 800;
-        height: 100%;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        position: fixed;
-    }
-
-    .pullMenu {
-        width: 300px;
-        height: 100%;
-        background: white;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-        box-sizing: border-box;
-        padding-top: 150px;
-
-        float: left;
-    }
-
-    .pullMenuItem {
-        float: top;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 30px 50px 30px 50px;
-        font-size: 17px;
-        color: black;
-        text-align: left;
-        cursor: pointer;
-        transition: all ease .2s;
-    }
-
-    .pullMenuItem:hover {
-        background: rgba(0, 0, 0, 0.05);
-    }
-
-    .closeArea {
-        width: calc(100% - 300px);
-        height: 100%;
-        float: left;
-    }
-</style>
-
 <div class="pullMenuContainer animated fadeIn" style="animation-duration: .3s;" ng-show="pullMenu && loggedIn">
     <div class="pullMenu animated slideInLeft">
         <div class="pullMenuItem"><i class="fa fa-user-circle-o" style="opacity: .3;"></i> &nbsp;&nbsp; My Account</div>

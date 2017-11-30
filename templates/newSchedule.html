@@ -1,171 +1,6 @@
 <div style="width: 100%; height: 100%; background: #FFF;">
     <div class="section section-header-spacer"></div>
 
-    <style>
-        .schedule-container {
-            width: 100%;
-            min-height: 600px;
-            height: calc(100% - 120px - 80px);
-            margin: 0 auto;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .schedule-time-container {
-            width: 150px;
-            float: left;
-            background: #333;
-            height: 100%;
-        }
-
-        .schedule-days {
-            width: calc((100% - 150px) / 7 - 1px);
-            height: 100%;
-            background: white;
-            float: left;
-            border-left: 1px solid rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-        }
-
-        .schedule-dayofweek {
-            width: 100%;
-            float: top;
-            height: 35px;
-            background: #FFF;
-            text-align: center;
-            box-sizing: border-box;
-            padding: 12px;
-            font-size: 12px;
-            color: #333;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .schedule-time {
-            width: 100%;
-            float: top;
-            height: calc((100% - 35px) / 8);
-            background: #555;
-            text-align: center;
-            box-sizing: border-box;
-            font-size: 12px;
-            color: #CCC;
-        }
-
-        .vertical-aligner {
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%)
-        }
-
-        .schedule-time:nth-child(2n+3) {
-            background: #444
-        }
-
-        .action-bar-button {
-            display: inline-block;
-            height: 50px;
-            float: right;
-            font-size: 16px;
-            color: #333;
-            text-align: center;
-            margin-top: 10px;
-            cursor: pointer;
-            box-sizing: border-box;
-            padding: 16px 25px 22px 25px;
-            border-radius: 10px;
-            margin-right: 5px;
-        }
-
-        .action-bar-button:hover {
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        .name-container {
-            width: 100%;
-            height: 120px;
-            background: #EEE;
-            box-sizing: border-box;
-            padding: 30px 80px 30px 80px;
-        }
-
-        .schedule-name {
-            width: 100%;
-            font-size: 30px;
-            font-family: Roboto-Regular, sans-serif;
-        }
-
-        .savedTime, .schedule-credits {
-            width: 100%;
-            font-size: 15px;
-        }
-
-        .schedule-credits {
-            color: steelblue;
-            font-family: Roboto-Regular, sans-serif;
-        }
-
-        .schedule-name-input {
-            padding: 0;
-            outline: none;
-            border: 0;
-            min-width: 250px;
-            width: 250px;
-            display: inline-block;
-            font-size: 30px;
-            background: rgba(0, 0, 0, 0);
-            cursor: pointer;
-            transition: all ease .1s;
-        }
-
-        .schedule-name-input:focus {
-            background: white;
-        }
-
-        .schedule-class-container {
-            width: 100%;
-            height: calc((100% - 35px) / 8);
-            box-sizing: border-box;
-            padding: 8px 20px 8px 20px;
-            border-top: 1px solid rgba(0, 0, 0, 0.03);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
-        }
-
-        .normalBox {
-
-        }
-
-        .x2Box {
-            height: calc(((100% - 35px) / 8) * 2);
-            padding: 35px 20px 35px 20px;
-        }
-
-        .smallBox {
-            height: calc(((100% - 35px) / 8) - 15px);
-            margin-bottom: 15px;
-            padding: 3px 20px 3px 20px;
-        }
-
-        .schedule-class-code {
-            font-size: 20px;
-            width: 100%;
-            font-family: Roboto-Regular, sans-serif;
-        }
-
-        .schedule-class-name {
-            font-size: 12px;
-            width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .schedule-class-time {
-            font-size: 10px;
-            width: 100%;
-            margin-top: 2px;
-            opacity: .7;
-        }
-    </style>
-
     <div class="name-container animated fadeIn">
         <div style="float: left;">
             <div class="savedTime animated fadeInLeft">
@@ -194,8 +29,9 @@
                  style="animation-delay: .4s;"><i class="fa fa-trash"></i>&nbsp;
                 Delete
             </div>
-            <div class="action-bar-button animated fadeInLeft"  ng-click="resetSchedule()" style="animation-delay: .3s;"><i
-                    class="fa fa-refresh"></i>&nbsp;
+            <div class="action-bar-button animated fadeInLeft" ng-click="resetSchedule()" style="animation-delay: .3s;">
+                <i
+                        class="fa fa-refresh"></i>&nbsp;
                 Reset
             </div>
             <div class="action-bar-button animated fadeInLeft" ng-click="showOverlay(overlays.selectClasses)"
@@ -348,65 +184,6 @@
         </div>
     </div>
 
-    <style>
-        .wizard-question {
-            font-size: 35px;
-            float: top;
-            margin-top: 50px;
-            margin-bottom: 25px;
-            color: #555;
-            font-family: Roboto-Thin, sans-serif;
-        }
-
-        .optionContainer {
-            width: 700px;
-        }
-
-        .option {
-            display: inline-block;
-            box-sizing: border-box;
-            padding: 15px 25px 15px 25px;
-            border-radius: 10px;
-            background: #FFF;
-            margin-right: 5px;
-            cursor: pointer;
-            transition: all ease .3s;
-        }
-
-        .option:hover {
-            background: rgba(83, 129, 176, .2);
-        }
-
-        .optimizationBox {
-            float: right;
-            margin-right: 60px;
-            width: 500px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            height: 550px;
-            background: white;
-            box-sizing: border-box;
-            padding: 50px;
-            overflow: auto;
-        }
-
-        .optimize-option {
-            font-size: 25px;
-            margin-top: 30px;
-            color: #555;
-            font-family: Roboto-Thin, sans-serif;
-        }
-
-        .generateButton {
-            float: unset;
-            padding: 15px 45px 15px 45px;
-            font-size: 20px;
-        }
-
-        .selectedOption {
-            background: steelblue;
-            color: white;
-        }
-    </style>
     <div class="overlay animated fadeInUp" style="animation-duration: .5s; background: #EEE;"
          ng-show="overlayShow.overlay">
 
@@ -524,22 +301,6 @@
             </div>
         </div>
 
-        <style>
-            .class-select {
-                width: 500px;
-                outline: none;
-                border: 0;
-                height: 400px;
-            }
-
-            .class-select > option {
-                height: 40px;
-                box-sizing: border-box;
-                padding: 10px;
-            }
-        </style>
-
-
         <div ng-show="overlayShow.pages[overlays.selectClasses]">
             <div class="overlayTitleBar">
                 <div class="overlayTitle">Schedule Wizard (Step 1)</div>
@@ -552,7 +313,6 @@
                 <div style="float: left">
 
                     <div class="wizard-question">Select classes you're interested in</div>
-
 
                     <select multiple ng-model="selectedClasses"
                             ng-options="myclass.subject + ' ' + myclass.course + ' [' + myclass.title + ']' for myclass in classes"
@@ -574,7 +334,8 @@
                     <br>
 
                     <div ng-repeat="selectedClass in selectedClasses" style="width: 100%; margin-top: 15px;">
-                        <span style="font-size: 12px;">{{ selectedClass.subject + " " + selectedClass.course }}</span> <br>
+                        <span style="font-size: 12px;">{{ selectedClass.subject + " " + selectedClass.course }}</span>
+                        <br>
                         <span style="font-family: Roboto-Regular, sans-serif; color: steelblue;">{{ selectedClass.title }}</span>
                     </div>
 
@@ -582,6 +343,5 @@
             </div>
         </div>
     </div>
-
 
 </div>
