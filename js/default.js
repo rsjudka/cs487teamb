@@ -3,9 +3,6 @@ function generateSchedule(classes, professors, params) {
     if ((params['difficulty'] != null && params['difficulty'] != 3) || params['optimize'][2] || params['optimize'][4]) {
         sortedClasses = sortOtherParams(sortedClasses, professors, params);
     }
-    for (var i = 0; i < sortedClasses.length; i++) {
-        console.log(sortedClasses[i][0]['title'], sortedClasses[i][0]['section'], sortedClasses[i][1]);
-    }
     var scheduleData = addClasses(sortedClasses, params, totalCredits);
     var classList = scheduleData[0];
     var totalCredits = scheduleData[1];
@@ -324,7 +321,6 @@ function sortOtherParams(classes, professors, params) {
         }
         return parseFloat(b[1]) - parseFloat(a[1]);
     });
-    console.log(ac.slice());
     requiredUnsorted = [];
     for (var i = ac.length - 1; i >= 0; i--) {
         if (!(ac[i][0]['section'][0] == 'L' || ac[i][0]['section'][0] == 'R')) {
@@ -333,8 +329,6 @@ function sortOtherParams(classes, professors, params) {
             break;
         }
     }
-    console.log(ac.slice());
-    console.log(requiredUnsorted);
     for (var i = 0; i < requiredUnsorted.length; i++) {
         for (var j = 0; j < ac.length - 1; j++) {
             if (ac[j][0]['requires'] == requiredUnsorted[i][0]['CRN']) {
@@ -342,9 +336,6 @@ function sortOtherParams(classes, professors, params) {
                 break;
             }
         }
-    }
-    for (var i = 0; i < ac.length; i++) {
-        console.log(ac[i]);
     }
     return ac
 }
