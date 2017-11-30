@@ -1,6 +1,11 @@
 function generateSchedule(classes, professors, params) {
     var sortedClasses = sortTimes(classes, params);
-    //sortOtherParams(sortedClasses, professors, params);
+    if ((params['difficulty'] != null && params['difficulty'] != 3) || params['optimize'][2] || params['optimize'][4]) {
+        sortedClasses = sortOtherParams(sortedClasses, professors, params);
+    }
+    for (var i = 0; i < sortedClasses.length; i++) {
+        console.log(sortedClasses[i][0]['title'], sortedClasses[i][0]['section'], sortedClasses[i][1]);
+    }
     var scheduleData = addClasses(sortedClasses, params, totalCredits);
     var classList = scheduleData[0];
     var totalCredits = scheduleData[1];
@@ -285,36 +290,63 @@ function sortTimes(classes, params) {
 function sortOtherParams(classes, professors, params) {
     var ac = classes;
     var profs = ratedProfessors(professors);
-    var sortedClasses = [];
     for (var i = 0; i < ac.length; i++) {
         if (profs.hasOwnProperty(ac[i][0]['professor'])) {
             if (params['difficulty'] == 0) {
                 if (profs[ac[i][0]['professor']][1] <= 2.5) {
-                    ac[i][1] += 1;
+                    ac[i][1] += (5 - profs[ac[i][0]['professor']][1]) / 5;
                 }
             }
             else if (params['difficulty'] == 1) {
                 if (profs[ac[i][0]['professor']][1] > 2.5 && profs[ac[i][0]['professor']][1] <= 3.5) {
-                    ac[i][1] += 1;
+                    ac[i][1] += profs[ac[i][0]['professor']][1] / 5;
                 }
             }
             else if (params['difficulty'] == 2) {
                 if (profs[ac[i][0]['professor']][1] > 3.5) {
-                    ac[i][1] += 1;
+                    ac[i][1] += profs[ac[i][0]['professor']][1] / 5;
                 }
             }
             if (params['optimize'][2]) {
-                if (profs[ac[i][0]['professor']][2] >= 2.5) {
-                    ac[i][1] += 1;
-                }
+                ac[i][1] += profs[ac[i][0]['professor']][2] / 5;
             }
             if (params['optimize'][4]) {
-                if (profs[ac[i][0]['professor']][0] >= 3.5) {
-                    ac[i][1] += 1;
-                }
+                ac[i][1] += profs[ac[i][0]['professor']][0] / 5;
             }
         }
     }
+    ac = ac.sort(function(a, b) {
+        if (a[0]['section'][0] == 'L' || a[0]['section'][0] == 'R') {
+            return 1;
+        }
+        else if (b[0]['section'][0] == 'L' || b[0]['section'][0] == 'R') {
+            return 0;
+        }
+        return parseFloat(b[1]) - parseFloat(a[1]);
+    });
+    console.log(ac.slice());
+    requiredUnsorted = [];
+    for (var i = ac.length - 1; i >= 0; i--) {
+        if (!(ac[i][0]['section'][0] == 'L' || ac[i][0]['section'][0] == 'R')) {
+            requiredUnsorted = ac.slice(i+1, ac.length);
+            ac = ac.slice(0, i+1);
+            break;
+        }
+    }
+    console.log(ac.slice());
+    console.log(requiredUnsorted);
+    for (var i = 0; i < requiredUnsorted.length; i++) {
+        for (var j = 0; j < ac.length - 1; j++) {
+            if (ac[j][0]['requires'] == requiredUnsorted[i][0]['CRN']) {
+                ac.splice(j + 1, 0, requiredUnsorted[i]);
+                break;
+            }
+        }
+    }
+    for (var i = 0; i < ac.length; i++) {
+        console.log(ac[i]);
+    }
+    return ac
 }
 
 function ratedProfessors(professors) {
